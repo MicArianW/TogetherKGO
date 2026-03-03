@@ -1,10 +1,9 @@
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TogetherKGO – Food Resources</title>
+    <title>TogetherKGO – Resources</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/styles.css" />
@@ -14,26 +13,118 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script src="config.js"></script>
 
+    <!-- App scripts -->
+    <script defer src="assets/i18n.js"></script>
+    <script defer src="assets/app.js"></script>
   </head>
 
   <body>
     <!-- Navigation -->
-  <div id="navbar"></div>
+    <div id="navbar"></div>
 
-  <script>
-    fetch("components/navbar.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("navbar").innerHTML = data;
-    })
-    .catch(error => console.error("Error loading navbar:", error));
-  </script>
+    <main class="layout">
+      <aside class="sidebar">
 
-  <p> This page is under construction! </p>
+        <!-- Search & Filters — identical to find-services.html -->
+        <section class="card filters-card">
+          <h2 data-i18n="search_filters">Search &amp; Filters</h2>
 
-    
+          <label class="label" for="q" data-i18n="search_label">Search by name, keywords</label>
+          <input id="q" type="search" placeholder="food bank, community support…" />
+
+          <div class="grid2">
+            <div>
+              <label class="label" for="type">Type</label>
+              <select id="type">
+                <option value="">Any</option>
+                <option value="food_bank">Food Bank</option>
+                <option value="organization">Organization</option>
+                <option value="community_meal">Community Meal</option>
+                <option value="pantry">Pantry</option>
+                <option value="market">Market</option>
+                <option value="delivery">Delivery</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="label" for="openDay">Day Open</label>
+              <select id="openDay">
+                <option value="">Any</option>
+                <option value="Mon">Monday</option>
+                <option value="Tue">Tuesday</option>
+                <option value="Wed">Wednesday</option>
+                <option value="Thu">Thursday</option>
+                <option value="Fri">Friday</option>
+                <option value="Sat">Saturday</option>
+                <option value="Sun">Sunday</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- RADIUS FEATURE COMMENTED OUT (UI Hidden, but field kept for JavaScript compatibility)
+          <div>
+            <label class="label" for="radius">Search Radius</label>
+          -->
+            <select id="radius" style="display: none;">
+              <option value="99999" selected>All Locations</option>
+              <option value="1000">Within 1 km</option>
+              <option value="2000">Within 2 km</option>
+              <option value="3000">Within 3 km</option>
+              <option value="5000">Within 5 km</option>
+            </select>
+          <!--
+          </div>
+          -->
+
+          <div class="actions">
+            <button id="applyBtn" class="primary">Apply Filters</button>
+            <button id="resetBtn" class="ghost">Reset</button>
+          </div>
+        </section>
+
+        <!-- Info Card — identical to find-services.html, inline styles replaced with classes -->
+        <section class="card info-card">
+          <h3>About Food Resources</h3>
+          <p class="subtle">Find food and community support services in the Kingston-Galloway-Orton Park area. All services are free and open to community members in need.</p>
+
+          <!-- .quick-contact already has margin-top, padding-top, border-top in styles.css -->
+          <div class="quick-contact">
+            <strong>Want to contribute?</strong>
+            <p class="subtle small">Click the 'Submit a Listing' button below to contribute. We ask that submissions be in accordance with our <a href="assets/ToS.pdf" target="_blank" class="info-card__link">Terms of Service</a> and <a href="assets/Community-guidelines.pdf" target="_blank" class="info-card__link">community guidelines</a>. Note that submissions are first moderated, then added to a scheduled update that occurs bi-weekly on <strong>Mondays and Thursdays.</strong></p>
+          </div>
+
+          <div class="quick-contact">
+            <strong>Need Help?</strong>
+            <p class="subtle small">Contact any of the listed organizations directly for assistance or visit them during their operating hours.</p>
+          </div>
+
+          <div class="quick-contact">
+            <a href="submit-listing.html" class="btn-submit-listing">Submit a Listing</a>
+            <p class="subtle small info-card__hint">Know a food resource? Add it here!</p>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- Content — same as find-services.html with map removed -->
+      <section class="content">
+        <section class="list card">
+          <h2>Food Resources in KGO Area</h2>
+          <div id="resultCount" class="subtle"></div>
+          <ul id="results"></ul>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      fetch("components/navbar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+      })
+      .catch(error => console.error("Error loading navbar:", error));
+    </script>
     <script src="components/translation.js"></script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   </body>
 </html>
