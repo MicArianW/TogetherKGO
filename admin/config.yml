@@ -8,221 +8,313 @@ public_folder: "/assets/images/posts"
 publish_mode: editorial_workflow
 
 collections:
-  # COMMUNITY POSTS
-  - name: "community_posts"
-    label: "Community Posts"
-    label_singular: "Community Post"
-    folder: "data/posts"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    extension: "json"
-    format: "json"
+  # !!! COMMUNITY BOARD POSTS !!!
+- name: "community_posts"
+  label: "Community Posts"
+  label_singular: "Community Post"
+  folder: "data/posts"
+  create: true
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  extension: "json"
+  format: "json"
+  summary: "{{post.title}} — {{post.type}}"
+
+  fields:
+
+  # ORGANIZATION
+  - label: "Organization"
+    name: "organization"
+    widget: "object"
     fields:
-      - label: "Organization / Service"
+      - label: "Service Provider"
         name: "foodBankId"
         widget: "relation"
         collection: "service_listings"
         search_fields: ["name"]
-        value_field: "id"          # stores the unique id from service JSON
-        display_fields: ["name"]   # shows the organization name in dropdown
-        required: true             # optional now that one
-        hint: "Select an existing service, or select other and enter manually below."
+        value_field: "id"
+        display_fields: ["name"]
+        required: true
+        hint: "Select an existing service if available."
 
-      # If a service/organization is not available
-      - label: "If not listed, enter new service"
+      - label: "Enter Name (if selecting Other)"
         name: "foodBankOther"
         widget: "string"
         required: false
-        hint: "Type the organization/service name if it is not in the list above."
+        hint: "Type the organization/service/individual name if it is not in the list above."
 
-      - label: "Post Title"
-        name: "title"
-        widget: "string"
-        hint: "Short, descriptive title (e.g., 'Fresh Produce Available Today')"
-      - label: "Message"
-        name: "message"
-        widget: "text"
-        hint: "Detailed message about the update"
+  # CORE POST CONTENT
+  - label: "Core Post Details"
+    name: "post"
+    widget: "object"
+    fields:
+
       - label: "Post Type"
         name: "type"
         widget: "select"
         default: "update"
         options:
           - { label: "General Update", value: "update" }
-          - { label: "Special Event", value: "event" }
           - { label: "Urgent Notice", value: "urgent" }
-          - { label: "Food Available", value: "food_available" }
-      - label: "Published Date"
-        name: "date"
-        widget: "datetime"
-        default: ""
-        date_format: "YYYY-MM-DD"
-        time_format: "HH:mm"
-        format: "YYYY-MM-DDTHH:mm:ssZ"
-      - label: "Contact Info (Optional)"
+          - { label: "Special Event", value: "event" }
+          - { label: "Recurring Event", value: "recurring_event" }
+          - { label: "Food Available Today", value: "food_available" }
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "Short descriptive title"
+
+      - label: "Message"
+        name: "message"
+        widget: "text"
+        hint: "Detailed message about the update"
+      
+      # CONTACT
+      - label: "Public Contact Info"
         name: "contactInfo"
         widget: "string"
         required: false
-        hint: "Phone number or email for follow-up questions"
-      - label: "Expires Date (Optional)"
+        hint: "Phone or email that can be shown publicly"
+
+      # DATES
+      - label: "Published Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ssZ"
+
+      - label: "Expiration Date"
         name: "expiresDate"
         widget: "datetime"
-        required: false
-        hint: "When this post should no longer be displayed"
+        required: true
 
-    # SERVICE LISTINGS - COLLECTION CONFIG
-  - name: "service_listings"
-    label: "Service Listings"
-    label_singular: "Service Listing"
-    folder: "data/services"
-    create: true
-    slug: "{{name | slugify}}"   # generates filename based on name
-    extension: "json"
-    format: "json"
-    identifier_field: "name"
-    summary: "{{name}} - {{type}}"
+  # Location Information
+  - label: "Location Information"
+    name: "location"
+    widget: "object"
     fields:
-    # 1️⃣ Name first so slug works and create-new works
-      - label: "Organization Name"
-        name: "name"
-        widget: "string"
-        required: true
-        hint: "Full name of the organization"
 
-      # 2️⃣ Optional unique ID, auto-generated if left blank
-      - label: "Unique ID"
-        name: "id"
-        widget: "string"
-        required: false
-        hint: "Optional. Auto-generated on save if left blank"
-
-      # 3️⃣ Type of organization
-      - label: "Organization Type"
-        name: "type"
-        widget: "select"
-        required: true
-        options:
-          - { label: "Food Bank", value: "food_bank" }
-          - { label: "Community Center", value: "community_center" }
-          - { label: "Social Services", value: "social_services" }
-          - { label: "Health Services", value: "health_services" }
-          - { label: "Youth Programs", value: "youth_programs" }
-          - { label: "Family Support", value: "family_support" }
-          - { label: "General Organization", value: "organization" }
-
-      # 4️⃣ Description
-      - label: "Description"
-        name: "description"
-        widget: "text"
-        required: true
-        hint: "Describe the services your organization provides"
-
-      # 5️⃣ Address & coordinates
-      - label: "Full Address"
-        name: "address"
-        widget: "string"
-        required: true
-        hint: "Include street, city, province, postal code"
-
-      - label: "Location Coordinates"
+      # LOCATION
+      - label: "Location"
         name: "location"
-        widget: "object"
-        fields:
-          - label: "Latitude"
-            name: "lat"
-            widget: "number"
-            value_type: "float"
-            step: 0.0001
-            required: true
-            hint: "Use Google Maps to find coordinates"
-          - label: "Longitude"
-            name: "lng"
-            widget: "number"
-            value_type: "float"
-            step: 0.0001
-            required: true
-            hint: "Use Google Maps to find coordinates"
-
-      # 6️⃣ Days & hours
-      - label: "Days Open"
-        name: "days"
-        widget: "select"
-        multiple: true
-        required: true
-        options:
-          - { label: "Monday", value: "Mon" }
-          - { label: "Tuesday", value: "Tue" }
-          - { label: "Wednesday", value: "Wed" }
-          - { label: "Thursday", value: "Thu" }
-          - { label: "Friday", value: "Fri" }
-          - { label: "Saturday", value: "Sat" }
-          - { label: "Sunday", value: "Sun" }
-
-      - label: "Operating Hours"
-        name: "hours"
-        widget: "string"
-        required: true
-        hint: "e.g., Mon-Fri: 9am-5pm or Tuesday: 10am-3pm"
-
-      # 7️⃣ Contact info
-      - label: "Phone Number"
-        name: "phone"
-        widget: "string"
-        required: true
-        hint: "Main contact number (e.g., 416-XXX-XXXX)"
-
-      - label: "Email Address"
-        name: "email"
         widget: "string"
         required: false
-        hint: "Contact email (optional)"
+        conditional:
+          field: type
+          values: ["event", "recurring_event", "food_available"]
 
-      - label: "Website"
-        name: "website"
+  # Singular Event
+  - label: "Unique Event"
+    name: "uniqueEvent"
+    widget: "object"
+    fields:
+      # EVENT
+      - label: "Event Date"
+        name: "eventDate"
+        widget: "datetime"
+        required: false
+        conditional:
+          field: type
+          value: "event"
+
+  # Recurring Event
+  - label: "Recurring Event"
+    name: "recurringEvent"
+    widget: "object"
+    fields:
+      # RECURRING EVENTS
+      - label: "Start Date for Recurring Events"
+        name: "startRecurringDates"
+        widget: "datetime"
+        required: false
+        hint: "Provide the starting date for this recurring event"
+        conditional:
+          field: type
+          value: "recurring_event"
+
+      - label: "Recurring Schedule"
+        name: "recurringDates"
+        widget: "string"
+        hint: "Example: Every Monday & Thursday 2-4pm"
+        required: false
+        conditional:
+          field: type
+          value: "recurring_event"
+
+  # Food Event
+  - label: "Food"
+    name: "food"
+    widget: "object"
+    fields:
+      # FOOD AVAILABLE
+      - label: "Time Window"
+        name: "timeWindow"
         widget: "string"
         required: false
-        hint: "Organization website URL (optional)"
+        conditional:
+          field: type
+          value: "food_available"
 
-      # 8️⃣ Tags / services
-      - label: "Services/Tags"
-        name: "tags"
-        widget: "select"
-        multiple: true
-        required: false
-        options:
-          - { label: "Food Bank", value: "food_bank" }
-          - { label: "Hot Meals", value: "hot_meals" }
-          - { label: "Community Support", value: "community_support" }
-          - { label: "Youth Programs", value: "youth_programs" }
-          - { label: "Family Support", value: "family_support" }
-          - { label: "Health Services", value: "health_services" }
-          - { label: "Social Services", value: "social_services" }
-          - { label: "Housing Support", value: "housing_support" }
-          - { label: "Food Security", value: "food_security" }
-          - { label: "Diverse Community", value: "diverse_community" }
-
-      # 9️⃣ Additional info (optional)
-      - label: "Additional Information"
-        name: "additional_info"
-        widget: "text"
-        required: false
-        hint: "Any other relevant information (accessibility, languages, special programs, etc.)"
-
-      # 10️⃣ Internal contact (optional)
-      - label: "Contact Person Name"
-        name: "contact_name"
+      - label: "Available Items"
+        name: "availableItems"
         widget: "string"
         required: false
-        hint: "For internal use only"
+        conditional:
+          field: type
+          value: "food_available"
 
-      - label: "Contact Person Email"
-        name: "contact_email"
-        widget: "string"
-        required: false
-        hint: "For internal use only"
+  # !!! ADD SERVICES LISTINGS - COLLECTION CONFIG !!!
+- name: "service_listings"
+  label: "Service Listings"
+  label_singular: "Service Listing"
+  folder: "data/services"
+  create: true
+  slug: "{{name | slugify}}"   # generates filename based on name
+  extension: "json"
+  format: "json"
+  identifier_field: "name"
+  summary: "{{name}} - {{type}}"
+  fields:
+  # 1️⃣ Name first so slug works and create-new works
+    - label: "Organization Name"
+      name: "name"
+      widget: "string"
+      required: true
+      hint: "Full name of the organization"
 
-      - label: "Contact Person Phone"
-        name: "contact_phone"
-        widget: "string"
-        required: false
-        hint: "For internal use only"
+    # 2️⃣ Optional unique ID, auto-generated if left blank
+    - label: "Unique ID"
+      name: "id"
+      widget: "string"
+      required: false
+      hint: "Optional. Auto-generated on save if left blank"
+
+    # 3️⃣ Type of organization
+    - label: "Organization Type"
+      name: "type"
+      widget: "select"
+      required: true
+      options:
+        - { label: "Food Bank", value: "food_bank" }
+        - { label: "Community Center", value: "community_center" }
+        - { label: "Social Services", value: "social_services" }
+        - { label: "Health Services", value: "health_services" }
+        - { label: "Youth Programs", value: "youth_programs" }
+        - { label: "Family Support", value: "family_support" }
+        - { label: "General Organization", value: "organization" }
+
+    # 4️⃣ Description
+    - label: "Description"
+      name: "description"
+      widget: "text"
+      required: true
+      hint: "Describe the services your organization provides"
+
+    # 5️⃣ Address & coordinates
+    - label: "Full Address"
+      name: "address"
+      widget: "string"
+      required: true
+      hint: "Include street, city, province, postal code"
+
+    - label: "Location Coordinates"
+      name: "location"
+      widget: "object"
+      fields:
+        - label: "Latitude"
+          name: "lat"
+          widget: "number"
+          value_type: "float"
+          step: 0.0001
+          required: true
+          hint: "Use Google Maps to find coordinates"
+        - label: "Longitude"
+          name: "lng"
+          widget: "number"
+          value_type: "float"
+          step: 0.0001
+          required: true
+          hint: "Use Google Maps to find coordinates"
+
+    # 6️⃣ Days & hours
+    - label: "Days Open"
+      name: "days"
+      widget: "select"
+      multiple: true
+      required: true
+      options:
+        - { label: "Monday", value: "Mon" }
+        - { label: "Tuesday", value: "Tue" }
+        - { label: "Wednesday", value: "Wed" }
+        - { label: "Thursday", value: "Thu" }
+        - { label: "Friday", value: "Fri" }
+        - { label: "Saturday", value: "Sat" }
+        - { label: "Sunday", value: "Sun" }
+
+    - label: "Operating Hours"
+      name: "hours"
+      widget: "string"
+      required: true
+      hint: "e.g., Mon-Fri: 9am-5pm or Tuesday: 10am-3pm"
+
+    # 7️⃣ Contact info
+    - label: "Phone Number"
+      name: "phone"
+      widget: "string"
+      required: true
+      hint: "Main contact number (e.g., 416-XXX-XXXX)"
+
+    - label: "Email Address"
+      name: "email"
+      widget: "string"
+      required: false
+      hint: "Contact email (optional)"
+
+    - label: "Website"
+      name: "website"
+      widget: "string"
+      required: false
+      hint: "Organization website URL (optional)"
+
+    # 8️⃣ Tags / services
+    - label: "Services/Tags"
+      name: "tags"
+      widget: "select"
+      multiple: true
+      required: false
+      options:
+        - { label: "Food Bank", value: "food_bank" }
+        - { label: "Hot Meals", value: "hot_meals" }
+        - { label: "Community Support", value: "community_support" }
+        - { label: "Youth Programs", value: "youth_programs" }
+        - { label: "Family Support", value: "family_support" }
+        - { label: "Health Services", value: "health_services" }
+        - { label: "Social Services", value: "social_services" }
+        - { label: "Housing Support", value: "housing_support" }
+        - { label: "Food Security", value: "food_security" }
+        - { label: "Diverse Community", value: "diverse_community" }
+
+    # 9️⃣ Additional info (optional)
+    - label: "Additional Information"
+      name: "additional_info"
+      widget: "text"
+      required: false
+      hint: "Any other relevant information (accessibility, languages, special programs, etc.)"
+
+    # 10️⃣ Internal contact (optional)
+    - label: "Contact Person Name"
+      name: "contact_name"
+      widget: "string"
+      required: false
+      hint: "For internal use only"
+
+    - label: "Contact Person Email"
+      name: "contact_email"
+      widget: "string"
+      required: false
+      hint: "For internal use only"
+
+    - label: "Contact Person Phone"
+      name: "contact_phone"
+      widget: "string"
+      required: false
+      hint: "For internal use only"

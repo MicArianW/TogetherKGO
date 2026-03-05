@@ -20,6 +20,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    min-width: 0; /* important */
 }
 
 .logo {
@@ -27,8 +28,10 @@ nav {
     font-weight: bold;
     color: var(--primary-blue);
     text-decoration: none;
-    flex-shrink: 0;
-    margin-right: 2rem;
+    flex-shrink: 1;
+    
+    /* Responside spacing */
+    margin-right: clamp(0.5rem, 2vw, 2rem);
 }
 
 /* Desktop Nav Links */
@@ -39,6 +42,7 @@ nav {
     margin-left: auto;
     flex-wrap: nowrap;
     justify-content: flex-end;
+    min-width: 0; /* critical */
 }
 
 .nav-links a {
@@ -46,11 +50,18 @@ nav {
     text-decoration: none;
     font-weight: 700;
     transition: all 0.3s;
-    padding: 0.75rem 1.5rem;
+
+    padding: 0.75rem 1.5rem; /* normal desktop */
+    font-size: 1rem;        /* normal desktop */
+
     border-radius: 8px;
     background: var(--white);
     border: 2px solid var(--green-border);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    white-space: nowrap;
+    flex-shrink: 1;  /* allow shrinking */
+    min-width: 0;    /* critical */
 }
 
 .nav-links a:hover {
@@ -204,8 +215,30 @@ nav {
 /* ===============================
    RESPONSIVE
 ================================= */
+/* Compression window (768px–960px) */
+@media (max-width: 1065px) {
+    .nav-links {
+        gap: 0.5rem;
+    }
 
-@media (max-width: 768px) {
+    .nav-links a {
+        padding: 0.6rem 0.9rem;
+        font-size: 0.95rem;
+    }
+}
+@media (max-width: 910px) and (min-width: 810px) {
+    .nav-links a {
+        font-size: 0.75rem;       /* slightly smaller */
+        
+    }
+
+    .nav-links {
+        gap: 0.5rem;              /* slightly smaller gap */
+    }
+}
+
+/* Mobile */
+@media (max-width: 810px) {
     .nav-links {
         display: none !important;
     }

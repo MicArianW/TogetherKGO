@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background: var(--pale-blue);
+}
+
+
+/* Main Container */
+.main-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* Header Section */
+.page-header {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* Form Container */
+.form-container {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+}
+
+.form-section h2 {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--light-blue);
+}
+
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--light-blue);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(125, 191, 232, 0.1);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+label .required {
+    color: #EF4444;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid var(--light-blue);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s;
+    background: var(--white);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(125, 191, 232, 0.1);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.helper-text {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-top: 0.25rem;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.checkbox-item label {
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Days Selection */
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.day-checkbox {
+    position: relative;
+}
+
+.day-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.day-checkbox label {
+    display: block;
+    padding: 0.75rem;
+    text-align: center;
+    border: 2px solid var(--light-blue);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0;
+    font-weight: 500;
+}
+
+.day-checkbox input:checked + label {
+    background: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+
+/* Submit Button */
+.submit-section {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--light-blue);
+}
+
+.submit-btn {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 1.25rem 3rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(125, 191, 232, 0.3);
+}
+
+.submit-btn:hover {
+    background: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(125, 191, 232, 0.4);
+}
+
+.submit-btn:disabled {
+    background: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==============
+Changing the size of the operating hours text 
+*/
+.day-hours input[type="time"] {
+    font-size: 0.9rem;       /* smaller text */
+    padding: 0.8em 0.0rem;  /* less padding */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center; /* Center everything on mobile */
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        margin-right: 0;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .form-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .nav-links {
+        display: none !important;
+    }
+
+    .mobile-menu-btn {
+        display: flex !important;
+    }
+}
+
+/* ===============================
+   SUCCESS MESSAGE
+================================= */
+.success-message {
+  display: none;               /* Hidden by default */
+  background: #D1FAE5;         /* Pale green background */
+  border: 2px solid #10B981;   /* Green border for emphasis */
+  color: #065F46;              /* Dark green text */
+  padding: 1.5rem 2rem;        /* Consistent spacing */
+  border-radius: 12px;         /* Rounded corners */
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: inherit;
+}
+
+/* Show the success message */
+.success-message.show {
+  display: block;              /* Shown when .show class is added */
+}
+
+/* Optional spacing for the heading inside success message */
+.success-message h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* Optional spacing for paragraph */
+.success-message p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+
+
+/* ===============================
+   NEXT STEPS
+================================= */
+.next-steps {
+  padding-top: 2rem;
+}
+.next-steps h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  font-size: 1.25rem;
+}
+
+.next-steps ol {
+  padding-left: 1.5rem;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+.next-steps li {
+  margin-bottom: 0.5rem;
+}

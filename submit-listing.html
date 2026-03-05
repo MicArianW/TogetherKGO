@@ -5,277 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Your Listing - TogetherKGO</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Navbar -->
     <link rel="stylesheet" href="components/navbar.css">
-    <style>
-
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background: var(--pale-blue);
-        }
-
-
-        /* Main Container */
-        .main-container {
-            max-width: 900px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        /* Header Section */
-        .page-header {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .page-header h1 {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        .page-header p {
-            font-size: 1.15rem;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* Form Container */
-        .form-container {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .form-section {
-            margin-bottom: 2.5rem;
-        }
-
-        .form-section h2 {
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--light-blue);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        label .required {
-            color: var(--error-red);
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="url"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 0.875rem;
-            border: 2px solid var(--light-blue);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s;
-            background: var(--white);
-        }
-
-        input:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(125, 191, 232, 0.1);
-        }
-
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .helper-text {
-            font-size: 0.875rem;
-            color: var(--text-light);
-            margin-top: 0.25rem;
-        }
-
-        /* Checkbox Group */
-        .checkbox-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .checkbox-item input[type="checkbox"] {
-            width: auto;
-            margin: 0;
-        }
-
-        .checkbox-item label {
-            margin: 0;
-            font-weight: 400;
-        }
-
-        /* Days Selection */
-        .days-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 0.75rem;
-            margin-top: 0.5rem;
-        }
-
-        .day-checkbox {
-            position: relative;
-        }
-
-        .day-checkbox input[type="checkbox"] {
-            position: absolute;
-            opacity: 0;
-        }
-
-        .day-checkbox label {
-            display: block;
-            padding: 0.75rem;
-            text-align: center;
-            border: 2px solid var(--light-blue);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin: 0;
-            font-weight: 500;
-        }
-
-        .day-checkbox input:checked + label {
-            background: var(--primary-blue);
-            color: var(--white);
-            border-color: var(--primary-blue);
-        }
-
-        /* Submit Button */
-        .submit-section {
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--light-blue);
-        }
-
-        .submit-btn {
-            background: var(--primary-blue);
-            color: var(--white);
-            padding: 1.25rem 3rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(125, 191, 232, 0.3);
-        }
-
-        .submit-btn:hover {
-            background: var(--dark-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(125, 191, 232, 0.4);
-        }
-
-        .submit-btn:disabled {
-            background: var(--text-light);
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Success Message */
-        .success-message {
-            display: none;
-            background: var(--success-green);
-            color: var(--white);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        .success-message h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 2rem;
-            margin-top: 4rem;
-            text-align: center;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: center; /* Center everything on mobile */
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-                margin-right: 0;
-            }
-            
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
-            .form-container {
-                padding: 2rem 1.5rem;
-            }
-            
-            .nav-links {
-                display: none !important;
-            }
-
-            .mobile-menu-btn {
-                display: flex !important;
-            }
-        }
-    </style>
+    <!-- Page -->
+    <link rel="stylesheet" href="assets/submit.css">
 </head>
 <body>
     <div id="google_translate_element" style="display:none;"></div>
@@ -314,26 +48,26 @@
                     <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                 </p>
 
-                <!-- Basic Information -->
+                <!-- Core Information -->
                 <div class="form-section">
                     <h2>Basic Information</h2>
                     
+                     <!-- Organization/Username -->
                     <div class="form-group">
                         <label for="orgName">Organization Name <span class="required">*</span></label>
                         <input type="text" id="orgName" name="organization_name" required>
                     </div>
 
                     <div class="form-group">
+                         <!-- How would you describe this organization?? [organization type]-->
                         <label for="orgType">Organization Type <span class="required">*</span></label>
                         <select id="orgType" name="organization_type" required>
                             <option value="">Select type...</option>
-                            <option value="food_bank">Food Bank</option>
-                            <option value="community_center">Community Center</option>
-                            <option value="social_services">Social Services</option>
-                            <option value="health_services">Health Services</option>
-                            <option value="youth_programs">Youth Programs</option>
-                            <option value="family_support">Family Support</option>
-                            <option value="other">Other</option>
+                            <option value="community_org">Community Organization</option>
+                            <option value="grassroots_org">Grassroots Organization</option>
+                            <option value="city_of_toronto">City of Toronto</option>
+                            <option value="community_institution">Community Institution</option>
+                            <option value="individual">Individual</option>
                         </select>
                     </div>
 
@@ -369,50 +103,67 @@
                         <input type="url" id="website" name="website" placeholder="https://www.yourorganization.org">
                     </div>
                 </div>
-
-                <!-- Operating Hours -->
                 <div class="form-section">
-                    <h2>Operating Hours</h2>
-                    
-                    <div class="form-group">
-                        <label>Days Open <span class="required">*</span></label>
-                        <div class="days-grid">
-                            <div class="day-checkbox">
-                                <input type="checkbox" id="mon" name="days_open" value="Mon">
-                                <label for="mon">Monday</label>
-                            </div>
-                            <div class="day-checkbox">
-                                <input type="checkbox" id="tue" name="days_open" value="Tue">
-                                <label for="tue">Tuesday</label>
-                            </div>
-                            <div class="day-checkbox">
-                                <input type="checkbox" id="wed" name="days_open" value="Wed">
-                                <label for="wed">Wednesday</label>
-                            </div>
-                            <div class="day-checkbox">
-                                <input type="checkbox" id="thu" name="days_open" value="Thu">
-                                <label for="thu">Thursday</label>
-                            </div>
-                            <div class="day-checkbox">
-                                <input type="checkbox" id="fri" name="days_open" value="Fri">
-                                <label for="fri">Friday</label>
-                            </div>
-                            <div class="day-checkbox">
-                                <input type="checkbox" id="sat" name="days_open" value="Sat">
-                                <label for="sat">Saturday</label>
-                            </div>
-                            <div class="day-checkbox">
-                                <input type="checkbox" id="sun" name="days_open" value="Sun">
-                                <label for="sun">Sunday</label>
-                            </div>
-                        </div>
+                <h2>Operating Hours</h2>
+                <div class="form-hint">Specify when your organization is open. Leave days blank if closed.</div>
+
+                <div class="days-grid">
+                    <!-- Monday -->
+                    <div class="form-group day-hours">
+                    <label>Monday</label>
+                    <input type="time" name="hours[mon][open]" placeholder="Open">
+                    <input type="time" name="hours[mon][close]" placeholder="Close">
                     </div>
 
-                    <div class="form-group">
-                        <label for="hours">Operating Hours <span class="required">*</span></label>
-                        <input type="text" id="hours" name="operating_hours" required placeholder="e.g., Mon-Fri: 9am-5pm, Sat: 10am-2pm">
-                        <span class="helper-text">Specify your operating hours (e.g., "Mon-Fri: 9am-5pm" or "Tuesday: 10am-3pm")</span>
+                    <!-- Tuesday -->
+                    <div class="form-group day-hours">
+                    <label>Tuesday</label>
+                    <input type="time" name="hours[tue][open]" placeholder="Open">
+                    <input type="time" name="hours[tue][close]" placeholder="Close">
                     </div>
+
+                    <!-- Wednesday -->
+                    <div class="form-group day-hours">
+                    <label>Wednesday</label>
+                    <input type="time" name="hours[wed][open]" placeholder="Open">
+                    <input type="time" name="hours[wed][close]" placeholder="Close">
+                    </div>
+
+                    <!-- Thursday -->
+                    <div class="form-group day-hours">
+                    <label>Thursday</label>
+                    <input type="time" name="hours[thu][open]" placeholder="Open">
+                    <input type="time" name="hours[thu][close]" placeholder="Close">
+                    </div>
+
+                    <!-- Friday -->
+                    <div class="form-group day-hours">
+                    <label>Friday</label>
+                    <input type="time" name="hours[fri][open]" placeholder="Open">
+                    <input type="time" name="hours[fri][close]" placeholder="Close">
+                    </div>
+
+                    <!-- Saturday -->
+                    <div class="form-group day-hours">
+                    <label>Saturday</label>
+                    <input type="time" name="hours[sat][open]" placeholder="Open">
+                    <input type="time" name="hours[sat][close]" placeholder="Close">
+                    </div>
+
+                    <!-- Sunday -->
+                    <div class="form-group day-hours">
+                    <label>Sunday</label>
+                    <input type="time" name="hours[sun][open]" placeholder="Open">
+                    <input type="time" name="hours[sun][close]" placeholder="Close">
+                    </div>
+
+
+                </div>
+                <!-- Quick-fill buttons -->
+                <div class="form-group buttons">
+                    <button type="button" id="fillNineToFive" class="">Set All to 9am–5pm</button>
+                    <button type="button" id="clearTimes" class="">Clear Times</button>
+                    <div class="form-hint">Quickly fill or clear all operating hours.</div>
                 </div>
 
                 <!-- Services Offered -->
@@ -495,75 +246,52 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 TogetherKGO | Bringing the Kingston-Galloway-Orton community together.</p>
-    </footer>
     
-    <!-- JavaScript for Mobile Navigation and Form Submission -->
-    <script>
-        // Mobile menu functions
-        function toggleMobileMenu() {
-            const overlay = document.getElementById('mobileNavOverlay');
-            const menu = document.getElementById('mobileNavMenu');
-            overlay.classList.toggle('show');
-            menu.classList.toggle('show');
-            document.body.style.overflow = menu.classList.contains('show') ? 'hidden' : '';
-        }
-        
-        function closeMobileMenu() {
-            const overlay = document.getElementById('mobileNavOverlay');
-            const menu = document.getElementById('mobileNavMenu');
-            overlay.classList.remove('show');
-            menu.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-        
-        // Show mobile buttons on small screens
-        function updateMobileButtons() {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            
-            if (window.innerWidth <= 768) {
-                mobileMenuBtn.style.display = 'flex';
-            } else {
-                mobileMenuBtn.style.display = 'none';
-            }
-        }
-        
-        window.addEventListener('resize', updateMobileButtons);
-        window.addEventListener('load', updateMobileButtons);
-        
-        // Form submission handling
-        const form = document.getElementById('listingForm');
-        const successMessage = document.getElementById('successMessage');
+    <!-- Load in how forms are being handled -->
+    <script src="components/form-utils.js"></script>
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+    <script>
+        // Wait until the DOM is fully loaded before running any JS
+        // This ensures all form elements exist before we try to access them
+        document.addEventListener('DOMContentLoaded', function () {
             
-            const formData = new FormData(form);
-            
-            fetch('/', {
-                method: 'POST',
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then(() => {
-                // Show success message
-                successMessage.classList.add('show');
-                // Reset form
-                form.reset();
-                // Scroll to top
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                // Hide message after 10 seconds
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 10000);
-            })
-            .catch((error) => {
-                alert('Error submitting form. Please try again or contact us directly.');
-                console.error('Error:', error);
+            // Attach submit handler from components/form-utils,js
+            const form = document.getElementById('listingForm');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                submitForm(form, 'successMessage');
             });
+
         });
+    </script>
+
+    <script>
+        // Fill operating Hours 9-5 auto
+          document.addEventListener('DOMContentLoaded', () => {
+        const fillButton = document.getElementById('fillNineToFive');
+        const clearButton = document.getElementById('clearTimes');
+
+        const dayHours = document.querySelectorAll('.day-hours');
+
+        fillButton.addEventListener('click', () => {
+        dayHours.forEach(day => {
+            const openInput = day.querySelector('input[name$="[open]"]');
+            const closeInput = day.querySelector('input[name$="[close]"]');
+            if(openInput) openInput.value = "09:00";
+            if(closeInput) closeInput.value = "17:00";
+        });
+        });
+
+        clearButton.addEventListener('click', () => {
+        dayHours.forEach(day => {
+            const openInput = day.querySelector('input[name$="[open]"]');
+            const closeInput = day.querySelector('input[name$="[close]"]');
+            if(openInput) openInput.value = "";
+            if(closeInput) closeInput.value = "";
+        });
+        });
+    });
     </script>
     <script src="components/translation.js"></script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
