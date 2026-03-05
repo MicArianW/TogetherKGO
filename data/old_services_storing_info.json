@@ -225,21 +225,17 @@
   },
   {
     "id": "fb0",
+    "name": "Other",
+    "type": "placeholder",
+    "address": "",
     "location": {
       "lat": 0,
       "lng": 0
     },
-    "hours": {},
+    "days": [],
+    "hours": "",
     "phone": "",
     "description": "",
-    "tags": [],
-    "email": "",
-    "website": "",
-    "languages_spoken": "",
-    "accessibility_info": "",
-    "documents_required": "",
-    "fees": "",
-    "eligibility": "",
-    "additional_info": ""
+    "tags": []
   }
 ]
