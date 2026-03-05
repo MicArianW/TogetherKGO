@@ -8,7 +8,7 @@ public_folder: "/assets/images/posts"
 publish_mode: editorial_workflow
 
 collections:
-  # COMMUNITY POSTS
+  # !!! COMMUNITY BOARD POSTS !!!
   - name: "community_posts"
     label: "Community Posts"
     label_singular: "Community Post"
@@ -17,60 +17,127 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "json"
     format: "json"
+    summary: "{{title}} — {{type}}"
+
     fields:
-      - label: "Organization / Service"
-        name: "foodBankId"
-        widget: "relation"
-        collection: "service_listings"
-        search_fields: ["name"]
-        value_field: "id"          # stores the unique id from service JSON
-        display_fields: ["name"]   # shows the organization name in dropdown
-        required: true             # optional now that one
-        hint: "Select an existing service, or select other and enter manually below."
 
-      # If a service/organization is not available
-      - label: "If not listed, enter new service"
-        name: "foodBankOther"
-        widget: "string"
-        required: false
-        hint: "Type the organization/service name if it is not in the list above."
+    # ORGANIZATION
+    - label: "Organization"
+      name: "organization"
+      widget: "object"
+      fields:
 
-      - label: "Post Title"
-        name: "title"
-        widget: "string"
-        hint: "Short, descriptive title (e.g., 'Fresh Produce Available Today')"
-      - label: "Message"
-        name: "message"
-        widget: "text"
-        hint: "Detailed message about the update"
-      - label: "Post Type"
-        name: "type"
-        widget: "select"
-        default: "update"
-        options:
-          - { label: "General Update", value: "update" }
-          - { label: "Special Event", value: "event" }
-          - { label: "Urgent Notice", value: "urgent" }
-          - { label: "Food Available", value: "food_available" }
-      - label: "Published Date"
-        name: "date"
-        widget: "datetime"
-        default: ""
-        date_format: "YYYY-MM-DD"
-        time_format: "HH:mm"
-        format: "YYYY-MM-DDTHH:mm:ssZ"
-      - label: "Contact Info (Optional)"
-        name: "contactInfo"
-        widget: "string"
-        required: false
-        hint: "Phone number or email for follow-up questions"
-      - label: "Expires Date (Optional)"
-        name: "expiresDate"
-        widget: "datetime"
-        required: false
-        hint: "When this post should no longer be displayed"
+        - label: "Service Listing"
+          name: "foodBankId"
+          widget: "relation"
+          collection: "service_listings"
+          search_fields: ["name"] 
+          value_field: "id" # stores the unique id from service JSON
+          display_fields: ["name"]  # shows the organization name in dropdown
+          required: true # !! If not existing then use below.
+          hint: "Select an existing service, or select other and enter manually below."
 
-    # SERVICE LISTINGS - COLLECTION CONFIG
+        - label: "Enter Name (if not listed)"
+          name: "foodBankOther"
+          widget: "string"
+          required: false
+          hint: "Type the organization/service/individual name if it is not in the list above."
+
+        # POST TYPE
+        - label: "Post Type"
+          name: "type"
+          widget: "select"
+          default: "update"
+          options:
+            - { label: "General Update", value: "update" }
+            - { label: "Urgent Notice", value: "urgent" }
+            - { label: "Special Event", value: "event" }
+            - { label: "Recurring Event", value: "recurring_event" }
+            - { label: "Food Available Today", value: "food_available" }
+
+        # BASIC POST INFO
+        - label: "Title"
+          name: "title"
+          widget: "string"
+          hint: "Short descriptive title"
+
+        - label: "Message"
+          name: "message"
+          widget: "text"
+          hint: "Detailed message about the update"
+
+        # LOCATION (for event / food)
+        - label: "Location"
+          name: "location"
+          widget: "string"
+          required: false
+          conditional:
+            field: type
+            values: ["event", "recurring_event", "food_available"]
+
+        # EVENT DETAILS
+        - label: "Event Date"
+          name: "eventDate"
+          widget: "datetime"
+          required: true
+          conditional:
+            field: type
+            value: "event"
+
+        - label: "Recurring Schedule"
+          name: "recurringDates"
+          widget: "string"
+          hint: "Example: Every Monday & Thursday 2-4pm"
+          required: true
+          conditional:
+            field: type
+            value: "recurring_event"
+
+        - label: "Start Date for Recurring Events"
+          name: "startRecurringDates"
+          widget: "date"
+          required: true
+          hint: "Provide the starting date for this recurring event"
+          conditional:
+            field: type
+            value: "recurring_event"
+
+        # FOOD AVAILABILITY
+        - label: "Time Window"
+          name: "timeWindow"
+          widget: "string"
+          required: true
+          conditional:
+            field: type
+            value: "food_available"
+
+        - label: "Available Items"
+          name: "availableItems"
+          widget: "string"
+          required: false
+          conditional:
+            field: type
+            value: "food_available"
+
+        # CONTACT INFO
+        - label: "Public Contact Info (optional)"
+          name: "contactInfo"
+          widget: "string"
+          required: false
+          hint: "Phone or email that can be shown publicly"
+
+        # DATES
+        - label: "Published Date"
+          name: "date"
+          widget: "datetime"
+          format: "YYYY-MM-DDTHH:mm:ssZ"
+
+        - label: "Expiration Date"
+          name: "expiresDate"
+          widget: "datetime"
+          required: true
+
+    # !!! ADD SERVICES LISTINGS - COLLECTION CONFIG !!!
   - name: "service_listings"
     label: "Service Listings"
     label_singular: "Service Listing"
