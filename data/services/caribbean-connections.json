@@ -1,0 +1,26 @@
+{
+  "organization": {
+    "name": "Caribbean Connections",
+    "address": "East Scarborough Storefront, 4040 Lawrence Ave E., Scarborough, ON M1E 2R6",
+    "tags": [
+      "hot_meals"
+    ],
+    "id": "gr1",
+    "type": "grassroots_org",
+    "website": "https://www.thestorefront.org/ ",
+    "phone": "416-208-9889"
+  },
+  "requirements": {
+    "eligibility": "Available to anyone in need of a meal"
+  },
+  "hours": {
+    "thu": {
+      "open": "2.30pm",
+      "close": "4.00pm"
+    }
+  },
+  "location": {
+    "lat": 43.76603254774588,
+    "lng": -7919867678249186
+  }
+}
