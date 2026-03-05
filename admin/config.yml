@@ -9,133 +9,133 @@ publish_mode: editorial_workflow
 
 collections:
   # !!! COMMUNITY BOARD POSTS !!!
-  - name: "community_posts"
-    label: "Community Posts"
-    label_singular: "Community Post"
-    folder: "data/posts"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    extension: "json"
-    format: "json"
-    summary: "{{title}} — {{type}}"
+- name: "community_posts"
+  label: "Community Posts"
+  label_singular: "Community Post"
+  folder: "data/posts"
+  create: true
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  extension: "json"
+  format: "json"
+  summary: "{{title}} — {{type}}"
 
+  fields:
+
+  # ORGANIZATION
+  - label: "Organization"
+    name: "organization"
+    widget: "object"
     fields:
+      - label: "Service Listing"
+        name: "foodBankId"
+        widget: "relation"
+        collection: "service_listings"
+        search_fields: ["name"]
+        value_field: "id"
+        display_fields: ["name"]
+        required: false
+        hint: "Select an existing service if available."
 
-    # ORGANIZATION
-    - label: "Organization"
-      name: "organization"
-      widget: "object"
-      fields:
+      - label: "Enter Name (if not listed)"
+        name: "foodBankOther"
+        widget: "string"
+        required: false
+        hint: "Type the organization/service/individual name if it is not in the list above."
 
-        - label: "Service Listing"
-          name: "foodBankId"
-          widget: "relation"
-          collection: "service_listings"
-          search_fields: ["name"] 
-          value_field: "id" # stores the unique id from service JSON
-          display_fields: ["name"]  # shows the organization name in dropdown
-          required: true # !! If not existing then use below.
-          hint: "Select an existing service, or select other and enter manually below."
+  # POST TYPE
+  - label: "Post Type"
+    name: "type"
+    widget: "select"
+    default: "update"
+    options:
+      - { label: "General Update", value: "update" }
+      - { label: "Urgent Notice", value: "urgent" }
+      - { label: "Special Event", value: "event" }
+      - { label: "Recurring Event", value: "recurring_event" }
+      - { label: "Food Available Today", value: "food_available" }
 
-        - label: "Enter Name (if not listed)"
-          name: "foodBankOther"
-          widget: "string"
-          required: false
-          hint: "Type the organization/service/individual name if it is not in the list above."
+  # BASIC POST INFO
+  - label: "Title"
+    name: "title"
+    widget: "string"
+    hint: "Short descriptive title"
 
-        # POST TYPE
-        - label: "Post Type"
-          name: "type"
-          widget: "select"
-          default: "update"
-          options:
-            - { label: "General Update", value: "update" }
-            - { label: "Urgent Notice", value: "urgent" }
-            - { label: "Special Event", value: "event" }
-            - { label: "Recurring Event", value: "recurring_event" }
-            - { label: "Food Available Today", value: "food_available" }
+  - label: "Message"
+    name: "message"
+    widget: "text"
+    hint: "Detailed message about the update"
 
-        # BASIC POST INFO
-        - label: "Title"
-          name: "title"
-          widget: "string"
-          hint: "Short descriptive title"
+  # LOCATION (for event / recurring / food)
+  - label: "Location"
+    name: "location"
+    widget: "string"
+    required: false
+    conditional:
+      field: type
+      values: ["event", "recurring_event", "food_available"]
 
-        - label: "Message"
-          name: "message"
-          widget: "text"
-          hint: "Detailed message about the update"
+  # EVENT DETAILS
+  - label: "Event Date"
+    name: "eventDate"
+    widget: "datetime"
+    required: false
+    conditional:
+      field: type
+      value: "event"
 
-        # LOCATION (for event / food)
-        - label: "Location"
-          name: "location"
-          widget: "string"
-          required: false
-          conditional:
-            field: type
-            values: ["event", "recurring_event", "food_available"]
+  # RECURRING EVENT DETAILS
+  - label: "Start Date for Recurring Events"
+    name: "startRecurringDates"
+    widget: "datetime"
+    required: false
+    hint: "Provide the starting date for this recurring event"
+    conditional:
+      field: type
+      value: "recurring_event"
 
-        # EVENT DETAILS
-        - label: "Event Date"
-          name: "eventDate"
-          widget: "datetime"
-          required: true
-          conditional:
-            field: type
-            value: "event"
+  - label: "Recurring Schedule"
+    name: "recurringDates"
+    widget: "string"
+    hint: "Example: Every Monday & Thursday 2-4pm"
+    required: false
+    conditional:
+      field: type
+      value: "recurring_event"
 
-        - label: "Recurring Schedule"
-          name: "recurringDates"
-          widget: "string"
-          hint: "Example: Every Monday & Thursday 2-4pm"
-          required: true
-          conditional:
-            field: type
-            value: "recurring_event"
+  # FOOD AVAILABILITY
+  - label: "Time Window"
+    name: "timeWindow"
+    widget: "string"
+    required: false
+    conditional:
+      field: type
+      value: "food_available"
 
-        - label: "Start Date for Recurring Events"
-          name: "startRecurringDates"
-          widget: "date"
-          required: true
-          hint: "Provide the starting date for this recurring event"
-          conditional:
-            field: type
-            value: "recurring_event"
+  - label: "Available Items"
+    name: "availableItems"
+    widget: "string"
+    required: false
+    conditional:
+      field: type
+      value: "food_available"
 
-        # FOOD AVAILABILITY
-        - label: "Time Window"
-          name: "timeWindow"
-          widget: "string"
-          required: true
-          conditional:
-            field: type
-            value: "food_available"
+  # CONTACT INFO
+  - label: "Public Contact Info (optional)"
+    name: "contactInfo"
+    widget: "string"
+    required: false
+    hint: "Phone or email that can be shown publicly"
 
-        - label: "Available Items"
-          name: "availableItems"
-          widget: "string"
-          required: false
-          conditional:
-            field: type
-            value: "food_available"
+  # DATES
+  - label: "Published Date"
+    name: "date"
+    widget: "datetime"
+    format: "YYYY-MM-DDTHH:mm:ssZ"
 
-        # CONTACT INFO
-        - label: "Public Contact Info (optional)"
-          name: "contactInfo"
-          widget: "string"
-          required: false
-          hint: "Phone or email that can be shown publicly"
-
-        # DATES
-        - label: "Published Date"
-          name: "date"
-          widget: "datetime"
-          format: "YYYY-MM-DDTHH:mm:ssZ"
-
-        - label: "Expiration Date"
-          name: "expiresDate"
-          widget: "datetime"
-          required: true
+  - label: "Expiration Date"
+    name: "expiresDate"
+    widget: "datetime"
+    required: true
 
     # !!! ADD SERVICES LISTINGS - COLLECTION CONFIG !!!
   - name: "service_listings"
