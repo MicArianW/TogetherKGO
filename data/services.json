@@ -71,24 +71,33 @@
   },
   {
     "id": "fb0",
-    "name": "Other",
-    "type": "placeholder",
-    "address": "na",
+    "type": "food_bank",
     "location": {
       "lat": 0,
       "lng": 0
     },
-    "hours": {},
+    "days": [],
+    "hours": "",
     "phone": "",
     "description": "",
-    "tags": [],
-    "email": "",
-    "website": "",
-    "languages_spoken": "",
-    "accessibility_info": "",
-    "documents_required": "",
-    "fees": "",
-    "eligibility": "",
-    "additional_info": ""
+    "tags": []
+  },
+  {
+    "id": "fb1",
+    "type": "food_bank",
+    "location": {
+      "lat": 43.7658846,
+      "lng": -79.1980406
+    },
+    "days": [],
+    "hours": {
+      "thu": {
+        "open": "2.30pm",
+        "close": "4.00pm"
+      }
+    },
+    "phone": "",
+    "description": "",
+    "tags": []
   }
 ]
