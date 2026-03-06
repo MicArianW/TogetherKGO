@@ -1,7 +1,7 @@
 {
   "organization": {
     "name": "Agincourt Community Church",
-    "phone": "(416) 497-7520 ext 271",
+    "phone": "416 497-7520 ext 271",
     "address": "3080 Birchmount Rd, Scarborough, ON, M1W 3K3, Canada",
     "tags": [
       "food_bank"
@@ -13,8 +13,8 @@
     "description": "Emergency food service, hours are by appointment only."
   },
   "location": {
-    "lat": 43.803620559735805,
-    "lng": -793092452187294
+    "lat": 43.803367614746094,
+    "lng": -79.30874633789062
   },
   "requirements": {
     "eligibility": " Open to those in catchment area- Postal codes beginning with M1S, M1T, M1V, M1W\n",
