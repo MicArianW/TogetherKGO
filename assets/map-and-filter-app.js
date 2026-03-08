@@ -286,37 +286,56 @@ function formatHours(hoursObj) {
         FILTER ENGINE
   ------------------------------ */
   function applyFilters() {
-    const qEl = el("q");
-    const typeEl = el("type");
-    const dayEl = el("openDay");
-    const radiusEl = el("radius");
+    const qEl = el("q"); //search query
+    const typeEl = el("type"); //community organization
+    const dayEl = el("openDay"); //day open
+    const radiusEl = el("radius"); //deprecated
+    const serviceEl = el("service");  //hot food, food bank etc.
 
-    if (!qEl || !typeEl || !dayEl || !radiusEl) return;
+    //filtering can silently fail if the service dropdown loads later.
+    if (!qEl || !typeEl || !dayEl || !radiusEl || !serviceEl) return;
 
     const q = qEl.value.toLowerCase().trim();
     const type = typeEl.value;
     const day = dayEl.value;
     const radius = parseInt(radiusEl.value, 10);
+    const service = serviceEl ? serviceEl.value : "";
 
-    const mapCenter = map ? map.getCenter().toJSON() : center;
+    // Safet alternative
+    let mapCenter = center;
+    if (map && map.getCenter()) {
+      mapCenter = map.getCenter().toJSON();
+    }
 
     const filtered = services.filter((s) => {
-      // Text search
-      const text =
-        [s.name, s.address, s.description, ...(s.tags || [])]
-          .join(" ")
-          .toLowerCase()
-          .replace(/_/g, ' '); // Replace underscaces with spaces
+
+      const text = [
+        s.name,
+        s.address,
+        s.description,
+        ...(s.tags || []).map(t => t.replace(/_/g, " "))
+      ]
+        .join(" ")
+        .toLowerCase();
+
       if (q && !text.includes(q)) return false;
 
-      // Type filter
       if (type && s.type !== type) return false;
-      
+
       // Day filter
-      if (day && s.days && !s.days.includes(day)) return false;
+      if (day) {
+        if (!s.hours || !s.hours[day]) return false;
+      }
+
+      // Service filter / protect against multiple tags 
+      if (service) {
+        const tags = (s.tags || []).map(t => t.trim().toLowerCase());
+        if (!tags.includes(service.toLowerCase())) return false;
+      }
 
       // Radius filter
       if (radius < 90000) {
+        if (!s.location) return false;
         const d = kmDistance(mapCenter, s.location);
         if (d * 1000 > radius) return false;
       }
@@ -324,10 +343,8 @@ function formatHours(hoursObj) {
       return true;
     });
 
-    // Update results list
     listResults(filtered);
 
-    // Update map markers
     if (map) renderMarkers(filtered);
   }
 
