@@ -104,126 +104,102 @@ jobs:
       - name: Sync service listings to services.json
         if: steps.merge.outputs.has_changes == 'true'
         run: |
-          echo "Syncing approved service listings to services.json..."
-          echo "Current directory: $(pwd)"
-          echo "Contents of data directory:"
-          ls -la data/ || echo "data/ directory not found"
-          echo "Contents of data/services directory:"
-          ls -la data/services/ || echo "data/services/ directory not found"
-          
           node << 'EOF'
           const fs = require('fs');
           const path = require('path');
-          
-          console.log('=== SYNC PROCESS STARTING ===');
-          console.log('Current working directory:', process.cwd());
-          
-          // Read existing services.json
+
           const servicesPath = 'data/services.json';
+          const servicesDir = 'data/services';
+
           let services = [];
-          
+
           if (fs.existsSync(servicesPath)) {
             services = JSON.parse(fs.readFileSync(servicesPath, 'utf8'));
-            console.log(`Loaded ${services.length} existing services from services.json`);
-          } else {
-            console.log('services.json does not exist, will create new one');
+            console.log(`Loaded ${services.length} existing services`);
           }
-          
-          // Track the highest existing ID number
+
           let maxId = 0;
+
           services.forEach(service => {
-            const match = service.id.match(/fb(\d+)/);
+            const match = service.id?.match(/fb(\d+)/);
             if (match) {
               maxId = Math.max(maxId, parseInt(match[1]));
             }
           });
-          
+
           console.log(`Highest existing ID: fb${maxId}`);
-          
-          // Get all approved service listing files from data/services
-          const servicesDir = 'data/services';
-          
-          if (!fs.existsSync(servicesDir)) {
-            console.log(`ERROR: Directory ${servicesDir} does not exist!`);
-            process.exit(1);
-          }
-          
-          const allFiles = fs.readdirSync(servicesDir);
-          console.log(`All files in ${servicesDir}:`, allFiles);
-          
-          const files = allFiles.filter(file => file.endsWith('.json'));
-          console.log(`Filtered JSON files:`, files);
-          
+
+          const files = fs.readdirSync(servicesDir)
+            .filter(file => file.endsWith('.json'));
+
           console.log(`Found ${files.length} service listing files`);
-          
-          if (files.length === 0) {
-            console.log('WARNING: No JSON files found in data/services/');
-            process.exit(0);
-          }
-          
+
           files.forEach(file => {
+
             const filePath = path.join(servicesDir, file);
-            console.log(`Processing file: ${filePath}`);
-            
+
             const listing = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-            console.log(`Loaded listing:`, listing.name);
-            
-            // Generate unique ID
-            let id = file.replace('.json', '').toLowerCase().replace(/[^a-z0-9]/g, '-');
-            
-            // Check if this listing already exists (by name or ID)
-            const existingIndex = services.findIndex(s => 
-              s.name === listing.name || s.id === id
-            );
-            
-            // If not using fb{N} format, assign next available fb ID
-            if (!id.match(/^fb\d+$/)) {
-              if (existingIndex === -1) {
-                maxId++;
-                id = `fb${maxId}`;
-              } else {
-                id = services[existingIndex].id;
-              }
+
+            if (!listing.organization?.name) {
+              console.log(`Skipping ${file}: missing name`);
+              return;
             }
-            
-            // Create service object matching services.json format
+
+            let id = listing.organization?.id;
+
+            if (!id) {
+              maxId++;
+              id = `fb${maxId}`;
+            }
+
+            const existingIndex = services.findIndex(s =>
+              listing.organization?.id
+                ? s.id === listing.organization.id
+                : s.name === listing.organization.name
+            );
+
             const serviceObj = {
               id: id,
-              name: listing.name,
-              type: listing.type || 'food_bank',
-              address: listing.address,
+              name: listing.organization.name,
+              type: listing.organization.type || '',
+              address: listing.organization.address || '',
               location: {
-                lat: parseFloat(listing.location?.lat || listing.lat || 0),
-                lng: parseFloat(listing.location?.lng || listing.lng || 0)
+                lat: listing.location?.lat || 0,
+                lng: listing.location?.lng || 0
               },
-              days: listing.days || [],
-              hours: listing.hours || '',
-              phone: listing.phone || '',
-              description: listing.description || '',
-              tags: listing.tags || []
+              hours: listing.hours || {},
+              phone: listing.organization.phone || '',
+              description: listing.organization.description || '',
+              tags: listing.organization.tags || [],
+              email: listing.organization.email || '',
+              website: listing.organization.website || '',
+              languages_spoken: listing.organization.languages_spoken || '',
+              accessibility_info: listing.organization.accessibility_info || '',
+              documents_required: listing.organization.documents_required || '',
+              fees: listing.organization.fees || '',
+              eligibility: listing.requirements?.eligibility || '',
+              additional_info: listing.additional_info || ''
             };
-            
-            // Add optional fields if they exist
-            if (listing.email) serviceObj.email = listing.email;
-            if (listing.website) serviceObj.website = listing.website;
-            
+
             if (existingIndex >= 0) {
-              // Update existing service
-              console.log(`Updating existing service: ${listing.name} (${id})`);
+              console.log(`Updating: ${listing.organization.name} (${id})`);
               services[existingIndex] = serviceObj;
             } else {
-              // Add new service
-              console.log(`Adding new service: ${listing.name} (${id})`);
+              console.log(`Adding: ${listing.organization.name} (${id})`);
               services.push(serviceObj);
             }
+
           });
-          
-          // Write updated services.json
+
+          services.sort((a,b) => {
+            const aNum = parseInt(a.id.replace('fb','')) || 0;
+            const bNum = parseInt(b.id.replace('fb','')) || 0;
+            return aNum - bNum;
+          });
+
           fs.writeFileSync(servicesPath, JSON.stringify(services, null, 2));
-          
-          console.log(`=== SYNC COMPLETE ===`);
-          console.log(`Updated services.json with ${services.length} total services`);
-          console.log('Service IDs:', services.map(s => s.id).join(', '));
+
+          console.log(`✅ Updated services.json (${services.length} services)`);
           EOF
       
       - name: Push all changes in ONE commit (Single Deploy)
@@ -233,7 +209,7 @@ jobs:
           git add data/services.json
           
           # Check if there are any changes to commit
-          if git diff --staged --quiet; then
+          if git diff --cached --quiet; then
             echo "No changes to services.json"
             # Just push the merged PRs
             git push origin main
@@ -287,139 +263,122 @@ jobs:
       - name: Sync service listings even if no PRs (Fallback)
         if: steps.gather.outputs.prs == ''
         run: |
-          echo "Running fallback sync to catch any missed services..."
-          echo "Current directory: $(pwd)"
-          echo "Contents of data/services directory:"
-          ls -la data/services/ || echo "data/services/ directory not found"
-          
+          echo "Running fallback sync to ensure services.json is up to date..."
+
           node << 'EOF'
           const fs = require('fs');
           const path = require('path');
-          
-          console.log('=== FALLBACK SYNC STARTING ===');
-          
-          // Read existing services.json
+
           const servicesPath = 'data/services.json';
+          const servicesDir = 'data/services';
+
           let services = [];
-          
+
           if (fs.existsSync(servicesPath)) {
             services = JSON.parse(fs.readFileSync(servicesPath, 'utf8'));
-            console.log(`Loaded ${services.length} existing services from services.json`);
-          } else {
-            console.log('services.json does not exist, will create new one');
+            console.log(`Loaded ${services.length} existing services`);
           }
-          
-          // Track the highest existing ID number
+
           let maxId = 0;
+
           services.forEach(service => {
-            const match = service.id.match(/fb(\d+)/);
+            const match = service.id?.match(/fb(\d+)/);
             if (match) {
               maxId = Math.max(maxId, parseInt(match[1]));
             }
           });
-          
+
           console.log(`Highest existing ID: fb${maxId}`);
-          
-          // Get all approved service listing files from data/services
-          const servicesDir = 'data/services';
-          
+
           if (!fs.existsSync(servicesDir)) {
-            console.log(`Directory ${servicesDir} does not exist`);
+            console.log("data/services directory does not exist");
             process.exit(0);
           }
-          
-          const allFiles = fs.readdirSync(servicesDir);
-          console.log(`All files in ${servicesDir}:`, allFiles);
-          
-          const files = allFiles.filter(file => file.endsWith('.json'));
-          console.log(`Filtered JSON files:`, files);
-          
-          if (files.length === 0) {
-            console.log('No JSON files found in data/services/');
-            process.exit(0);
-          }
-          
-          let changesDetected = false;
-          
+
+          const files = fs.readdirSync(servicesDir)
+            .filter(file => file.endsWith('.json'));
+
+          console.log(`Found ${files.length} service listing files`);
+
           files.forEach(file => {
+
             const filePath = path.join(servicesDir, file);
-            console.log(`Processing file: ${filePath}`);
-            
+
             const listing = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-            console.log(`Loaded listing: ${listing.name}`);
-            
-            // Generate unique ID
-            let id = file.replace('.json', '').toLowerCase().replace(/[^a-z0-9]/g, '-');
-            
-            // Check if this listing already exists (by name or ID)
-            const existingIndex = services.findIndex(s => 
-              s.name === listing.name || s.id === id
-            );
-            
-            // If not using fb{N} format, assign next available fb ID
-            if (!id.match(/^fb\d+$/)) {
-              if (existingIndex === -1) {
-                maxId++;
-                id = `fb${maxId}`;
-              } else {
-                id = services[existingIndex].id;
-              }
+
+            if (!listing.organization?.name) {
+              console.log(`Skipping ${file}: missing name`);
+              return;
             }
-            
-            // Create service object matching services.json format
+
+            let id = listing.organization?.id;
+
+            if (!id) {
+              maxId++;
+              id = `fb${maxId}`;
+            }
+
+            const existingIndex = services.findIndex(s =>
+              listing.organization?.id
+                ? s.id === listing.organization.id
+                : s.name === listing.organization.name
+            );
+
             const serviceObj = {
               id: id,
-              name: listing.name,
-              type: listing.type || 'food_bank',
-              address: listing.address,
+              name: listing.organization.name,
+              type: listing.organization.type || '',
+              address: listing.organization.address || '',
               location: {
-                lat: parseFloat(listing.location?.lat || listing.lat || 0),
-                lng: parseFloat(listing.location?.lng || listing.lng || 0)
+                lat: listing.location?.lat || 0,
+                lng: listing.location?.lng || 0
               },
-              days: listing.days || [],
-              hours: listing.hours || '',
-              phone: listing.phone || '',
-              description: listing.description || '',
-              tags: listing.tags || []
+              hours: listing.hours || {},
+              phone: listing.organization.phone || '',
+              description: listing.organization.description || '',
+              tags: listing.organization.tags || [],
+              email: listing.organization.email || '',
+              website: listing.organization.website || '',
+              languages_spoken: listing.organization.languages_spoken || '',
+              accessibility_info: listing.organization.accessibility_info || '',
+              documents_required: listing.organization.documents_required || '',
+              fees: listing.organization.fees || '',
+              eligibility: listing.requirements?.eligibility || '',
+              additional_info: listing.additional_info || ''
             };
-            
-            // Add optional fields if they exist
-            if (listing.email) serviceObj.email = listing.email;
-            if (listing.website) serviceObj.website = listing.website;
-            
+
             if (existingIndex >= 0) {
-              // Update existing service
-              console.log(`Updating existing service: ${listing.name} (${id})`);
+              console.log(`Updating: ${listing.organization.name} (${id})`);
               services[existingIndex] = serviceObj;
-              changesDetected = true;
             } else {
-              // Add new service
-              console.log(`Adding new service: ${listing.name} (${id})`);
+              console.log(`Adding: ${listing.organization.name} (${id})`);
               services.push(serviceObj);
-              changesDetected = true;
             }
+
           });
-          
-          if (!changesDetected) {
-            console.log('No changes needed - services.json is already up to date');
-            process.exit(0);
-          }
-          
-          // Write updated services.json
+
+          services.sort((a,b) => {
+            const aNum = parseInt(a.id.replace('fb','')) || 0;
+            const bNum = parseInt(b.id.replace('fb','')) || 0;
+            return aNum - bNum;
+          });
+
           fs.writeFileSync(servicesPath, JSON.stringify(services, null, 2));
-          
-          console.log(`=== FALLBACK SYNC COMPLETE ===`);
-          console.log(`Updated services.json with ${services.length} total services`);
-          console.log('Service IDs:', services.map(s => s.id).join(', '));
+
+          console.log(`✅ Updated services.json (${services.length} services)`);
           EOF
       
       - name: Commit fallback sync changes
         if: steps.gather.outputs.prs == ''
         run: |
-          if git diff --quiet data/services.json; then
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+          git add data/services.json
+
+          if git diff --cached --quiet; then
             echo "No changes to services.json"
           else
-            git add data/services.json
             git commit -m "Fallback sync: Update services.json from data/services files"
             git push origin main
             echo "Pushed services.json update from fallback sync"
