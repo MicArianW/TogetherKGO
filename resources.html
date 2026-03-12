@@ -30,33 +30,34 @@
           <h2 data-i18n="search_filters">Search &amp; Filters</h2>
 
           <label class="label" for="q" data-i18n="search_label">Search by name, type, keywords</label>
-          <input id="q" type="search" placeholder="funding, " />
+          <input id="q" type="search" placeholder="Search grants, funding, toolkits, tax help, fianance... " />
 
           <div class="grid2">
             <div>
               <label class="label" for="type">Type</label>
               <select id="type">
                 <option value="">Any</option>
-                <option value="food_bank">Food Bank</option>
-                <option value="organization">Organization</option>
-                <option value="community_meal">Community Meal</option>
-                <option value="pantry">Pantry</option>
-                <option value="market">Market</option>
-                <option value="delivery">Delivery</option>
+                <option value="grant">Grant / Funding</option>
+                <option value="microgrant">Microgrant</option>
+                <option value="directory">Directory / Resource List</option>
+                <option value="toolkit">Toolkit / Guide</option>
+                <option value="certification_support">Certification / Subsidy Support</option>
+                <option value="training">Training / Workshop</option>
+                <option value="program">Community Program</option>
+                <option value="greening">Greening / Environmental Support</option>
+                <option value="general">General Resource</option>
+                <option value="education_library">Education & Library</option>
+                <option value="tax_finance">Tax & Finance</option>
+                <option value="other">Other</option>
               </select>
             </div>
 
             <div>
-              <label class="label" for="openDay">Day Open</label>
-              <select id="openDay">
+              <label class="label" for="region">Region Served</label>
+              <select id="region">
                 <option value="">Any</option>
-                <option value="Mon">Monday</option>
-                <option value="Tue">Tuesday</option>
-                <option value="Wed">Wednesday</option>
-                <option value="Thu">Thursday</option>
-                <option value="Fri">Friday</option>
-                <option value="Sat">Saturday</option>
-                <option value="Sun">Sunday</option>
+                <option value="toronto">Toronto</option>
+                <option value="other">Other</option>
               </select>
             </div>
           </div>
@@ -84,23 +85,23 @@
 
         <!-- Info Card — identical to find-services.html, inline styles replaced with classes -->
         <section class="card info-card">
-          <h3>About Food Resources</h3>
-          <p class="subtle">Find food and community support services in the Kingston-Galloway-Orton Park area. All services are free and open to community members in need.</p>
+          <h3>About Community Resources</h3>
+          <p class="subtle">Find grants, toolkits, directories, certification supports, and other community resources that can help residents and grassroots groups start projects, access funding, and support local initiatives in the Kingston-Galloway-Orton Park and Toronto area.</p>
 
           <!-- .quick-contact already has margin-top, padding-top, border-top in styles.css -->
           <div class="quick-contact">
             <strong>Want to contribute?</strong>
-            <p class="subtle small">Click the 'Submit a Listing' button below to contribute. We ask that submissions be in accordance with our <a href="assets/ToS.pdf" target="_blank" class="info-card__link">Terms of Service</a> and <a href="assets/Community-guidelines.pdf" target="_blank" class="info-card__link">community guidelines</a>. Note that submissions are first moderated, then added to a scheduled update that occurs bi-weekly on <strong>Mondays and Thursdays.</strong></p>
+            <p class="subtle small">Click the "Submit a Resource" button below to share a grant, toolkit, directory, certification support, or other helpful resource. We ask that submissions follow our <a href="assets/ToS.pdf" target="_blank" class="info-card__link">Terms of Service</a> and <a href="assets/Community-guidelines.pdf" target="_blank" class="info-card__link">community guidelines</a>. Note that submissions are first moderated, then added to a scheduled update that occurs bi-weekly on <strong>Mondays and Thursdays.</strong></p>
           </div>
 
           <div class="quick-contact">
             <strong>Need Help?</strong>
-            <p class="subtle small">Contact any of the listed organizations directly for assistance or visit them during their operating hours.</p>
+            <p class="subtle small">If you're unsure how to access a resource or apply for a program, visit the official website linked in the listing or contact the organization directly for more information</p>
           </div>
 
           <div class="quick-contact">
             <a href="submit-resources.html" class="btn-submit-listing">Submit a Resource</a>
-            <p class="subtle small info-card__hint">Know a food resource? Add it here!</p>
+            <p class="subtle small info-card__hint">Know a community resource? Add it here!</p>
           </div>
         </section>
 
@@ -109,7 +110,7 @@
       <!-- Content — same as find-services.html with map removed -->
       <section class="content">
         <section class="list card">
-          <h2>Food Resources in KGO Area</h2>
+          <h2>Community Resources in KGO Area</h2>
           <div id="resultCount" class="subtle"></div>
           <ul id="results"></ul>
         </section>
@@ -125,6 +126,10 @@
       .catch(error => console.error("Error loading navbar:", error));
     </script>
     <script src="components/translation.js"></script>
+    
+      
+     
+         
 
   </body>
 </html>

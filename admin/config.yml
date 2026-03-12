@@ -311,3 +311,143 @@ collections:
           name: "eligibility"
           widget: "text"
           required: false
+
+# Resource Listing collection
+
+- name: "resources"
+  label: "Resources"
+  label_singular: "Resource"
+  folder: "data/resources"
+  create: true
+  slug: "{{resource.title | slugify}}"
+  extension: "json"
+  format: "json"
+  identifier_field: "resource.title"
+  summary: "{{resource.title}} - {{resource.type}}"
+
+  fields:
+    - label: "Resource Information"
+      name: "resource"
+      widget: "object"
+      fields:
+        - label: "Resource Title"
+          name: "title"
+          widget: "string"
+          required: true
+
+        - label: "Unique ID"
+          name: "id"
+          widget: "string"
+          required: false
+          hint: "Optional. Auto-generated later if left blank"
+
+        - label: "Organization / Program Name"
+          name: "organization"
+          widget: "string"
+          required: true
+
+        - label: "Resource Type"
+          name: "type"
+          widget: "select"
+          required: true
+          options:
+            - { label: "Grant / Funding", value: "grant" }
+            - { label: "General", value: "general" }
+            - { label: "Education / Library", value: "education_library" }
+            - { label: "Tax / Finance", value: "tax_finance" }
+            - { label: "Microgrant", value: "microgrant" }
+            - { label: "Directory / Resource List", value: "directory" }
+            - { label: "Toolkit / Guide", value: "toolkit" }
+            - { label: "Certification / Subsidy Support", value: "certification_support" }
+            - { label: "Training / Workshop", value: "training" }
+            - { label: "Community Program", value: "program" }
+            - { label: "Greening / Environmental Support", value: "greening" }
+            - { label: "Other", value: "other" }
+
+        - label: "Description"
+          name: "description"
+          widget: "text"
+          required: true
+
+        - label: "Primary Link"
+          name: "website"
+          widget: "string"
+          required: true
+
+        - label: "Additional Link"
+          name: "additional_link"
+          widget: "string"
+          required: false
+
+    - label: "Coverage"
+      name: "coverage"
+      widget: "object"
+      fields:
+        - label: "Region Served"
+          name: "region_served"
+          widget: "select"
+          required: true
+          options:
+            - { label: "Toronto", value: "toronto" }
+            - { label: "Other", value: "other" }
+
+    - label: "Requirements and Details"
+      name: "requirements"
+      widget: "object"
+      fields:
+        - label: "Eligibility"
+          name: "eligibility"
+          widget: "text"
+          required: false
+
+        - label: "Fees"
+          name: "fees"
+          widget: "string"
+          required: false
+
+        - label: "Documents Required"
+          name: "documents_required"
+          widget: "text"
+          required: false
+
+    - label: "Resource Contact Information"
+      name: "contact"
+      widget: "object"
+      fields:
+        - label: "Public Contact Email"
+          name: "email"
+          widget: "string"
+          required: false
+
+        - label: "Public Contact Phone"
+          name: "phone"
+          widget: "string"
+          required: false
+
+    - label: "Tags and Notes"
+      name: "meta"
+      widget: "object"
+      fields:
+        - label: "Tags"
+          name: "tags"
+          widget: "select"
+          multiple: true
+          required: false
+          options:
+            - { label: "General", value: "general" }
+            - { label: "Funding", value: "funding" }
+            - { label: "Grants", value: "grants" }
+            - { label: "Education & Library", value: "education_library" }
+            - { label: "Tax & Finance", value: "tax_finance" }
+            - { label: "Toolkits", value: "toolkits" }
+            - { label: "Directory", value: "directory" }
+            - { label: "Certification Support", value: "certification_support" }
+            - { label: "Subsidy", value: "subsidy" }
+            - { label: "Greening", value: "greening" }
+            - { label: "Community Building", value: "community_building" }
+            - { label: "Other", value: "other" }
+
+        - label: "Additional Notes"
+          name: "additional_notes"
+          widget: "text"
+          required: false

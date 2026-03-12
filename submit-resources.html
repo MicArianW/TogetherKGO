@@ -60,6 +60,9 @@
                         <select id="resourceType" name="resource_type" required>
                             <option value="">Select a resource type</option>
                             <option value="grant">Grant / Funding</option>
+                            <option value="grant">General</option>
+                            <option value="grant">Education / Library</option>
+                            <option value="grant">Tax / Finance</option>
                             <option value="microgrant">Microgrant</option>
                             <option value="directory">Directory / Resource List</option>
                             <option value="toolkit">Toolkit / Guide</option>
@@ -120,12 +123,24 @@
                         <label>Which categories best describe this resource? <span class="required">*</span></label>
                         <div class="checkbox-group">
                             <div class="checkbox-item">
+                                <input type="checkbox" id="tag_general" name="resource_tags" value="general">
+                                <label for="tag_general">General</label>
+                            </div>
+                            <div class="checkbox-item">
                                 <input type="checkbox" id="tag_funding" name="resource_tags" value="funding">
                                 <label for="tag_funding">Funding</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="tag_grants" name="resource_tags" value="grants">
                                 <label for="tag_grants">Grants</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tag_education_library" name="resource_tags" value="education_library">
+                                <label for="tag_education_library">Education & Library</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tag_tax_finance" name="resource_tags" value="tax_finance">
+                                <label for="tag_tax_finance">Tax & Finance</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="tag_toolkits" name="resource_tags" value="toolkits">
@@ -150,6 +165,10 @@
                             <div class="checkbox-item">
                                 <input type="checkbox" id="tag_community" name="resource_tags" value="community_building">
                                 <label for="tag_community">Community Building</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tag_other" name="resource_tags" value="other">
+                                <label for="tag_other">Other</label>
                             </div>
                         </div>
                     </div>
