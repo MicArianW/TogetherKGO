@@ -746,11 +746,11 @@ textarea:focus {
     gap: 5px;
 }
 
-.tag-lang {
+.home .tag-lang {
     background: #7DBFE8;
 }
 
-.tag-lang:hover {
+.home .tag-lang:hover {
     opacity: 0.75;
 }
 
@@ -812,8 +812,21 @@ textarea:focus {
     }
 }
 
-/* Hide Google Translate bar */
+/* Hide Google Translate bar and remove injected spacing */
 .skiptranslate,
-div[style*="position: fixed"][style*="z-index: 999999"] {
+div[style*="position: fixed"][style*="z-index: 999999"],
+.goog-te-banner-frame,
+iframe.skiptranslate {
     display: none !important;
+    height: 0 !important;
+}
+
+body {
+    top: 0 !important;
+    margin-top: 0 !important;
+    position: static !important;
+}
+
+.home {
+    margin-top: 0 !important;
 }
