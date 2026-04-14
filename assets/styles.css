@@ -738,12 +738,25 @@ textarea:focus {
     color: #000;
     line-height: 0.98;
     display: block;
+    cursor: pointer;
+}
+
+.lang-label:hover {
+    opacity: 0.7;
 }
 
 .lang-tags {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     gap: 5px;
+}
+
+.home .lang-tags {
+    display: none;
+}
+
+.lang-tags.show {
+    display: flex !important;
 }
 
 .home .tag-lang {
