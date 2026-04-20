@@ -217,14 +217,9 @@ function formatHours(hoursObj) {
   function listResults(items) {
     var ul = el("results");
     var countEl = el("resultCount");
-    
     if (!ul) return;
-
     ul.innerHTML = "";
-    
-    if (countEl) {
-      countEl.textContent = "We found " + items.length + " results:";
-    }
+    if (countEl) countEl.textContent = "We found " + items.length + " results:";
 
     if (items.length === 0) {
       ul.innerHTML = '<li class="result-empty">No resources match your search criteria. Try adjusting your filters.</li>';
@@ -234,27 +229,26 @@ function formatHours(hoursObj) {
     items.forEach(function(it, index) {
       var li = document.createElement("li");
       li.className = "result-item";
-
       var directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(it.address);
-
       var detailsId = "details-" + index;
 
-      li.innerHTML = 
-        '<div class="result-number">' +
-          '<span>' + (index + 1) + '</span>' +
-        '</div>' +
-        '<div class="result-name">' + it.name + '</div>' +
-        '<div class="result-address">' + it.address + '</div>' +
+      li.innerHTML =
+        '<div class="result-number"><span>' + (index + 1) + '</span></div>' +
+        '<div class="result-name notranslate">' + it.name + '</div>' +
+        '<div class="result-address notranslate">' + it.address + '</div>' +
         '<div class="result-toggle" onclick="document.getElementById(\'' + detailsId + '\').classList.toggle(\'show\'); this.querySelector(\'span\').textContent = document.getElementById(\'' + detailsId + '\').classList.contains(\'show\') ? \'Hide details  −\' : \'Show details  +\'">' +
           '<span>Show details  +</span>' +
         '</div>' +
         '<div class="result-details" id="' + detailsId + '">' +
+          '<hr style="border:none;border-top:2px solid #fff;margin:0;">' +
           '<div class="result-tags">' +
             (it.tags || []).map(function(t) { return '<span class="tag">' + t.replace(/_/g, ' ') + '</span>'; }).join('') +
           '</div>' +
+          '<hr style="border:none;border-top:2px solid #fff;margin:0;">' +
           '<div class="result-hours"><strong>Hours:</strong> ' + (it.hours ? formatHours(it.hours) : 'Contact for hours') + '</div>' +
+          '<hr style="border:none;border-top:2px solid #fff;margin:0;">' +
           '<div class="result-contact">' +
-            (it.phone ? '<a class="result-btn" href="tel:' + it.phone + '">📞 ' + it.phone + '</a>' : '') +
+            (it.phone ? '<a class="result-btn notranslate" href="tel:' + it.phone + '">📞 ' + it.phone + '</a>' : '') +
             (it.website ? '<a class="result-btn" href="' + it.website.trim() + '" target="_blank">🌐 Website</a>' : '') +
             '<a class="result-btn result-btn-green" href="' + directionsUrl + '" target="_blank">🗺️ Directions</a>' +
           '</div>' +
@@ -321,13 +315,12 @@ function formatHours(hoursObj) {
         if (!s.hours || !s.hours[day]) return false;
       }
 
-      // Service filter – match against tags OR text search for new HOME_TAGS
+      // Service filter – match tags OR text for HOME_TAGS
       if (service) {
-        var tags = (s.tags || []).map(function(t) { return t.trim().toLowerCase(); });
+        var sTags = (s.tags || []).map(function(t) { return t.trim().toLowerCase(); });
         var serviceKey = service.toLowerCase();
         var serviceText = service.replace(/_/g, ' ').toLowerCase();
-        // Try exact tag match first, then text search fallback
-        var tagMatch = tags.includes(serviceKey);
+        var tagMatch = sTags.includes(serviceKey);
         var textMatch = text.includes(serviceText);
         if (!tagMatch && !textMatch) return false;
       }
@@ -420,7 +413,6 @@ function formatHours(hoursObj) {
     if (tag) {
       var serviceEl = el('service');
       if (serviceEl) {
-        // Try exact match first, then try replacing hyphens with underscores
         var tagKey = tag.replace(/-/g, '_');
         var options = serviceEl.options;
         for (var i = 0; i < options.length; i++) {
@@ -429,7 +421,6 @@ function formatHours(hoursObj) {
             break;
           }
         }
-        // If no dropdown match, put tag in search box as text
         if (!serviceEl.value && el('q')) {
           el('q').value = tag.replace(/[-_]/g, ' ');
         }
@@ -444,7 +435,6 @@ function formatHours(hoursObj) {
     setupEvents();
     setupShare();
     loadData();
-    // Apply URL params after a brief delay to let dropdowns populate
     setTimeout(function() {
       applyUrlParams();
       applyFilters();

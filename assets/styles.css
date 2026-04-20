@@ -738,25 +738,12 @@ textarea:focus {
     color: #000;
     line-height: 0.98;
     display: block;
-    cursor: pointer;
-}
-
-.lang-label:hover {
-    opacity: 0.7;
 }
 
 .lang-tags {
-    display: none;
+    display: flex;
     flex-wrap: wrap;
     gap: 5px;
-}
-
-.home .lang-tags {
-    display: none;
-}
-
-.lang-tags.show {
-    display: flex !important;
 }
 
 .home .tag-lang {
@@ -843,10 +830,16 @@ body {
 .home {
     margin-top: 0 !important;
 }
+/* =========================================
+   NO-TRANSLATE UTILITY
+========================================= */
+.notranslate,
+.notranslate * {
+    translate: no !important;
+}
 
 /* =========================================
    SHARED COMPONENTS – Nav, Tabs, Footer
-   (Used by find-services, submit-listing, etc.)
 ========================================= */
 
 /* --- Figma Nav Bar --- */
@@ -876,9 +869,7 @@ body {
     line-height: 19px;
 }
 
-.figma-nav .nav-home:hover {
-    opacity: 0.7;
-}
+.figma-nav .nav-home:hover { opacity: 0.7; }
 
 /* --- Tab Bar --- */
 .tab-bar {
@@ -886,8 +877,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    padding: 0;
-    margin: 0;
+    margin-top: 20px;
 }
 
 .tab-bar a {
@@ -900,19 +890,9 @@ body {
     display: inline-block;
 }
 
-.tab-bar a.tab-active {
-    background: #e6e6e6;
-}
-
-.tab-bar a.tab-inactive {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 2px;
-}
-
-.tab-bar a:hover {
-    opacity: 0.75;
-}
+.tab-bar a.tab-active { background: #e6e6e6; }
+.tab-bar a.tab-inactive { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+.tab-bar a:hover { opacity: 0.75; }
 
 /* --- Figma Footer --- */
 .figma-footer {
@@ -920,10 +900,7 @@ body {
     margin-top: auto;
 }
 
-.figma-footer * {
-    margin: 0;
-    padding: 0;
-}
+.figma-footer * { margin: 0; padding: 0; }
 
 .footer-black {
     background: #000;
@@ -931,128 +908,33 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 75px;
-    padding: 100px 20px 6px;
+    padding: 50px 20px 6px;
     font-weight: 600;
+    align-items: start;
 }
 
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
+.footer-links { display: flex; flex-direction: column; gap: 25px; }
+.footer-links-list { display: flex; flex-direction: column; }
+.footer-links-list a { color: #fff; text-decoration: underline; font-size: 20px; line-height: 22px; }
+.footer-links-list a:hover { opacity: 0.8; }
+.footer-contact { font-size: 20px; line-height: 22px; }
+.footer-right { display: flex; flex-direction: column; gap: 18px; }
+.footer-right .footer-desc { font-size: 17px; line-height: 19px; }
+.footer-right .footer-tagline { font-size: 35px; line-height: 0.98; }
+.footer-right .footer-copy { font-size: 17px; line-height: 19px; }
 
-.footer-links-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.footer-links-list a {
-    color: #fff;
-    text-decoration: underline;
-    font-size: 20px;
-    line-height: 22px;
-}
-
-.footer-links-list a:hover {
-    opacity: 0.8;
-}
-
-.footer-contact {
-    font-size: 20px;
-    line-height: 22px;
-}
-
-.footer-right {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.footer-right .footer-desc {
-    font-size: 17px;
-    line-height: 19px;
-}
-
-.footer-right .footer-tagline {
-    font-size: 35px;
-    line-height: 0.98;
-}
-
-.footer-right .footer-copy {
-    font-size: 17px;
-    line-height: 19px;
-}
-
-.footer-green-bar {
-    position: relative;
-    padding-bottom: 70px;
-}
-
-.footer-green-bar .green-strip {
-    background: #0FDE00;
-    height: 142px;
-    width: 100%;
-}
-
-.footer-green-bar .footer-brand {
-    position: absolute;
-    top: 88px;
-    left: 20px;
-    font-size: 55px;
-    font-weight: 600;
-    color: #000;
-    line-height: normal;
-}
-
-/* --- Footer Mobile --- */
-@media (max-width: 768px) {
-    .figma-nav {
-        height: auto;
-        padding: 10px 10px;
-    }
-
-    .figma-nav .nav-logo {
-        font-size: 28px;
-        line-height: 1.2;
-    }
-
-    .tab-bar a {
-        font-size: 22px;
-    }
-
-    .footer-black {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 40px 10px 6px;
-    }
-
-    .footer-right .footer-tagline {
-        font-size: 24px;
-    }
-
-    .footer-green-bar .footer-brand {
-        font-size: 32px;
-        top: 60px;
-        left: 10px;
-    }
-
-    .footer-green-bar .green-strip {
-        height: 100px;
-    }
-
-    .footer-green-bar {
-        padding-bottom: 40px;
-    }
-}
+.footer-green-bar { position: relative; padding-bottom: 70px; }
+.footer-green-bar .green-strip { background: #0FDE00; height: 142px; width: 100%; }
+.footer-green-bar .footer-brand { position: absolute; top: 88px; left: 20px; font-size: 55px; font-weight: 600; color: #000; line-height: normal; }
 
 /* =========================================
-   FIND SERVICES PAGE – Figma Layout Override
-   Background: #E6E6E6, sticky map on right
+   FIND SERVICES PAGE – Figma Layout
 ========================================= */
 
-/* Override layout for find-services */
 body:has(.figma-nav) .layout {
-    display: flex;
+    display: grid;
+    grid-template-columns: 560px 1fr;
+    grid-template-rows: auto 1fr;
     max-width: 100%;
     padding: 0;
     gap: 0;
@@ -1060,23 +942,44 @@ body:has(.figma-nav) .layout {
 }
 
 body:has(.figma-nav) .sidebar {
-    flex: 0 0 560px;
-    padding: 25px 20px 50px;
+    grid-column: 1;
+    grid-row: 1;
+    padding: 25px 20px 25px;
     background: #E6E6E6 !important;
-    gap: 60px;
-    overflow-y: auto;
-    max-height: calc(100vh - 117px);
 }
 
 body:has(.figma-nav) .content {
-    flex: 1;
+    grid-column: 2;
+    grid-row: 1 / 3;
     position: sticky;
     top: 0;
-    height: calc(100vh - 117px);
+    height: 100vh;
     gap: 0;
 }
 
-/* Remove card styling on find-services */
+body:has(.figma-nav) .results-section {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 0 20px 50px;
+}
+
+body:has(.figma-nav) .results-section #resultCount {
+    font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    line-height: 22px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fff;
+    margin-bottom: 0;
+}
+
+body:has(.figma-nav) .results-section #results {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 body:has(.figma-nav) .sidebar .card {
     background: transparent;
     border: none;
@@ -1085,24 +988,14 @@ body:has(.figma-nav) .sidebar .card {
     box-shadow: none;
 }
 
-/* Hide info card sidebar */
-body:has(.figma-nav) .info-card {
-    display: none;
-}
+body:has(.figma-nav) .info-card { display: none; }
 
-/* Map takes full height */
 body:has(.figma-nav) #map {
     height: 100% !important;
     min-height: 100%;
     border-radius: 0;
 }
 
-/* Hide results below map (they're in sidebar now) */
-body:has(.figma-nav) .content .list {
-    display: none;
-}
-
-/* Override input styles for Figma look */
 body:has(.figma-nav) .label {
     font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 17px;
@@ -1115,8 +1008,9 @@ body:has(.figma-nav) .label {
 body:has(.figma-nav) input[type="search"],
 body:has(.figma-nav) select,
 body:has(.figma-nav) textarea {
-    height: 37px;
-    padding: 10px;
+    height: auto;
+    min-height: 37px;
+    padding: 9px 10px;
     border-radius: 5px;
     border: 1px solid #D3D3D3;
     background: #fff;
@@ -1124,6 +1018,7 @@ body:has(.figma-nav) textarea {
     font-size: 17px;
     font-weight: 600;
     color: #000;
+    line-height: 19px;
 }
 
 body:has(.figma-nav) .grid2 {
@@ -1133,11 +1028,8 @@ body:has(.figma-nav) .grid2 {
     margin-top: 0;
 }
 
-body:has(.figma-nav) .grid2 > div {
-    width: 100%;
-}
+body:has(.figma-nav) .grid2 > div { width: 100%; }
 
-/* Figma pill buttons */
 body:has(.figma-nav) .actions {
     display: flex;
     gap: 19px;
@@ -1154,12 +1046,7 @@ body:has(.figma-nav) .actions .primary {
     font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 17px;
     font-weight: 600;
-    line-height: 19px;
     cursor: pointer;
-}
-
-body:has(.figma-nav) .actions .primary:hover {
-    opacity: 0.85;
 }
 
 body:has(.figma-nav) .actions .ghost {
@@ -1171,53 +1058,15 @@ body:has(.figma-nav) .actions .ghost {
     font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 17px;
     font-weight: 600;
-    line-height: 19px;
     cursor: pointer;
 }
 
-body:has(.figma-nav) .actions .ghost:hover {
-    opacity: 0.85;
-}
-
-/* Find services card h2 hidden (no "Search & Filters" title) */
-body:has(.figma-nav) .card h2[data-i18n="search_filters"] {
-    display: none;
-}
-
-/* Find services mobile */
-@media (max-width: 960px) {
-    body:has(.figma-nav) .layout {
-        flex-direction: column;
-    }
-
-    body:has(.figma-nav) .sidebar {
-        flex: none;
-        max-height: none;
-        overflow: visible;
-        padding: 20px 10px;
-    }
-
-    body:has(.figma-nav) .content {
-        position: static;
-        height: 400px;
-    }
-}
+body:has(.figma-nav) .card h2[data-i18n="search_filters"] { display: none; }
 
 /* =========================================
-   FIND SERVICES – Result Items (Figma match)
+   RESULT ITEMS – Figma Style
 ========================================= */
 
-/* Fix select/input text cutoff */
-body:has(.figma-nav) input[type="search"],
-body:has(.figma-nav) select {
-    height: auto;
-    min-height: 37px;
-    padding: 9px 10px;
-    line-height: 19px;
-    overflow: visible;
-}
-
-/* Result count */
 body:has(.figma-nav) #resultCount {
     font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 20px;
@@ -1226,339 +1075,210 @@ body:has(.figma-nav) #resultCount {
     line-height: 22px;
 }
 
-/* Results list reset */
-body:has(.figma-nav) #results {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+body:has(.figma-nav) #results { list-style: none; padding: 0; margin: 0; }
+body:has(.figma-nav) .results-section li { background: transparent !important; padding: 0; border: none; list-style: none; }
+body:has(.figma-nav) .results-section li:hover { background: transparent !important; }
 
-/* Individual result item */
 .result-item {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 20px 0 10px;
-    border-top: 1px solid #d3d3d3;
-    border-bottom: 1px solid #d3d3d3;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
     cursor: pointer;
     background: transparent !important;
 }
 
-.result-empty {
-    padding: 20px;
-    text-align: center;
-    color: #888;
-    list-style: none;
-}
+.result-empty { padding: 20px; text-align: center; color: #888; list-style: none; }
 
-/* Numbered circle */
 .result-number {
-    width: 60px;
-    height: 60px;
+    width: 60px; height: 60px;
     background: #000;
     border: 3.5px solid #0FDE00;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
 }
 
 .result-number span {
     font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 35px;
-    font-weight: 600;
-    color: #0FDE00;
-    line-height: 0.98;
-    text-transform: uppercase;
+    font-size: 35px; font-weight: 600; color: #0FDE00; line-height: 0.98;
 }
 
-/* Org name */
 .result-name {
     font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 35px;
-    font-weight: 600;
-    color: #000;
-    line-height: 0.98;
+    font-size: 35px; font-weight: 600; color: #000; line-height: 0.98;
 }
 
-/* Address */
 .result-address {
     font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: #000;
-    line-height: 22px;
+    font-size: 20px; font-weight: 600; color: #000; line-height: 22px;
 }
 
-/* Show details toggle */
-.result-toggle {
-    display: flex;
-    justify-content: flex-end;
-    cursor: pointer;
-}
+.result-toggle { display: flex; justify-content: flex-end; cursor: pointer; }
 
 .result-toggle span {
-    background: #fff;
-    padding: 3px 9px 4px;
-    border-radius: 20px;
+    background: #fff; padding: 3px 9px 4px; border-radius: 20px;
     font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: #000;
-    line-height: 14px;
+    font-size: 12px; font-weight: 600; color: #000;
 }
 
-/* Details section (hidden by default) */
-.result-details {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-}
+.result-details { display: none; flex-direction: column; gap: 10px; }
+.result-details.show { display: flex; }
+.result-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
-.result-details.show {
-    display: flex;
-}
-
-.result-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.result-hours {
-    font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 17px;
-    font-weight: 600;
-    color: #000;
-    line-height: 19px;
-}
-
-.result-contact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.result-btn {
-    background: #fff;
-    padding: 10px 26px;
-    border-radius: 35px;
-    font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 17px;
+.result-tags .tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0FDE00;
+    padding: 5px 6px;
+    font-size: 14px;
     font-weight: 600;
     color: #000;
     text-decoration: none;
-    line-height: 19px;
+    line-height: 18px;
+    border: none;
+    border-radius: 0;
+}
+.result-hours { font-size: 17px; font-weight: 600; color: #000; line-height: 19px; }
+.result-contact { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.result-btn {
+    background: #fff; padding: 10px 26px; border-radius: 35px;
+    font-size: 17px; font-weight: 600; color: #000; text-decoration: none;
     display: inline-block;
 }
 
-.result-btn:hover {
-    opacity: 0.8;
-}
+.result-btn:hover { opacity: 0.8; }
+.result-btn-green { background: #0FDE00; }
 
-.result-btn-green {
-    background: #0FDE00;
-}
-
-/* Mobile result sizing */
-@media (max-width: 960px) {
-    .result-name {
-        font-size: 24px;
-    }
-
-    .result-number {
-        width: 45px;
-        height: 45px;
-    }
-
-    .result-number span {
-        font-size: 24px;
-    }
-
-    .result-address {
-        font-size: 16px;
-    }
-}
-
-/* Override old white bg on result items for Figma pages */
-body:has(.figma-nav) .list li {
-    background: transparent !important;
-    padding: 0;
-    border: none;
-}
-
-body:has(.figma-nav) .list li:hover {
-    background: transparent !important;
-}
+/* Divider between results */
+.result-item + .result-item { margin-top: 0; }
 
 /* =========================================
-   ABOUT PAGE – Figma Layout
+   ABOUT PAGE
 ========================================= */
 
 .about-layout {
     display: flex;
     min-height: 695px;
-    font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     margin-top: 45px;
+    font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.about-layout * {
-    margin: 0;
-    padding: 0;
-}
+.about-layout * { margin: 0; padding: 0; }
 
-/* Left column */
 .about-left {
-    flex: 0 0 auto;
-    width: 440px;
-    padding: 0 10px 31px 20px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+    flex: 0 0 auto; width: 440px;
+    padding: 0 10px 31px 20px; background: #fff;
+    display: flex; flex-direction: column; gap: 25px;
 }
 
-.about-subtitle {
-    font-size: 17px;
-    font-weight: 600;
-    color: #000;
-    line-height: 19px;
-}
+.about-subtitle { font-size: 17px; font-weight: 600; color: #000; line-height: 19px; }
 
-.about-list {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    width: 370px;
-}
+.about-list { display: flex; flex-direction: column; gap: 18px; width: 370px; }
 
-.about-item {
-    display: flex;
-    gap: 35px;
-    align-items: flex-start;
-}
+.about-item { display: flex; gap: 35px; align-items: flex-start; }
 
 .about-number {
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
-    background: #000;
-    border: 3.5px solid #0FDE00;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 60px; height: 60px; min-width: 60px;
+    background: #000; border: 3.5px solid #0FDE00; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
 }
 
-.about-number span {
-    font-size: 35px;
-    font-weight: 600;
-    color: #0FDE00;
-    line-height: 0.98;
-    text-transform: uppercase;
-}
+.about-number span { font-size: 35px; font-weight: 600; color: #0FDE00; line-height: 0.98; }
 
-.about-item-content {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding-top: 7px;
-    flex: 1;
-}
+.about-item-content { display: flex; flex-direction: column; gap: 6px; padding-top: 7px; flex: 1; }
+.about-item-content h2 { font-size: 35px; font-weight: 600; color: #000; line-height: 0.98; }
+.about-item-content p { font-size: 17px; font-weight: 600; color: #000; line-height: 19px; }
 
-.about-item-content h2 {
-    font-size: 35px;
-    font-weight: 600;
-    color: #000;
-    line-height: 0.98;
-}
-
-.about-item-content p {
-    font-size: 17px;
-    font-weight: 600;
-    color: #000;
-    line-height: 19px;
-}
-
-/* Right column – green CTA */
 .about-right {
-    flex: 1;
-    background: #0FDE00;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    padding: 100px 10px;
-    text-align: center;
+    flex: 1; background: #0FDE00;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 30px; padding: 100px 10px; text-align: center;
 }
 
-.about-cta-text {
-    font-size: 17px;
-    font-weight: 600;
-    color: #000;
-    line-height: 19px;
-}
+.about-cta-text { font-size: 17px; font-weight: 600; color: #000; line-height: 19px; }
 
 .about-cta-btn {
-    display: inline-block;
-    background: #000;
-    color: #fff;
-    border: 3.5px solid #fff;
-    border-radius: 70px;
-    padding: 11px 26px 12px;
-    font-size: 35px;
-    font-weight: 600;
-    line-height: 0.98;
-    text-transform: uppercase;
-    text-decoration: none;
+    display: inline-block; background: #000; color: #fff;
+    border: 3.5px solid #fff; border-radius: 70px;
+    padding: 11px 26px 12px; font-size: 35px; font-weight: 600;
+    line-height: 0.98; text-transform: uppercase; text-decoration: none;
 }
 
-.about-cta-btn:hover {
-    opacity: 0.85;
+.about-cta-btn:hover { opacity: 0.85; }
+
+.about-cta-big { font-size: 70px; font-weight: 600; color: #000; line-height: 63px; text-transform: uppercase; }
+
+/* =========================================
+   SUBMIT PAGE – Form field borders fix
+========================================= */
+
+body:has(.figma-nav) .form-container input,
+body:has(.figma-nav) .form-container select,
+body:has(.figma-nav) .form-container textarea {
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    padding: 9px 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.about-cta-big {
-    font-size: 70px;
-    font-weight: 600;
-    color: #000;
-    line-height: 63px;
-    text-transform: uppercase;
-    text-align: center;
-}
+/* Remove bubble/success message by default */
+.success-message { display: none; }
 
-/* About mobile */
+/* =========================================
+   MOBILE FIXES
+========================================= */
+
 @media (max-width: 960px) {
-    .about-layout {
+    .figma-nav { height: auto; padding: 10px; }
+    .figma-nav .nav-logo { font-size: 28px; line-height: 1.2; }
+    .tab-bar a { font-size: 22px; }
+
+    /* Map visible in mobile */
+    body:has(.figma-nav) .layout {
+        display: flex;
         flex-direction: column;
-        min-height: auto;
     }
+    body:has(.figma-nav) .sidebar { padding: 20px 10px; }
+    body:has(.figma-nav) .content { position: static; height: 400px; min-height: 400px; order: 0; }
+    body:has(.figma-nav) .sidebar { order: -1; }
+    body:has(.figma-nav) .results-section { order: 1; padding: 20px 10px 50px; }
+    body:has(.figma-nav) #map { height: 400px !important; min-height: 400px; }
 
-    .about-left {
-        width: 100%;
-        padding: 20px 10px;
-    }
+    /* Languages size fix */
+    .lang-label { font-size: 32px !important; }
 
-    .about-list {
-        width: 100%;
-    }
+    /* Footer mobile */
+    .footer-black { grid-template-columns: 1fr; gap: 30px; padding: 40px 10px 6px; }
+    .footer-right .footer-tagline { font-size: 24px; }
+    .footer-green-bar .footer-brand { font-size: 32px; top: 60px; left: 10px; }
+    .footer-green-bar .green-strip { height: 100px; }
+    .footer-green-bar { padding-bottom: 40px; }
 
-    .about-item-content h2 {
-        font-size: 24px;
-    }
+    /* About mobile */
+    .about-layout { flex-direction: column; min-height: auto; margin-top: 20px; }
+    .about-left { width: 100%; padding: 20px 10px; }
+    .about-list { width: 100%; }
+    .about-item-content h2 { font-size: 24px; }
+    .about-right { padding: 40px 10px; }
+    .about-cta-btn { font-size: 24px; }
+    .about-cta-big { font-size: 40px; line-height: 38px; }
 
-    .about-right {
-        padding: 40px 10px;
-    }
-
-    .about-cta-btn {
-        font-size: 24px;
-    }
-
-    .about-cta-big {
-        font-size: 40px;
-        line-height: 38px;
-    }
+    /* Result mobile */
+    .result-name { font-size: 24px; }
+    .result-number { width: 45px; height: 45px; }
+    .result-number span { font-size: 24px; }
+    .result-address { font-size: 16px; }
 }
+
+/* Language toggle – hidden by default */
+.home .lang-tags { display: none; }
+.lang-tags.show { display: flex !important; }
+.lang-label { cursor: pointer; }
+.lang-label:hover { opacity: 0.7; }

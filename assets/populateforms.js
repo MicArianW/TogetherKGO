@@ -41,7 +41,7 @@ function populateOrganizationTypes() {
   populateDropdown("orgType", types, "Select type..."); // submit-services form
 }
 
-// Populate Services dropdown (tags from homepage)
+// Populate Services dropdown (from HOME_TAGS)
 function populateServiceDropdown() {
   var tags = window.CONSTANTS.HOME_TAGS;
   populateDropdown("service", tags, "Any");

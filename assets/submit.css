@@ -5,325 +5,369 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    color: var(--text-dark);
+    font-family: 'PP Mori', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #000;
     line-height: 1.6;
-    background: var(--pale-blue);
+    background: #fff;
 }
 
-
-/* Main Container */
+/* Main container – gray bg full width */
 .main-container {
-    max-width: 900px;
-    margin: 3rem auto;
-    padding: 0 2rem;
+    max-width: 100%;
+    margin: 0;
+    padding: 25px 20px 50px;
+    background: #E6E6E6;
 }
 
-/* Header Section */
+.main-container > .page-header,
+.main-container > .form-container {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+/* Top spacing under nav/tabs */
 .page-header {
-    background: var(--white);
-    padding: 3rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    margin-bottom: 2rem;
-    text-align: center;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+    text-align: left;
 }
 
 .page-header h1 {
-    font-size: 2.5rem;
-    color: var(--text-dark);
-    margin-bottom: 1rem;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 0.98;
+    color: #000;
+    margin-bottom: 10px;
 }
 
 .page-header p {
-    font-size: 1.15rem;
-    color: var(--text-light);
-    line-height: 1.7;
+    font-size: 17px;
+    font-weight: 600;
+    color: #000;
+    line-height: 19px;
+    max-width: 760px;
 }
 
-/* Form Container */
+/* Form wrapper */
 .form-container {
-    background: var(--white);
-    padding: 3rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .form-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 34px;
+    padding-top: 15px;
 }
 
 .form-section h2 {
-    font-size: 1.5rem;
-    color: var(--primary-blue);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--light-blue);
+    font-size: 35px;
+    font-weight: 600;
+    color: #000;
+    line-height: 0.98;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 2px solid var(--light-blue);
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: inherit;
-  transition: all 0.3s;
+.form-section > p {
+    font-size: 17px;
+    line-height: 19px;
+    color: #000;
+    margin-bottom: 16px;
 }
 
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(125, 191, 232, 0.1);
+.form-group {
+    margin-bottom: 18px;
 }
 
-.form-group textarea {
-  min-height: 150px;
-  resize: vertical;
-}
-
+/* Labels */
 label {
     display: block;
     font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+    color: #000;
+    margin-bottom: 2px;
+    font-size: 17px;
+    line-height: 19px;
 }
 
 label .required {
     color: #EF4444;
 }
 
+/* Helper / hint text */
+.helper-text,
+.form-hint,
+small.helper-text {
+    display: block;
+    font-size: 12px;
+    line-height: 14px;
+    color: #8F8F8F;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+/* Inputs */
+.form-group input,
+.form-group textarea,
+.form-group select,
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="url"],
+input[type="search"],
 textarea,
 select {
     width: 100%;
-    padding: 0.875rem;
-    border: 2px solid var(--light-blue);
-    border-radius: 8px;
-    font-size: 1rem;
+    padding: 10px 14px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    font-size: 17px;
     font-family: inherit;
-    transition: all 0.3s;
-    background: var(--white);
+    font-weight: 400;
+    color: #000;
+    background: #F8F8F8;
+    box-shadow: none;
+    transition: border-color 0.2s ease;
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder,
+input::placeholder,
+textarea::placeholder {
+    color: #A3A3A3;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus,
 input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(125, 191, 232, 0.1);
+    border-color: #BCBCBC;
+    box-shadow: none;
 }
 
+/* Taller textarea */
+.form-group textarea,
 textarea {
-    min-height: 120px;
+    min-height: 148px;
     resize: vertical;
 }
 
-.helper-text {
-    font-size: 0.875rem;
-    color: var(--text-light);
-    margin-top: 0.25rem;
+/* Taller text inputs */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="url"],
+.form-group input[type="search"] {
+    min-height: 60px;
 }
 
-/* Checkbox Group */
+/* Selects */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Checkbox group */
 .checkbox-group {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 56px;
+    row-gap: 6px;
+    margin-top: 10px;
+    width: 100%;
 }
 
 .checkbox-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    align-items: start;
+    column-gap: 10px;
 }
 
 .checkbox-item input[type="checkbox"] {
-    width: auto;
+    width: 18px;
+    height: 18px;
     margin: 0;
+    accent-color: #0FDE00;
 }
 
 .checkbox-item label {
     margin: 0;
     font-weight: 400;
+    font-size: 17px;
+    line-height: 19px;
 }
 
-/* Days Selection */
+/* Operating hours */
 .days-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 0.75rem;
-    margin-top: 0.5rem;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 6px;
 }
 
-.day-checkbox {
-    position: relative;
+.day-hours {
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr;
+    gap: 8px;
+    align-items: center;
 }
 
-.day-checkbox input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-}
-
-.day-checkbox label {
-    display: block;
-    padding: 0.75rem;
-    text-align: center;
-    border: 2px solid var(--light-blue);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s;
+.day-hours label {
     margin: 0;
-    font-weight: 500;
 }
 
-.day-checkbox input:checked + label {
-    background: var(--primary-blue);
-    color: var(--white);
-    border-color: var(--primary-blue);
+.day-hours input[type="time"],
+.day-hours input[type="text"] {
+    font-size: 14px;
+    padding: 8px 10px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    background: #F8F8F8;
+    min-height: 37px !important;
 }
 
-/* Submit Button */
+/* Buttons below hours */
+.form-group.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.form-group.buttons button {
+    background: #D3D3D3;
+    color: #000;
+    border: none;
+    border-radius: 35px;
+    padding: 10px 14px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.form-group.buttons button:hover {
+    opacity: 0.85;
+}
+
+/* Submit section */
 .submit-section {
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 2px solid var(--light-blue);
+    margin-top: 28px;
+    padding-top: 0;
+    border-top: none;
 }
 
 .submit-btn {
-    background: var(--primary-blue);
-    color: var(--white);
-    padding: 1.25rem 3rem;
+    background: #0FDE00;
+    color: #000;
+    padding: 10px 26px 9px;
     border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
+    border-radius: 35px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: inherit;
     cursor: pointer;
-    transition: all 0.3s;
-    width: 100%;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(125, 191, 232, 0.3);
+    transition: opacity 0.2s ease;
+    width: auto;
+    text-transform: none;
+    box-shadow: none;
 }
 
 .submit-btn:hover {
-    background: var(--dark-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(125, 191, 232, 0.4);
+    background: #0FDE00;
+    opacity: 0.85;
+    transform: none;
+    box-shadow: none;
 }
 
 .submit-btn:disabled {
-    background: var(--text-light);
+    background: #BDBDBD;
+    color: #666;
     cursor: not-allowed;
-    transform: none;
 }
 
-/* ==============
-Changing the size of the operating hours text 
-*/
-.day-hours input[type="time"] {
-    font-size: 0.9rem;       /* smaller text */
-    padding: 0.8em 0.0rem;  /* less padding */
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+.submit-section p {
+    text-align: left !important;
+    margin-top: 22px !important;
+    font-size: 17px !important;
+    line-height: 19px !important;
+    color: #000 !important;
 }
 
-
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: center; /* Center everything on mobile */
-        gap: 1rem;
-        text-align: center;
-    }
-    
-    .logo {
-        font-size: 1.5rem;
-        margin-right: 0;
-    }
-    
-    .page-header h1 {
-        font-size: 2rem;
-    }
-
-    .form-container {
-        padding: 2rem 1.5rem;
-    }
-    
-    .nav-links {
-        display: none !important;
-    }
-
-    .mobile-menu-btn {
-        display: flex !important;
-    }
-}
-
-/* ===============================
-   SUCCESS MESSAGE
-================================= */
+/* Success message */
 .success-message {
-  display: none;               /* Hidden by default */
-  background: #D1FAE5;         /* Pale green background */
-  border: 2px solid #10B981;   /* Green border for emphasis */
-  color: #065F46;              /* Dark green text */
-  padding: 1.5rem 2rem;        /* Consistent spacing */
-  border-radius: 12px;         /* Rounded corners */
-  margin-bottom: 2rem;
-  text-align: center;
-  font-family: inherit;
+    display: none;
+    background: #D1FAE5;
+    border: 2px solid #10B981;
+    color: #065F46;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
-/* Show the success message */
 .success-message.show {
-  display: block;              /* Shown when .show class is added */
+    display: block;
 }
 
-/* Optional spacing for the heading inside success message */
 .success-message h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
 }
 
-/* Optional spacing for paragraph */
 .success-message p {
-  margin: 0;
-  line-height: 1.5;
+    margin: 0;
+    line-height: 1.5;
 }
 
+/* Mobile */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 0 16px;
+        margin: 30px auto 56px;
+    }
 
+    .page-header p,
+    .form-section > p,
+    label,
+    input,
+    textarea,
+    select {
+        font-size: 16px;
+    }
 
+    .form-section h2 {
+        font-size: 30px;
+    }
 
-/* ===============================
-   NEXT STEPS
-================================= */
-.next-steps {
-  padding-top: 2rem;
-}
-.next-steps h4 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: var(--text-dark);
-  font-size: 1.25rem;
-}
+    .checkbox-group {
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+    }
 
-.next-steps ol {
-  padding-left: 1.5rem;
-  line-height: 1.8;
-  color: var(--text-light);
-}
+    .day-hours {
+        grid-template-columns: 1fr;
+    }
 
-.next-steps li {
-  margin-bottom: 0.5rem;
+    .form-group.buttons {
+        flex-wrap: wrap;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="url"],
+    .form-group input[type="search"] {
+        min-height: 58px;
+    }
 }
