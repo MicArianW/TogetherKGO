@@ -1,0 +1,30 @@
+{
+  "post": {
+    "type": "recurring_event",
+    "title": "YouthLink Drop In",
+    "message": "A space for youth ages 12-29 years and their families to connect with youth-focused services.\n\nWhat you'll experience:\n1. Services and assistance for youth and families.\n2. Knowledge of youth-focused programs.",
+    "date": "2026-04-24T23:44:00-04:00",
+    "thumbnail": "/assets/images/posts/east-scarb-storefront-youthlink.png",
+    "expiresDate": "2026-12-24T23:45:00.000-05:00"
+  },
+  "organization": {
+    "foodBankId": "fb0",
+    "foodBankOther": "East Scarborough Storefront"
+  },
+  "location": {
+    "location": "East Scarborough Storefront, 4040 Lawrence Ave. E."
+  },
+  "recurringEvent": {
+    "startRecurringDates": "2026-04-24T23:44:00.000-04:00",
+    "recurringDates": {
+      "mon": {
+        "open": "11:00am",
+        "close": "1:00pm"
+      },
+      "thu": {
+        "close": "1:00pm",
+        "open": "11:00am"
+      }
+    }
+  }
+}
