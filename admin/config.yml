@@ -87,11 +87,12 @@ collections:
         widget: "datetime"
         required: true
 
-      - label: "Featured Image"
+      - label: "Image or Flyer"
         name: "thumbnail"
         widget: "image"
-        choose_url: true
+        hint: "Optional image or flyer to display with the community post."
         required: false
+        
 
   # Location Information
   - label: "Location Information"

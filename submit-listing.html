@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Your Listing - TogetherKGO</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="assets/submit.css">
+    <link rel="stylesheet" href="assets/styles.css?v=2">
+    <link rel="stylesheet" href="assets/submit.css?v=2">
     <script src="assets/constants.js"></script>
     <script src="assets/populateforms.js"></script>
 </head>
@@ -40,7 +40,7 @@
 
         <!-- Submission Form -->
         <div class="form-container">
-            <form name="service-listings" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="listingForm">
+            <form name="service-listings" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="listingForm" autocomplete="off">
                 <input type="hidden" name="form-name" value="service-listings">
                 <p style="display: none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
@@ -50,17 +50,17 @@
                     <div class="form-group">
                         <label for="orgName">Organization name*</label>
                         <span class="helper-text">Required</span>
-                        <input type="text" id="orgName" name="organization_name" required placeholder="Enter your organization name here">
+                        <input type="text" id="orgName" name="organization_name" required placeholder="Enter your organization name here" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="orgType">Organization type*</label>
                         <span class="helper-text">Required</span>
-                        <select id="orgType" name="organization_type" required></select>
+                        <select id="orgType" name="organization_type" required autocomplete="off"></select>
                     </div>
                     <div class="form-group">
                         <label for="description">Description*</label>
                         <span class="helper-text">Tell us what makes your organization special and how you help the community.</span>
-                        <textarea id="description" name="description"></textarea>
+                        <textarea id="description" name="description" autocomplete="off"></textarea>
                     </div>
                 </div>
 
@@ -70,19 +70,19 @@
                     <div class="form-group">
                         <label for="address">Full Address*</label>
                         <span class="helper-text">Include street number, street name, city, province, and postal code.</span>
-                        <textarea id="address" name="address" placeholder="123 Street Name, City, ON P05T4L"></textarea>
+                        <textarea id="address" name="address" placeholder="123 Street Name, City, ON P05T4L" autocomplete="off"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone number*</label>
-                        <input type="tel" id="phone" name="phone" placeholder="436-111-1111">
+                        <input type="tel" id="phone" name="phone" placeholder="436-111-1111" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="email">Email address</label>
-                        <input type="email" id="email" name="email" placeholder="info@yourorganization.ca">
+                        <input type="email" id="email" name="email" placeholder="info@yourorganization.ca" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="website">Website</label>
-                        <input type="url" id="website" name="website" placeholder="https://www.yourorganization.ca">
+                        <input type="url" id="website" name="website" placeholder="https://www.yourorganization.ca" autocomplete="off">
                     </div>
                 </div>
 
@@ -91,13 +91,13 @@
                     <h2>Operating Hours</h2>
                     <div class="form-hint">Specify when your organization is open. Leave days blank if closed.</div>
                     <div class="days-grid">
-                        <div class="form-group day-hours"><label>Monday</label><input type="text" name="hours[mon][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"><input type="text" name="hours[mon][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"></div>
-                        <div class="form-group day-hours"><label>Tuesday</label><input type="text" name="hours[tue][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"><input type="text" name="hours[tue][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"></div>
-                        <div class="form-group day-hours"><label>Wednesday</label><input type="text" name="hours[wed][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"><input type="text" name="hours[wed][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"></div>
-                        <div class="form-group day-hours"><label>Thursday</label><input type="text" name="hours[thu][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"><input type="text" name="hours[thu][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"></div>
-                        <div class="form-group day-hours"><label>Friday</label><input type="text" name="hours[fri][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"><input type="text" name="hours[fri][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"></div>
-                        <div class="form-group day-hours"><label>Saturday</label><input type="text" name="hours[sat][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"><input type="text" name="hours[sat][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"></div>
-                        <div class="form-group day-hours"><label>Sunday</label><input type="text" name="hours[sun][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"><input type="text" name="hours[sun][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'"></div>
+                        <div class="form-group day-hours"><label>Monday</label><input type="text" name="hours[mon][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"><input type="text" name="hours[mon][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"></div>
+                        <div class="form-group day-hours"><label>Tuesday</label><input type="text" name="hours[tue][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"><input type="text" name="hours[tue][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"></div>
+                        <div class="form-group day-hours"><label>Wednesday</label><input type="text" name="hours[wed][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"><input type="text" name="hours[wed][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"></div>
+                        <div class="form-group day-hours"><label>Thursday</label><input type="text" name="hours[thu][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"><input type="text" name="hours[thu][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"></div>
+                        <div class="form-group day-hours"><label>Friday</label><input type="text" name="hours[fri][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"><input type="text" name="hours[fri][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"></div>
+                        <div class="form-group day-hours"><label>Saturday</label><input type="text" name="hours[sat][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"><input type="text" name="hours[sat][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"></div>
+                        <div class="form-group day-hours"><label>Sunday</label><input type="text" name="hours[sun][open]" placeholder="Start Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"><input type="text" name="hours[sun][close]" placeholder="End Time" onfocus="this.type='time'" onblur="if(!this.value)this.type='text'" autocomplete="off"></div>
                     </div>
                     <div class="form-group buttons">
                         <button type="button" id="fillNineToFive">Set all times to 9am–5pm</button>
@@ -116,7 +116,7 @@
                     </div>
                     <div class="form-group">
                         <label for="additionalInfo">Additional Information</label>
-                        <textarea id="additionalInfo" name="additional_info" placeholder="If you offer other services that are not listed above, please describe them here. Otherwise please use this section to provide any additional information."></textarea>
+                        <textarea id="additionalInfo" name="additional_info" placeholder="If you offer other services that are not listed above, please describe them here. Otherwise please use this section to provide any additional information." autocomplete="off"></textarea>
                     </div>
                 </div>
 
@@ -125,23 +125,23 @@
                     <h2>Accessibility & Restrictions</h2>
                     <div class="form-group">
                         <label for="languages_spoken">Languages Supported</label>
-                        <input type="text" id="languages_spoken" name="languages_spoken" placeholder="e.g., English, French, Spanish...">
+                        <input type="text" id="languages_spoken" name="languages_spoken" placeholder="e.g., English, French, Spanish..." autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="accessibility_info">Accessibility Information</label>
-                        <textarea id="accessibility_info" name="accessibility_info" placeholder="e.g., wheelchair accessible, designated parking..."></textarea>
+                        <textarea id="accessibility_info" name="accessibility_info" placeholder="e.g., wheelchair accessible, designated parking..." autocomplete="off"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="documents_required">Documents required</label>
-                        <input type="text" id="documents_required" name="documents_required" placeholder="e.g., ID required for all household members">
+                        <input type="text" id="documents_required" name="documents_required" placeholder="e.g., ID required for all household members" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="fees">Fees</label>
-                        <input type="text" id="fees" name="fees" placeholder="e.g., Free, $5 per service, variable">
+                        <input type="text" id="fees" name="fees" placeholder="e.g., Free, $5 per service, variable" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="eligibility">Eligibility</label>
-                        <textarea id="eligibility" name="eligibility" placeholder="e.g., Residents of Scarborough, Postal codes beginning with M1B..."></textarea>
+                        <textarea id="eligibility" name="eligibility" placeholder="e.g., Residents of Scarborough, Postal codes beginning with M1B..." autocomplete="off"></textarea>
                     </div>
                 </div>
 
@@ -151,16 +151,16 @@
                     <p>We collect your information to contact you in case of errors or missing details. This will not be made public.</p>
                     <div class="form-group">
                         <label for="contactName">Your name*</label>
-                        <input type="text" id="contactName" name="contact_name" required>
+                        <input type="text" id="contactName" name="contact_name" required autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="contactEmail">Your email*</label>
                         <span class="helper-text">We'll use this to contact you about your submission.</span>
-                        <input type="email" id="contactEmail" name="contact_email" required>
+                        <input type="email" id="contactEmail" name="contact_email" required autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="contactPhone">Your phone number</label>
-                        <input type="tel" id="contactPhone" name="contact_phone">
+                        <input type="tel" id="contactPhone" name="contact_phone" autocomplete="off">
                     </div>
                 </div>
 

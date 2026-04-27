@@ -592,8 +592,10 @@ textarea:focus {
 /* PP Mori font */
 @font-face {
     font-family: 'PP Mori';
-    src: url('PPMori-Semibold.woff2') format('woff2'),
-         url('PPMori-Semibold.woff') format('woff');
+    src: local('PP Mori Semibold'),
+         local('PP Mori'),
+         url('/assets/PPMori-Semibold.woff2') format('woff2'),
+         url('/assets/PPMori-Semibold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;

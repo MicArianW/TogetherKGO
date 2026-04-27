@@ -1,0 +1,34 @@
+name: Cleanup Expired Community Posts
+
+on:
+  schedule:
+    - cron: "15 7 * * *"
+  workflow_dispatch:
+
+jobs:
+  cleanup_expired_posts:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Remove expired community posts and unused images
+        run: node .github/workflows/cleanup-expired-posts.js
+
+      - name: Commit cleanup changes
+        run: |
+          git add -A data/posts assets/images/posts
+          if git diff --cached --quiet; then
+            echo "No expired content to commit"
+            exit 0
+          fi
+          git commit -m "Auto-cleanup: Remove expired community posts"
+          git push origin main

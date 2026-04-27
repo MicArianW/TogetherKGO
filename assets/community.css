@@ -138,6 +138,7 @@
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
     column-gap: 40px;
     row-gap: 40px;
     max-width: 1400px;
@@ -153,9 +154,10 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
     min-width: 0;
+    height: 100%;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -194,6 +196,10 @@
     color: #000;
     line-height: 0.98;
     overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 .post-card .card-org {
@@ -201,6 +207,11 @@
     font-weight: 600;
     color: #000;
     line-height: 22px;
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 }
 
 .post-card .card-separator {
@@ -228,6 +239,7 @@
     font-weight: 600;
     color: #000;
     line-height: 19px;
+    min-height: 38px;
 }
 
 .post-card .card-when .when-label {
@@ -237,6 +249,11 @@
 
 .post-card .card-when .when-value {
     flex: 1 1 auto;
+    min-width: 0;
+}
+
+.post-card .card-when.card-when-empty {
+    visibility: hidden;
 }
 
 .post-card .card-footer {
@@ -244,6 +261,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    margin-top: auto;
 }
 
 .post-card .card-posted {
@@ -358,11 +376,13 @@
 .post-modal-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px 0;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 10px 20px 14px;
     font-size: 14px;
     font-weight: 600;
     color: #000;
+    border-bottom: 1px solid #fff;
 }
 
 .post-modal-close {
@@ -376,18 +396,12 @@
     color: #000;
     cursor: pointer;
     font-family: inherit;
+    white-space: nowrap;
+    margin-left: auto;
 }
 
 .post-modal-close:hover {
     background: #f3f3f3;
-}
-
-.post-modal-header::after {
-    content: "";
-    display: block;
-    width: 100%;
-    border-top: 1px solid #fff;
-    margin-top: 10px;
 }
 
 .post-modal-body {
@@ -395,13 +409,13 @@
     grid-template-columns: minmax(0, 1fr) minmax(360px, 1fr);
     gap: 40px;
     align-items: stretch;
-    padding: 10px 20px 20px;
+    padding: 16px 20px 20px;
 }
 
 .post-modal-left {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     min-width: 0;
 }
 
@@ -451,7 +465,7 @@
 .post-modal-details {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .post-modal-detail-row {
@@ -482,7 +496,7 @@
 .post-modal-contact-section {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .post-modal-contact-buttons {
@@ -526,9 +540,74 @@
     position: relative;
 }
 
+.post-modal-image-button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 0;
+    position: relative;
+    cursor: zoom-in;
+}
+
 .post-modal-img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
+    background: #fff;
+}
+
+.post-modal-image-hint {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.88);
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+}
+
+.image-zoom-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.image-zoom-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+}
+
+.image-zoom-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    background: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    cursor: pointer;
+}
+
+.image-zoom-img {
+    position: relative;
+    z-index: 1;
+    max-width: min(100%, 920px);
+    max-height: calc(100vh - 80px);
+    width: auto;
+    height: auto;
     object-fit: contain;
     background: #fff;
 }
@@ -635,5 +714,10 @@
     .post-modal-detail-row .detail-label {
         width: auto;
         flex: 0 0 auto;
+    }
+
+    .post-modal-image-hint {
+        right: 10px;
+        bottom: 10px;
     }
 }

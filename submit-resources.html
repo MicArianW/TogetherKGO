@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit a Resource - TogetherKGO</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="assets/submit.css">
+    <link rel="stylesheet" href="assets/styles.css?v=2">
+    <link rel="stylesheet" href="assets/submit.css?v=2">
     <script src="assets/constants.js"></script>
 </head>
 <body>
@@ -39,7 +39,7 @@
 
         <!-- Submission Form -->
         <div class="form-container">
-            <form name="resource-submissions" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="resourceForm">
+            <form name="resource-submissions" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="resourceForm" autocomplete="off">
                 <input type="hidden" name="form-name" value="resource-submissions">
                 <p style="display: none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
@@ -48,22 +48,24 @@
                     <h2>Resource Information</h2>
                     <div class="form-group">
                         <label for="resourceTitle">Resource Title*</label>
-                        <input type="text" id="resourceTitle" name="resource_title" required placeholder="e.g., CivicSpark Microgrant">
+                        <input type="text" id="resourceTitle" name="resource_title" required placeholder="e.g., CivicSpark Microgrant" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="organizationName">Organization / Program Name*</label>
-                        <input type="text" id="organizationName" name="organization_name" required placeholder="e.g., Volunteer Toronto">
+                        <input type="text" id="organizationName" name="organization_name" required placeholder="e.g., Volunteer Toronto" autocomplete="off">
                     </div>
                     <div class="form-group">
+
                         <label for="resourceType">Primary Resource Type*</label>
-                        <select id="resourceType" name="resource_type" required>
+                        <select id="resourceType" name="resource_type" required autocomplete="off">
+
                             <option value="">Select a resource type</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="description">Description*</label>
                         <span class="helper-text">Include what the resource does, who it is for, and any important details residents should know.</span>
-                        <textarea id="description" name="description" required placeholder="Describe what this resource offers, who it supports, and why it would be helpful."></textarea>
+                        <textarea id="description" name="description" required placeholder="Describe what this resource offers, who it supports, and why it would be helpful." autocomplete="off"></textarea>
                     </div>
                 </div>
 
@@ -72,28 +74,28 @@
                     <h2>Access & Coverage</h2>
                     <div class="form-group">
                         <label for="resourceLink">Primary Link*</label>
-                        <input type="url" id="resourceLink" name="resource_link" required placeholder="https://example.org/resource">
+                        <input type="url" id="resourceLink" name="resource_link" required placeholder="https://example.org/resource" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="alternateLink">Additional Link</label>
                         <span class="helper-text">Use this for an application page, directory page, toolkit PDF, or supporting link.</span>
-                        <input type="url" id="alternateLink" name="alternate_link" placeholder="https://example.org/additional-info">
+                        <input type="url" id="alternateLink" name="alternate_link" placeholder="https://example.org/additional-info" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="regionServed">Region Served*</label>
-                        <input type="text" id="regionServed" name="region_served" required placeholder="e.g., KGO, Scarborough, Toronto, Ontario, Canada-wide">
+                        <input type="text" id="regionServed" name="region_served" required placeholder="e.g., KGO, Scarborough, Toronto, Ontario, Canada-wide" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="eligibility">Eligibility</label>
-                        <textarea id="eligibility" name="eligibility" placeholder="Who can use this resource? e.g., residents, grassroots groups, youth, newcomers, nonprofits."></textarea>
+                        <textarea id="eligibility" name="eligibility" placeholder="Who can use this resource? e.g., residents, grassroots groups, youth, newcomers, nonprofits." autocomplete="off"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="cost">Cost / Fees</label>
-                        <input type="text" id="cost" name="cost" placeholder="e.g., Free, Subsidized, Varies, Up to $2,500 grant">
+                        <input type="text" id="cost" name="cost" placeholder="e.g., Free, Subsidized, Varies, Up to $2,500 grant" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="documentsRequired">Documents or Requirements</label>
-                        <textarea id="documentsRequired" name="documents_required" placeholder="List any application requirements, certifications, forms, insurance, or supporting documents."></textarea>
+                        <textarea id="documentsRequired" name="documents_required" placeholder="List any application requirements, certifications, forms, insurance, or supporting documents." autocomplete="off"></textarea>
                     </div>
                 </div>
 
@@ -108,7 +110,7 @@
                     </div>
                     <div class="form-group">
                         <label for="notes">Additional Notes</label>
-                        <textarea id="notes" name="additional_notes" placeholder="Anything else we should know before reviewing this resource?"></textarea>
+                        <textarea id="notes" name="additional_notes" placeholder="Anything else we should know before reviewing this resource?" autocomplete="off"></textarea>
                     </div>
                 </div>
 
@@ -116,12 +118,12 @@
                 <div class="form-section">
                     <h2>Resource Contact Information</h2>
                     <div class="form-group">
-                        <label for="contactEmailPublic">Public Contact Email*</label>
-                        <input type="email" id="contactEmailPublic" name="public_contact_email" placeholder="info@organization.org">
+                        <label for="contactEmailPublic">Public Contact Email</label>
+                        <input type="email" id="contactEmailPublic" name="public_contact_email" placeholder="info@organization.org" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <label for="contactPhonePublic">Public Contact Phone*</label>
-                        <input type="tel" id="contactPhonePublic" name="public_contact_phone" placeholder="416-XXX-XXXX">
+                        <label for="contactPhonePublic">Public Contact Phone</label>
+                        <input type="tel" id="contactPhonePublic" name="public_contact_phone" placeholder="416-XXX-XXXX" autocomplete="off">
                     </div>
                 </div>
 
@@ -131,16 +133,16 @@
                     <p>We collect your information to contact you in case of errors or missing details. This will not be made public.</p>
                     <div class="form-group">
                         <label for="submitterName">Your Name*</label>
-                        <input type="text" id="submitterName" name="submitter_name" required>
+                        <input type="text" id="submitterName" name="submitter_name" required autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="submitterEmail">Your Email*</label>
                         <span class="helper-text">We'll use this to contact you about your submission if needed.</span>
-                        <input type="email" id="submitterEmail" name="submitter_email" required>
+                        <input type="email" id="submitterEmail" name="submitter_email" required autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="submitterPhone">Your Phone Number</label>
-                        <input type="tel" id="submitterPhone" name="submitter_phone">
+                        <input type="tel" id="submitterPhone" name="submitter_phone" autocomplete="off">
                     </div>
                 </div>
 
@@ -206,14 +208,6 @@
 
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
-
-                var selectedTags = form.querySelectorAll('input[name="resource_tags"]:checked');
-                if (selectedTags.length === 0) {
-                    alert('Please select at least one resource category.');
-                    var firstTag = form.querySelector('input[name="resource_tags"]');
-                    if (firstTag) firstTag.focus();
-                    return;
-                }
 
                 if (!form.checkValidity()) {
                     form.reportValidity();
