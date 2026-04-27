@@ -91,6 +91,7 @@ collections:
         name: "thumbnail"
         widget: "image"
         hint: "Optional image or flyer to display with the community post."
+        required: false
         
 
   # Location Information
