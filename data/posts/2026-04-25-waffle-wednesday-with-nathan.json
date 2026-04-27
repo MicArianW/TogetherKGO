@@ -1,0 +1,22 @@
+{
+  "post": {
+    "type": "recurring_event",
+    "message": "Nathan is testing recurring events, this should appear closer to the front of the list as we get closer to the event.",
+    "title": "Waffle Wednesday with Nathan",
+    "date": "2026-04-25T00:00:00-04:00",
+    "expiresDate": "2026-09-15T00:00:00.000-04:00"
+  },
+  "organization": {
+    "foodBankId": "fb0",
+    "foodBankOther": "Nathan"
+  },
+  "recurringEvent": {
+    "startRecurringDates": "2026-04-25T00:00:00.000-04:00",
+    "recurringDates": {
+      "wed": {
+        "open": "5:00pm",
+        "close": "8:30pm"
+      }
+    }
+  }
+}

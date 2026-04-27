@@ -1,0 +1,15 @@
+{
+  "post": {
+    "type": "update",
+    "title": "We're Hiring!",
+    "message": "Malvern Family Resource Centre is hiring a Community and Family Program Manager.\n\nhttps://www.mfrc.org/careers\n(Example)",
+    "expiresDate": "2026-08-11T23:47:00.000-04:00",
+    "contactInfo": "",
+    "thumbnail": "assets/images/posts/malvern-job.png",
+    "date": "2026-04-24T23:49:00-04:00"
+  },
+  "organization": {
+    "foodBankId": "fb0",
+    "foodBankOther": "Malvern Family Resource Centre"
+  }
+}

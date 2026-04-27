@@ -43,20 +43,20 @@
                 </div>
                 <div class="filter-group">
                     <label for="orgType">Organization Type</label>
-                    <select id="orgType" data-source="services" autocomplete="off">
+                    <select id="orgType" data-source="services">
                         <option value="">Select type...</option>
                     </select>
                 </div>
                 <div class="filter-group">
                     <label for="postType">Post type</label>
-                    <select id="postType" autocomplete="off">
+                    <select id="postType">
                         <option value="">Select type...</option>
                     </select>
                 </div>
             </div>
             <div class="filter-actions">
                 <label class="urgency-check">
-                    <input type="checkbox" id="urgencyFilter" autocomplete="off"> Urgency: Needed today
+                    <input type="checkbox" id="urgencyFilter"> Urgency: Needed today
                 </label>
                 <button id="applyBtn" class="primary" onclick="filterPosts()">Apply filters</button>
                 <button id="resetBtn" class="ghost" onclick="resetFilters()">Reset</button>
