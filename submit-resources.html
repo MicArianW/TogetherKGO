@@ -57,9 +57,6 @@
                     <div class="form-group">
 
                         <label for="resourceType">Primary Resource Type*</label>
-                        <select id="resourceType" name="resource_type" required>
-
-                        <label for="resourceType">Resource Type*</label>
                         <select id="resourceType" name="resource_type" required autocomplete="off">
 
                             <option value="">Select a resource type</option>
@@ -121,11 +118,11 @@
                 <div class="form-section">
                     <h2>Resource Contact Information</h2>
                     <div class="form-group">
-                        <label for="contactEmailPublic">Public Contact Email*</label>
+                        <label for="contactEmailPublic">Public Contact Email</label>
                         <input type="email" id="contactEmailPublic" name="public_contact_email" placeholder="info@organization.org" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <label for="contactPhonePublic">Public Contact Phone*</label>
+                        <label for="contactPhonePublic">Public Contact Phone</label>
                         <input type="tel" id="contactPhonePublic" name="public_contact_phone" placeholder="416-XXX-XXXX" autocomplete="off">
                     </div>
                 </div>
@@ -211,14 +208,6 @@
 
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
-
-                var selectedTags = form.querySelectorAll('input[name="resource_tags"]:checked');
-                if (selectedTags.length === 0) {
-                    alert('Please select at least one resource category.');
-                    var firstTag = form.querySelector('input[name="resource_tags"]');
-                    if (firstTag) firstTag.focus();
-                    return;
-                }
 
                 if (!form.checkValidity()) {
                     form.reportValidity();
