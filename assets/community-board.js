@@ -99,8 +99,9 @@ function formatWhenValue(value) {
 function getNextOccurrenceDate(post) {
   if (post.type !== "recurring_event" || !post.recurringDates) return null;
 
-  //  TEST OVERRIDE (use this to check scheduling, role the dates)
-  var today = new Date("2026-04-30");
+  // Checking schedule
+  //var today = new Date("2026-04-29")
+  var today = new Date(); // keep real date now
   today.setHours(0, 0, 0, 0);
 
   var startBoundary = toDateOrNull(post.startRecurringDates);
@@ -116,6 +117,11 @@ function getNextOccurrenceDate(post) {
     sat: 6
   };
 
+  console.log("━━━━━━━━━━━━━━━━━━━━━━");
+  console.log("POST:", post.title);
+  console.log("TODAY:", today.toDateString());
+  console.log("START BOUNDARY:", startBoundary ? startBoundary.toDateString() : "none");
+
   var candidates = [];
 
   Object.keys(post.recurringDates).forEach(function(dayKey) {
@@ -123,26 +129,34 @@ function getNextOccurrenceDate(post) {
 
     var targetDay = weekdayMap[dayKey];
     var currentDay = today.getDay();
-
     var diff = targetDay - currentDay;
 
-    // Always force movement into the future
-    if (diff <= 0) diff += 7;
+    if (diff < 0) diff += 7;
 
     var nextDate = new Date(today);
     nextDate.setDate(today.getDate() + diff);
     nextDate.setHours(0, 0, 0, 0);
 
-    // Respect start boundary strictly
     if (startBoundary && nextDate < startBoundary) return;
 
     candidates.push(nextDate);
+
+    console.log(
+      `${dayKey.toUpperCase()} → ${nextDate.toDateString()} (diff=${diff})`
+    );
   });
 
-  if (!candidates.length) return null;
+  if (!candidates.length) {
+    console.log("NO VALID CANDIDATES");
+    return null;
+  }
 
-  // Return earliest upcoming occurrence
-  return new Date(Math.min.apply(null, candidates));
+  var winner = new Date(Math.min.apply(null, candidates));
+
+  console.log("WINNER →", winner.toDateString());
+  console.log("━━━━━━━━━━━━━━━━━━━━━━");
+
+  return winner;
 }
 
 function escapeHtml(value) {
@@ -279,14 +293,13 @@ function getNextRelevantDate(post) {
 function comparePosts(a, b) {
   var aNext = getNextRelevantDate(a);
   var bNext = getNextRelevantDate(b);
-  var aIsScheduled = !!aNext;
-  var bIsScheduled = !!bNext;
 
-  if (aIsScheduled && bIsScheduled) {
-    return aNext - bNext;
+  if (aNext && bNext) {
+    return aNext - bNext; // pure date comparison
   }
-  if (aIsScheduled) return -1;
-  if (bIsScheduled) return 1;
+
+  if (aNext) return -1;
+  if (bNext) return 1;
 
   return new Date(b.date || 0) - new Date(a.date || 0);
 }
