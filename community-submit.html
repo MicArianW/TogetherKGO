@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Submit Community Update - TogetherKGO</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="stylesheet" href="assets/submit.css">
+  <link rel="stylesheet" href="assets/styles.css?v=2">
+  <link rel="stylesheet" href="assets/submit.css?v=2">
   <script src="assets/constants.js"></script>
   <script src="assets/populateforms.js"></script>
 </head>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="form-container">
-      <form name="community-update" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" id="communityUpdateForm">
+      <form name="community-update" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" id="communityUpdateForm" autocomplete="off">
         <input type="hidden" name="form-name" value="community-update" />
         <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
@@ -46,17 +46,17 @@
           <div class="form-group">
             <label for="organization">Name*</label>
             <span class="helper-text">Enter the organization or name shown publicly</span>
-            <input type="text" id="organization" name="organization" required>
+            <input type="text" id="organization" name="organization" required autocomplete="off">
           </div>
           <div class="form-group">
             <label for="contactName">Your Name*</label>
             <span class="helper-text">For verification only, won't be displayed publicly</span>
-            <input type="text" id="contactName" name="contactName" required>
+            <input type="text" id="contactName" name="contactName" required autocomplete="off">
           </div>
           <div class="form-group">
             <label for="contactEmail">Your Email*</label>
             <span class="helper-text">We'll use this to contact you about your submission</span>
-            <input type="email" id="contactEmail" name="contactEmail" required>
+            <input type="email" id="contactEmail" name="contactEmail" required autocomplete="off">
           </div>
         </div>
 
@@ -65,60 +65,60 @@
           <h2>Post Information</h2>
           <div class="form-group">
             <label for="postType">Update Type*</label>
-            <select id="postType" name="postType" required></select>
+            <select id="postType" name="postType" required autocomplete="off"></select>
           </div>
 
           <div class="form-group conditional-field" data-post-type="update,event,urgent,recurring_event,food_available">
             <label for="title">Update Title*</label>
             <span class="helper-text">Short and descriptive (max 100 chars)</span>
-            <input type="text" id="title" name="title" maxlength="100">
+            <input type="text" id="title" name="title" maxlength="100" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="update,event,urgent,recurring_event,food_available">
             <label for="message">Message*</label>
             <span class="helper-text">Details about your update, include restrictions, eligibility, accessibility info.</span>
-            <textarea id="message" name="message"></textarea>
+            <textarea id="message" name="message" autocomplete="off"></textarea>
           </div>
 
           <div class="form-group conditional-field" data-post-type="update,event,urgent,recurring_event,food_available">
             <label for="publicContact">Public Contact Info (Optional)</label>
-            <input type="text" id="publicContact" name="publicContact" placeholder="Phone or email">
+            <input type="text" id="publicContact" name="publicContact" placeholder="Phone or email" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="event,recurring_event,food_available">
             <label for="location">Location*</label>
-            <input type="text" id="location" name="location">
+            <input type="text" id="location" name="location" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="event">
             <label for="eventDate">Event Date*</label>
-            <input type="date" id="eventDate" name="eventDate">
+            <input type="date" id="eventDate" name="eventDate" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="recurring_event">
             <label for="startRecurringDates">Start Date for Recurring Events*</label>
-            <input type="date" id="startRecurringDates" name="startRecurringDates">
+            <input type="date" id="startRecurringDates" name="startRecurringDates" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="recurring_event">
             <label for="recurringDates">Recurring Dates*</label>
             <span class="helper-text">List multiple dates or describe recurrence pattern</span>
-            <input type="text" id="recurringDates" name="recurringDates" placeholder="Every Monday & Thursday, 2-4pm">
+            <input type="text" id="recurringDates" name="recurringDates" placeholder="Every Monday & Thursday, 2-4pm" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="food_available">
             <label for="timeWindow">Time Window*</label>
-            <input type="text" id="timeWindow" name="timeWindow" placeholder="e.g., 2-4pm">
+            <input type="text" id="timeWindow" name="timeWindow" placeholder="e.g., 2-4pm" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="food_available">
             <label for="availableItems">What's Available*</label>
-            <input type="text" id="availableItems" name="availableItems" placeholder="e.g., Fresh vegetables, fruits">
+            <input type="text" id="availableItems" name="availableItems" placeholder="e.g., Fresh vegetables, fruits" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="update,event,urgent,recurring_event,food_available">
             <label for="expiresDate">Post Expires On*</label>
-            <input type="date" id="expiresDate" name="expiresDate">
+            <input type="date" id="expiresDate" name="expiresDate" autocomplete="off">
           </div>
         </div>
 

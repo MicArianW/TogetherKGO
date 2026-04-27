@@ -76,6 +76,12 @@ collections:
         required: false
         hint: "Phone or email that can be shown publicly"
 
+      - label: "Image or Flyer"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Optional image or flyer to display with the community post."
+
       # DATES
       - label: "Published Date"
         name: "date"

@@ -83,9 +83,13 @@
   }
   window.__I18N__ = { setLang };
   window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("lang-en").onclick = ()=>setLang("en");
-    document.getElementById("lang-fr").onclick = ()=>setLang("fr");
-    document.getElementById("lang-ur").onclick = ()=>setLang("ur");
+    const langEn = document.getElementById("lang-en");
+    const langFr = document.getElementById("lang-fr");
+    const langUr = document.getElementById("lang-ur");
+
+    if (langEn) langEn.onclick = ()=>setLang("en");
+    if (langFr) langFr.onclick = ()=>setLang("fr");
+    if (langUr) langUr.onclick = ()=>setLang("ur");
   });
   setLang("en");
 })();

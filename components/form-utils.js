@@ -18,11 +18,19 @@ function showSuccessMessage(id = 'successMessage', duration = 10000) {
  */
 function submitForm(form, successMessageId = 'successMessage') {
     const formData = new FormData(form);
+    const hasFileInput = !!form.querySelector('input[type="file"]');
+    const isMultipart = (form.enctype || '').toLowerCase() === 'multipart/form-data';
+    const requestBody = (hasFileInput || isMultipart)
+        ? formData
+        : new URLSearchParams(formData).toString();
+    const headers = (hasFileInput || isMultipart)
+        ? {}
+        : { "Content-Type": "application/x-www-form-urlencoded" };
 
     fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
+        headers: headers,
+        body: requestBody
     })
     .then(() => {
         showSuccessMessage(successMessageId);

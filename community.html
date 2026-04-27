@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Board - TogetherKGO</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="assets/community.css">
+    <link rel="stylesheet" href="assets/styles.css?v=2">
+    <link rel="stylesheet" href="assets/community.css?v=2">
     <script src="assets/constants.js"></script>
     <script src="assets/populateforms.js"></script>
 </head>
@@ -37,26 +37,26 @@
             <div class="filter-row">
                 <div class="filter-group">
                     <label for="filterOrganization">Organization</label>
-                    <select id="filterOrganization">
+                    <select id="filterOrganization" autocomplete="off">
                         <option value="">All Organizations</option>
                     </select>
                 </div>
                 <div class="filter-group">
                     <label for="orgType">Organization Type</label>
-                    <select id="orgType" data-source="services">
+                    <select id="orgType" data-source="services" autocomplete="off">
                         <option value="">Select type...</option>
                     </select>
                 </div>
                 <div class="filter-group">
                     <label for="postType">Post type</label>
-                    <select id="postType">
+                    <select id="postType" autocomplete="off">
                         <option value="">Select type...</option>
                     </select>
                 </div>
             </div>
             <div class="filter-actions">
                 <label class="urgency-check">
-                    <input type="checkbox" id="urgencyFilter"> Urgency: Needed today
+                    <input type="checkbox" id="urgencyFilter" autocomplete="off"> Urgency: Needed today
                 </label>
                 <button id="applyBtn" class="primary" onclick="filterPosts()">Apply filters</button>
                 <button id="resetBtn" class="ghost" onclick="resetFilters()">Reset</button>
@@ -99,10 +99,19 @@
                     <div id="modalContact" class="post-modal-contact-section"></div>
                 </div>
                 <div class="post-modal-right">
-                    <img id="modalImage" src="" alt="" class="post-modal-img">
+                    <button type="button" class="post-modal-image-button" onclick="openImageZoom()" aria-label="Open image full screen">
+                        <img id="modalImage" src="" alt="" class="post-modal-img">
+                        <span class="post-modal-image-hint">Click image to enlarge</span>
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="imageZoomModal" class="image-zoom-modal" style="display:none;">
+        <div class="image-zoom-overlay" onclick="closeImageZoom()"></div>
+        <button type="button" class="image-zoom-close" onclick="closeImageZoom()">Close &nbsp;—</button>
+        <img id="zoomedImage" src="" alt="" class="image-zoom-img">
     </div>
 
     <!-- Figma Footer -->

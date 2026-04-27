@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TogetherKGO – Find Services</title>
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/styles.css?v=2" />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script src="config.js"></script>
     <script src="assets/constants.js"></script>
@@ -34,17 +34,22 @@
         <section class="card">
           <h2 data-i18n="search_filters">Search & Filters</h2>
 
+
           <label class="label" for="q" data-i18n="search_label">In English, search by name, keywords</label>
           <input id="q" type="search" placeholder="food bank, community support…" />
+
+          <label class="label" for="q" data-i18n="search_label">Search by name, keywords</label>
+          <input id="q" type="search" placeholder="food bank, community support…" autocomplete="off" />
+ 
 
           <div class="grid2">
             <div>
               <label class="label" for="type">Organization Type</label>
-              <select id="type"><option value="">Any</option></select>
+              <select id="type" autocomplete="off"><option value="">Any</option></select>
             </div>
             <div>
               <label class="label" for="openDay">Day open</label>
-              <select id="openDay">
+              <select id="openDay" autocomplete="off">
                 <option value="">Any</option>
                 <option value="mon">Monday</option>
                 <option value="tue">Tuesday</option>
@@ -57,10 +62,10 @@
             </div>
           </div>
 
-          <select id="radius" style="display: none;"><option value="99999" selected>All Locations</option></select>
+          <select id="radius" style="display: none;" autocomplete="off"><option value="99999" selected>All Locations</option></select>
 
           <label class="label" for="service">Services offered</label>
-          <select id="service"><option value="">Any</option></select>
+          <select id="service" autocomplete="off"><option value="">Any</option></select>
 
           <div class="actions">
             <button id="applyBtn" class="primary">Apply filters</button>
