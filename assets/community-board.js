@@ -185,9 +185,10 @@ function parsePost(raw) {
     foodBankId: (raw.organization && raw.organization.foodBankId) || "fb0",
     orgOther: normalizeTextValue(stringifyValue(raw.organization && raw.organization.foodBankOther)),
     location: normalizeTextValue(stringifyValue(raw.location && raw.location.location)),
-    image: normalizeTextValue(stringifyValue(raw.post && raw.post.image)),
+    image: normalizeTextValue(stringifyValue(raw.post && raw.post.thumbnail)),
     rawData: raw
   };
+  console.log(base.image);
 
   switch(type) {
     case "recurring_event":

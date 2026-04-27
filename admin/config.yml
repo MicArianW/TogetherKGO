@@ -76,12 +76,6 @@ collections:
         required: false
         hint: "Phone or email that can be shown publicly"
 
-      - label: "Image or Flyer"
-        name: "image"
-        widget: "image"
-        required: false
-        hint: "Optional image or flyer to display with the community post."
-
       # DATES
       - label: "Published Date"
         name: "date"
@@ -93,10 +87,11 @@ collections:
         widget: "datetime"
         required: true
 
-      - label: "Featured Image"
+      - label: "Image or Flyer"
         name: "thumbnail"
         widget: "image"
-        choose_url: true
+        hint: "Optional image or flyer to display with the community post."
+        
 
   # Location Information
   - label: "Location Information"
