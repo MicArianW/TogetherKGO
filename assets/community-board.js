@@ -96,6 +96,54 @@ function formatWhenValue(value) {
   }
   return stringifyValue(value);
 }
+function getNextOccurrenceDate(post) {
+  if (post.type !== "recurring_event" || !post.recurringDates) return null;
+
+  //  TEST OVERRIDE (use this to check scheduling, role the dates)
+  var today = new Date("2026-04-30");
+  today.setHours(0, 0, 0, 0);
+
+  var startBoundary = toDateOrNull(post.startRecurringDates);
+  if (startBoundary) startBoundary.setHours(0, 0, 0, 0);
+
+  var weekdayMap = {
+    sun: 0,
+    mon: 1,
+    tue: 2,
+    wed: 3,
+    thu: 4,
+    fri: 5,
+    sat: 6
+  };
+
+  var candidates = [];
+
+  Object.keys(post.recurringDates).forEach(function(dayKey) {
+    if (!weekdayMap.hasOwnProperty(dayKey)) return;
+
+    var targetDay = weekdayMap[dayKey];
+    var currentDay = today.getDay();
+
+    var diff = targetDay - currentDay;
+
+    // Always force movement into the future
+    if (diff <= 0) diff += 7;
+
+    var nextDate = new Date(today);
+    nextDate.setDate(today.getDate() + diff);
+    nextDate.setHours(0, 0, 0, 0);
+
+    // Respect start boundary strictly
+    if (startBoundary && nextDate < startBoundary) return;
+
+    candidates.push(nextDate);
+  });
+
+  if (!candidates.length) return null;
+
+  // Return earliest upcoming occurrence
+  return new Date(Math.min.apply(null, candidates));
+}
 
 function escapeHtml(value) {
   return String(value || "")
@@ -224,7 +272,7 @@ function formatDateForDisplay(value, includeTime) {
 
 function getNextRelevantDate(post) {
   if (post.type === "event") return toDateOrNull(post.eventDate);
-  if (post.type === "recurring_event") return toDateOrNull(post.startRecurringDates) || toDateOrNull(post.date);
+  if (post.type === "recurring_event") return getNextOccurrenceDate(post);
   return null;
 }
 
