@@ -1,0 +1,21 @@
+{
+  "resource": {
+    "title": "Incentives & Rebates to Green Your Home",
+    "organization": "City of Toronto",
+    "type": "greening",
+    "description": "The City of Toronto lists a selection of simple-low cost solutions, low-interest financing, and thousands of dollars in rebates to help you take advantage of incentives for making your home, business, or community more environmentally friendly. The City of Toronto offer support for: Home Energy Loan Program, Tower Renewal, Energy Retrofit Loans, Eco-Roof Incentive Program, Indigenous Climate Action Grants, Neighbourhood Climate Action Grants, Youth Climate Action Grants, PollinateTO Grants, Supports for Tree Planting on Private Property",
+    "website": "https://www.toronto.ca/services-payments/water-environment/environmental-grants-incentives/"
+  },
+  "coverage": {
+    "region_served": "toronto"
+  },
+  "meta": {
+    "additional_notes": "",
+    "tags": [
+      "funding",
+      "grants",
+      "subsidy",
+      "community_building"
+    ]
+  }
+}
