@@ -1,0 +1,23 @@
+{
+  "resource": {
+    "type": "microgrant",
+    "website": "https://www.toronto.ca/community-people/get-involved/community/community-funding/local-leadership-grant/\\",
+    "title": "Local Leadership Grant",
+    "description": "The Local Leadership Grant program provides $5,000 for resident-led community groups to help them inspire their neighbourhoods with events and activities that support the Toronto Strong Neighbourhoods Strategy. Projects must offer community-based activities related to at least one of the five domains of TSNS:\n\nEconomic Opportunities (e.g. job skills workshop),\nHealthy Lives (e.g. wellness day),\nParticipation in Civic Decision-Making (e.g. community speak out event),\nPhysical Surroundings (e.g. community beautification event),\nSocial Development (e.g. neighbourhood festival),",
+    "organization": "City of Toronto"
+  },
+  "coverage": {
+    "region_served": "toronto"
+  },
+  "requirements": {
+    "eligibility": "There is a range of eligibility criteria for this grant, a full list is available on the given link.",
+    "documents_required": "Applicants must register for a Toronto Rebates, Incentives and Grants Portal (TGRIP) Account to apply for the Local Leadership Grant. Submissions will only be accepted through TGRIP."
+  },
+  "meta": {
+    "tags": [
+      "community_building",
+      "funding",
+      "grants"
+    ]
+  }
+}
