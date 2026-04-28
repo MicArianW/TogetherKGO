@@ -46,12 +46,12 @@
           <div class="form-group">
             <label for="organization">Name*</label>
             <span class="helper-text">Enter the organization or name shown publicly</span>
-            <input type="text" id="organization" name="organization" required autocomplete="off">
+            <input type="text" id="organization" name="organization" required maxlength="100" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="contactName">Your Name*</label>
             <span class="helper-text">For verification only, won't be displayed publicly</span>
-            <input type="text" id="contactName" name="contactName" required autocomplete="off">
+            <input type="text" id="contactName" name="contactName" required maxlength="100" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="contactEmail">Your Email*</label>
@@ -77,17 +77,17 @@
           <div class="form-group conditional-field" data-post-type="update,event,urgent,recurring_event,food_available">
             <label for="message">Message*</label>
             <span class="helper-text">Details about your update, include restrictions, eligibility, accessibility info.</span>
-            <textarea id="message" name="message" autocomplete="off"></textarea>
+            <textarea id="message" name="message" maxlength="500" autocomplete="off"></textarea>
           </div>
 
           <div class="form-group conditional-field" data-post-type="update,event,urgent,recurring_event,food_available">
             <label for="publicContact">Public Contact Info (Optional)</label>
-            <input type="text" id="publicContact" name="publicContact" placeholder="Phone or email" autocomplete="off">
+            <input type="text" id="publicContact" name="publicContact" maxlength="100" placeholder="Phone or email" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="event,recurring_event,food_available">
             <label for="location">Location*</label>
-            <input type="text" id="location" name="location" autocomplete="off">
+            <input type="text" id="location" name="location" maxlength="100" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="event">
@@ -103,17 +103,17 @@
           <div class="form-group conditional-field" data-post-type="recurring_event">
             <label for="recurringDates">Recurring Dates*</label>
             <span class="helper-text">List multiple dates or describe recurrence pattern</span>
-            <input type="text" id="recurringDates" name="recurringDates" placeholder="Every Monday & Thursday, 2-4pm" autocomplete="off">
+            <input type="text" id="recurringDates" name="recurringDates" maxlength="100" placeholder="Every Monday & Thursday, 2-4pm" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="food_available">
             <label for="timeWindow">Time Window*</label>
-            <input type="text" id="timeWindow" name="timeWindow" placeholder="e.g., 2-4pm" autocomplete="off">
+            <input type="text" id="timeWindow" name="timeWindow" maxlength="100" placeholder="e.g., 2-4pm" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="food_available">
             <label for="availableItems">What's Available*</label>
-            <input type="text" id="availableItems" name="availableItems" placeholder="e.g., Fresh vegetables, fruits" autocomplete="off">
+            <input type="text" id="availableItems" name="availableItems" maxlength="100" placeholder="e.g., Fresh vegetables, fruits" autocomplete="off">
           </div>
 
           <div class="form-group conditional-field" data-post-type="update,event,urgent,recurring_event,food_available">
@@ -173,6 +173,53 @@
   <script src="components/form-utils.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      var BLOCKED_WORDS = ['fuck', 'shit', 'bitch', 'asshole', 'bastard'];
+      var FIELD_LIMITS = {
+        organization: 100,
+        contactName: 100,
+        title: 100,
+        publicContact: 100,
+        location: 100,
+        recurringDates: 100,
+        timeWindow: 100,
+        availableItems: 100,
+        message: 500
+      };
+
+      function containsBlockedWord(value) {
+        var text = String(value || '').toLowerCase();
+        return BLOCKED_WORDS.some(function(word) {
+          var pattern = new RegExp('\\b' + word + '\\b', 'i');
+          return pattern.test(text);
+        });
+      }
+
+      function getFieldLabel(field) {
+        var group = field.closest('.form-group');
+        var label = group ? group.querySelector('label') : null;
+        return label ? label.textContent.replace('*', '').trim() : field.id;
+      }
+
+      function validateTextConstraints() {
+        for (var fieldId in FIELD_LIMITS) {
+          if (!Object.prototype.hasOwnProperty.call(FIELD_LIMITS, fieldId)) continue;
+          var field = document.getElementById(fieldId);
+          if (!field) continue;
+          var value = String(field.value || '').trim();
+          if (value.length > FIELD_LIMITS[fieldId]) {
+            alert('Please keep "' + getFieldLabel(field) + '" under ' + FIELD_LIMITS[fieldId] + ' characters.');
+            field.focus();
+            return false;
+          }
+          if (containsBlockedWord(value)) {
+            alert('Please remove inappropriate language before submitting your post.');
+            field.focus();
+            return false;
+          }
+        }
+        return true;
+      }
+
       // Set submission time
       var submissionTime = document.getElementById('submissionTime');
       if (submissionTime) submissionTime.value = new Date().toISOString();
@@ -191,6 +238,10 @@
               alert('File is too large. Maximum size is 5MB.');
               return;
             }
+          }
+
+          if (!validateTextConstraints()) {
+            return;
           }
 
           submitForm(form, 'successMessage');

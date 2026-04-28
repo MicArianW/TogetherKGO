@@ -96,6 +96,31 @@ function formatWhenValue(value) {
   }
   return stringifyValue(value);
 }
+
+function truncateText(value, limit) {
+  var text = normalizeTextValue(value);
+  if (!text) return "";
+  if (text.length <= limit) return text;
+  return text.slice(0, limit).trim() + "...";
+}
+
+function getCardAboutPreview(post) {
+  var preview = truncateText(post.message, 110);
+  return preview ? "About information: " + preview : "More details available in this post.";
+}
+
+function getCardDetail(post) {
+  var whenText = getWhenText(post);
+  if (whenText) {
+    return { label: "When", value: whenText };
+  }
+
+  return {
+    label: "About",
+    value: truncateText(post.message, 90) || "More details available in this post."
+  };
+}
+
 function getNextOccurrenceDate(post) {
   if (post.type !== "recurring_event" || !post.recurringDates) return null;
 
@@ -117,11 +142,6 @@ function getNextOccurrenceDate(post) {
     sat: 6
   };
 
-  console.log("━━━━━━━━━━━━━━━━━━━━━━");
-  console.log("POST:", post.title);
-  console.log("TODAY:", today.toDateString());
-  console.log("START BOUNDARY:", startBoundary ? startBoundary.toDateString() : "none");
-
   var candidates = [];
 
   Object.keys(post.recurringDates).forEach(function(dayKey) {
@@ -141,20 +161,13 @@ function getNextOccurrenceDate(post) {
 
     candidates.push(nextDate);
 
-    console.log(
-      `${dayKey.toUpperCase()} → ${nextDate.toDateString()} (diff=${diff})`
-    );
   });
 
   if (!candidates.length) {
-    console.log("NO VALID CANDIDATES");
     return null;
   }
 
   var winner = new Date(Math.min.apply(null, candidates));
-
-  console.log("WINNER →", winner.toDateString());
-  console.log("━━━━━━━━━━━━━━━━━━━━━━");
 
   return winner;
 }
@@ -188,7 +201,6 @@ function parsePost(raw) {
     image: normalizeTextValue(stringifyValue(raw.post && raw.post.thumbnail)),
     rawData: raw
   };
-  console.log(base.image);
 
   switch(type) {
     case "recurring_event":
@@ -338,7 +350,7 @@ function displayPosts(posts) {
     var serviceName = service ? normalizeTextValue(service.name) : "";
     var orgName = post.foodBankId === "fb0" ? post.orgOther : (serviceName || "Unknown Organization");
     var dateText = isValidDateValue(post.date) ? new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "";
-    var whenText = getWhenText(post);
+    var detail = getCardDetail(post);
     var imgSrc = post.image || "";
 
     var card = document.createElement("div");
@@ -363,13 +375,8 @@ function displayPosts(posts) {
       '<span class="card-tag">' + escapeHtml(getTypeLabel(post.type)) + '</span>' +
       '<div class="card-separator" aria-hidden="true"></div>';
 
-    if (whenText) {
-      html += '<div class="card-when"><span class="when-label">When</span><span class="when-value">' + escapeHtml(whenText) + '</span></div>' +
-        '<div class="card-separator" aria-hidden="true"></div>';
-    } else {
-      html += '<div class="card-when card-when-empty" aria-hidden="true"><span class="when-label">&nbsp;</span><span class="when-value">&nbsp;</span></div>' +
-        '<div class="card-separator" aria-hidden="true"></div>';
-    }
+    html += '<div class="card-when"><span class="when-label">' + escapeHtml(detail.label) + '</span><span class="when-value">' + escapeHtml(detail.value) + '</span></div>' +
+      '<div class="card-separator" aria-hidden="true"></div>';
 
     html +=
       '<div class="card-footer">' +
@@ -380,7 +387,7 @@ function displayPosts(posts) {
     if (imgSrc) {
       html += '<div class="card-image"><img src="' + escapeHtml(imgSrc) + '" alt="' + escapeHtml(post.title) + '" loading="lazy"></div>';
     } else {
-      html += '<div class="card-image"><div class="card-image-placeholder"></div></div>';
+      html += '<div class="card-image card-image-text"><p>' + escapeHtml(getCardAboutPreview(post)) + '</p></div>';
     }
 
     card.innerHTML = html;
@@ -460,14 +467,25 @@ function openPostModal(index, event) {
 
   // Image
   var imgEl = document.getElementById("modalImage");
+  var imgButton = document.querySelector(".post-modal-image-button");
+  var imgHint = document.querySelector(".post-modal-image-hint");
+  var fallbackEl = document.getElementById("modalImageFallback");
+  var fallbackTextEl = document.getElementById("modalImageFallbackText");
   if (post.image) {
     imgEl.src = post.image;
     imgEl.alt = post.title;
     imgEl.style.display = "block";
+    if (imgButton) imgButton.style.display = "block";
+    if (imgHint) imgHint.style.display = "inline-flex";
+    if (fallbackEl) fallbackEl.style.display = "none";
   } else {
     imgEl.removeAttribute("src");
     imgEl.alt = "";
     imgEl.style.display = "none";
+    if (imgButton) imgButton.style.display = "none";
+    if (imgHint) imgHint.style.display = "none";
+    if (fallbackEl) fallbackEl.style.display = "flex";
+    if (fallbackTextEl) fallbackTextEl.textContent = getCardAboutPreview(post);
   }
 
   document.getElementById("postModal").style.display = "flex";
