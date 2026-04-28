@@ -1,0 +1,48 @@
+{
+  "organization": {
+    "name": "ACSA Community Services",
+    "description": "Newcomer Supports; Child, Youth, and Family Supports; Housing Access and Supports and Homelessness Prevention; Emergency Food Access.  By appointment only.",
+    "type": "community_org",
+    "email": "hubreception@agincourtcommunityservices.com ",
+    "website": " https://www.agincourtcommunityservices.com/access-food ",
+    "phone": "(647) 723-9238",
+    "address": "911 Kennedy Rd, Unit 105, Toronto, ON, M1P 2L9, Canada",
+    "tags": [
+      "food_support",
+      "housing",
+      "newcomer",
+      "youth"
+    ]
+  },
+  "hours": {
+    "mon": {
+      "open": "11:00am",
+      "close": "4:00pm"
+    },
+    "tue": {
+      "open": "11:00am",
+      "close": "4:00pm"
+    },
+    "wed": {
+      "open": "11:00am",
+      "close": "4:00pm"
+    },
+    "thu": {
+      "open": "11:00am",
+      "close": "4:00pm"
+    },
+    "fri": {
+      "open": "11:00am",
+      "close": "4:00pm"
+    }
+  },
+  "requirements": {
+    "eligibility": "Available to anyone in need of food support ",
+    "languages_spoken": "Arabic, Cantonese, English, Farsi, French, Mandarin, Spanish",
+    "accessibility_info": "Designated parking at entrance ; Wheelchair accessible automatic main entrance; Easy access to elevator; Barrier-free washroom including door and stall.\n"
+  },
+  "location": {
+    "lat": 43.76722948815258,
+    "lng": -79.280603
+  }
+}
