@@ -1,0 +1,30 @@
+{
+  "organization": {
+    "name": "Church of St Jude (Wexford) Deacons Pantry",
+    "description": "Emergency Food Support ",
+    "type": "community_inst",
+    "address": "10 Howarth Ave, Scarborough, ON M1R 1H4",
+    "phone": "(416) 755-5872",
+    "email": "stjudewexford@toronto.anglican.ca ",
+    "tags": [
+      "food_support"
+    ],
+    "website": "http://www.stjudewexford.ca/home/food-bank/ "
+  },
+  "hours": {
+    "wed": {
+      "open": "10:00am",
+      "close": "12:00pm"
+    }
+  },
+  "requirements": {
+    "documents_required": "When you are called to our registration table, you will need to provide identification for each person for whom you are requesting food.",
+    "eligibility": "Catchment Area - Hwy 401 (north) to Eglinton Ave E (south), Don Valley Pkwy (west) to Birchmount Rd (east)\n",
+    "languages_spoken": "Arabic, English, Spanish",
+    "accessibility_info": "Designated parking at entrance; Wheelchair accessible main entrance; Barrier-free washroom\n"
+  },
+  "location": {
+    "lat": 43.7386917,
+    "lng": -79.305984
+  }
+}
