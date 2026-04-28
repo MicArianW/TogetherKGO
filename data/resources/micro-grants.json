@@ -1,0 +1,22 @@
+{
+  "resource": {
+    "organization": "Canada Service Corps",
+    "title": "Micro-grants",
+    "type": "microgrant",
+    "description": "The Canada Service Corps (CSC) promotes civic engagement among young people from 15 to 30 years old through access to meaningful volunteer service placements that help them gain essential life skills and experience. Various Microgrant streams open up throughout the year, these are typically valued between $1,000 and $5,000.",
+    "additional_link": "",
+    "website": "https://www.canada.ca/en/services/youth/canada-service-corps/grants.html"
+  },
+  "meta": {
+    "tags": [
+      "funding",
+      "grants"
+    ]
+  },
+  "coverage": {
+    "region_served": "other"
+  },
+  "requirements": {
+    "eligibility": "Eligibility criteria varies per microgrant, note that some Microgrants do not cover Ontario."
+  }
+}
