@@ -1,0 +1,49 @@
+{
+  "organization": {
+    "name": "Afghan Women’s Organization, AWO Scarborough",
+    "description": "The AWO provides inclusive settlement and integration services to all newcomers and refugees. They offer a variety of services. ",
+    "address": "2555 Eglinton Ave E, Suite 211, Toronto, ON, M1K 5J1, Canada",
+    "tags": [
+      "food_support",
+      "newcomer",
+      "employment",
+      "youth",
+      "community_health"
+    ],
+    "website": "http://afghanwomen.org ",
+    "email": "receptionhd@afghanwomen.org ",
+    "phone": "(416) 266-1777",
+    "type": "community_org"
+  },
+  "location": {
+    "lat": 43.732964,
+    "lng": -79.266869
+  },
+  "requirements": {
+    "eligibility": "Newcomers with a focus on women, their families, refugees and people who have experienced war or persecution\n",
+    "accessibility_info": "Wheelchair accessible; parking lot at rear.",
+    "languages_spoken": "Dari, English, Pashto, Urdu, Uzbek"
+  },
+  "hours": {
+    "mon": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "tue": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "wed": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "thu": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "fri": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    }
+  }
+}
