@@ -210,14 +210,14 @@ window.__APP = (function () {
 
               <!-- Organization Type -->
               ${item.type ? `
-                <span style="background: black; color: #0fde00; padding: 4px 8px; border-radius: 12px; font-size: 12px;">
+                <span style="background: #0fde00; color: black;  padding: 4px 8px; border-radius: 12px; font-size: 12px;">
                   ${(window.CONSTANTS.ORGANIZATION_TYPES[item.type] || item.type)}
                 </span>
               ` : ''}
 
               <!-- Tags -->
               ${(item.tags || []).map(t => `
-                <span style="background: black; color: #0fde00; padding: 4px 8px; border-radius: 12px; font-size: 12px;">
+                <span style="background: #0fde00; color: black;  padding: 4px 8px; border-radius: 12px; font-size: 12px;">
                   ${t.replace(/_/g, ' ')}
                 </span>
               `).join('')}
@@ -230,7 +230,7 @@ window.__APP = (function () {
             <div style="margin-top: 10px;">
               <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(item.address)}" 
                  target="_blank" 
-                 style="background: black; color: #0fde00; padding: 8px 16px; border-radius: 8px; text-decoration: none; display: inline-block;">
+                 style="background: #0fde00; color: black; padding: 8px 16px; border-radius: 8px; text-decoration: none; display: inline-block;">
                 Get Directions
               </a>
             </div>
