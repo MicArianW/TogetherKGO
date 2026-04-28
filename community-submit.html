@@ -90,6 +90,11 @@
             <input type="text" id="location" name="location" maxlength="100" autocomplete="off">
           </div>
 
+          <div class="form-group conditional-field" data-post-type="update,event,urgent,recurring_event,food_available">
+            <label for="locationLink">Website Link (Optional)</label>
+            <input type="url" id="locationLink" name="locationLink" placeholder="https://example.org/details" autocomplete="off">
+          </div>
+
           <div class="form-group conditional-field" data-post-type="event">
             <label for="eventDate">Event Date*</label>
             <input type="date" id="eventDate" name="eventDate">
@@ -183,7 +188,8 @@
         recurringDates: 100,
         timeWindow: 100,
         availableItems: 100,
-        message: 500
+        message: 500,
+        locationLink: 200
       };
 
       function containsBlockedWord(value) {

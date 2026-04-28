@@ -104,8 +104,26 @@ function truncateText(value, limit) {
   return text.slice(0, limit).trim() + "...";
 }
 
+function extractFirstUrl(value) {
+  var text = normalizeTextValue(value);
+  if (!text) return "";
+  var match = text.match(/https?:\/\/[^\s)]+/i);
+  return match ? match[0] : "";
+}
+
+function stripUrlsFromText(value) {
+  var text = normalizeTextValue(value);
+  if (!text) return "";
+  return text
+    .replace(/https?:\/\/[^\s)]+/gi, "")
+    .replace(/\(\s*Example\s*\)/gi, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/[ \t]{2,}/g, " ")
+    .trim();
+}
+
 function getCardAboutPreview(post) {
-  var preview = truncateText(post.message, 110);
+  var preview = truncateText(stripUrlsFromText(post.message), 110);
   return preview ? "About information: " + preview : "More details available in this post.";
 }
 
@@ -117,7 +135,7 @@ function getCardDetail(post) {
 
   return {
     label: "About",
-    value: truncateText(post.message, 90) || "More details available in this post."
+    value: truncateText(stripUrlsFromText(post.message), 90) || "More details available in this post."
   };
 }
 
@@ -198,6 +216,7 @@ function parsePost(raw) {
     foodBankId: (raw.organization && raw.organization.foodBankId) || "fb0",
     orgOther: normalizeTextValue(stringifyValue(raw.organization && raw.organization.foodBankOther)),
     location: normalizeTextValue(stringifyValue(raw.location && raw.location.location)),
+    locationLink: normalizeTextValue(stringifyValue(raw.location && raw.location.link)),
     image: normalizeTextValue(stringifyValue(raw.post && raw.post.thumbnail)),
     rawData: raw
   };
@@ -387,7 +406,7 @@ function displayPosts(posts) {
     if (imgSrc) {
       html += '<div class="card-image"><img src="' + escapeHtml(imgSrc) + '" alt="' + escapeHtml(post.title) + '" loading="lazy"></div>';
     } else {
-      html += '<div class="card-image card-image-text"><p>' + escapeHtml(getCardAboutPreview(post)) + '</p></div>';
+      html += '<div class="card-image card-image-empty"><div class="card-image-empty-pill">No Media</div></div>';
     }
 
     card.innerHTML = html;
@@ -407,6 +426,7 @@ function openPostModal(index, event) {
   var serviceAddress = service ? normalizeTextValue(service.address) : "";
   var servicePhone = service ? normalizeTextValue(service.phone) : "";
   var serviceWebsite = service ? normalizeTextValue(service.website) : "";
+  var postWebsite = post.locationLink || extractFirstUrl(post.message);
   var orgName = post.foodBankId === "fb0" ? post.orgOther : (serviceName || "Unknown Organization");
   var dateText = isValidDateValue(post.date) ? new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "";
   var whenText = getWhenText(post);
@@ -425,7 +445,7 @@ function openPostModal(index, event) {
   }
   if (post.message) {
     detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
-      '<div class="post-modal-detail-row"><span class="detail-label">About</span><span class="detail-value">' + escapeHtml(post.message) + '</span></div>';
+      '<div class="post-modal-detail-row"><span class="detail-label">About</span><span class="detail-value">' + escapeHtml(stripUrlsFromText(post.message)) + '</span></div>';
   }
   if (post.type === "recurring_event" && post.startRecurringDates && isValidDateValue(post.startRecurringDates)) {
     detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
@@ -446,7 +466,7 @@ function openPostModal(index, event) {
 
   // Contact
   var contactHtml = "";
-  if (post.contactInfo || servicePhone || serviceWebsite || serviceAddress) {
+  if (post.contactInfo || servicePhone || postWebsite || serviceWebsite || serviceAddress) {
     contactHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
       '<div class="post-modal-detail-row"><span class="detail-label">Contact</span><span class="detail-value"></span></div>' +
       '<div class="post-modal-contact-buttons">';
@@ -454,8 +474,9 @@ function openPostModal(index, event) {
     if (phone) {
       contactHtml += '<a class="post-modal-contact-btn" href="tel:' + escapeHtml(phone.replace(/\s+/g, "")) + '">📞 ' + escapeHtml(phone) + '</a>';
     }
-    if (serviceWebsite) {
-      contactHtml += '<a class="post-modal-contact-btn" href="' + escapeHtml(serviceWebsite) + '" target="_blank" rel="noopener noreferrer">🌐 Website</a>';
+    if (postWebsite || serviceWebsite) {
+      var website = postWebsite || serviceWebsite;
+      contactHtml += '<a class="post-modal-contact-btn" href="' + escapeHtml(website) + '" target="_blank" rel="noopener noreferrer">🌐 Website</a>';
     }
     if (serviceAddress) {
       var dirUrl = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(serviceAddress);
@@ -471,6 +492,7 @@ function openPostModal(index, event) {
   var imgHint = document.querySelector(".post-modal-image-hint");
   var fallbackEl = document.getElementById("modalImageFallback");
   var fallbackTextEl = document.getElementById("modalImageFallbackText");
+  var modalRight = document.querySelector(".post-modal-right");
   if (post.image) {
     imgEl.src = post.image;
     imgEl.alt = post.title;
@@ -478,14 +500,17 @@ function openPostModal(index, event) {
     if (imgButton) imgButton.style.display = "block";
     if (imgHint) imgHint.style.display = "inline-flex";
     if (fallbackEl) fallbackEl.style.display = "none";
+    if (fallbackTextEl) fallbackTextEl.textContent = "";
+    if (modalRight) modalRight.classList.remove("is-empty");
   } else {
     imgEl.removeAttribute("src");
     imgEl.alt = "";
     imgEl.style.display = "none";
     if (imgButton) imgButton.style.display = "none";
     if (imgHint) imgHint.style.display = "none";
-    if (fallbackEl) fallbackEl.style.display = "flex";
-    if (fallbackTextEl) fallbackTextEl.textContent = getCardAboutPreview(post);
+    if (fallbackEl) fallbackEl.style.display = "block";
+    if (fallbackTextEl) fallbackTextEl.textContent = "";
+    if (modalRight) modalRight.classList.add("is-empty");
   }
 
   document.getElementById("postModal").style.display = "flex";

@@ -109,6 +109,12 @@ collections:
           field: type
           values: ["event", "recurring_event", "food_available"]
 
+      - label: "Website Link"
+        name: "link"
+        widget: "string"
+        required: false
+        hint: "Optional website or external link to show as a Website button on the community board post."
+
   # Singular Event
   - label: "Unique Event"
     name: "uniqueEvent"
