@@ -1,0 +1,18 @@
+{
+  "resource": {
+    "organization": "North East Toronto Local Immigration Partnership",
+    "description": "Since 2012, they have been enhancing the settlement and employment experiences of newcomers in the North Toronto community. They are now working alongside partners in Scarborough to build on existing accomplishments and strengthen support for communities across East Toronto.\n\nNETLIP convenes a multi-sector Partnership Council focused on five key pillars: Health & Wellbeing; Employment & Labour Market; Settlement, Language & Integration; Technology & Digital Literacy; and Equity & Belonging—each supported by dedicated Action Groups that turn strategy into impact.\n\nThe NETLIP app provides support for finding housing, language services, community connections, education, health, and employment assistance.",
+    "website": "https://torontonorthlip.ca/en/",
+    "additional_link": "https://torontonorthlip.ca/en/resources/newto-app-under-development/",
+    "type": "general",
+    "title": "NETLIP and the NewTO App"
+  },
+  "coverage": {
+    "region_served": "toronto"
+  },
+  "meta": {
+    "tags": [
+      "education_library"
+    ]
+  }
+}
