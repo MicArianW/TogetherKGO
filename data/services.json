@@ -90,5 +90,102 @@
     "fees": "",
     "eligibility": "",
     "additional_info": ""
+  },
+  {
+    "id": "fb1",
+    "name": "ACSA Community Services",
+    "type": "community_org",
+    "address": "911 Kennedy Rd, Unit 105, Toronto, ON, M1P 2L9, Canada",
+    "location": {
+      "lat": 43.76722948815258,
+      "lng": -79.280603
+    },
+    "hours": {
+      "mon": {
+        "open": "11:00am",
+        "close": "4:00pm"
+      },
+      "tue": {
+        "open": "11:00am",
+        "close": "4:00pm"
+      },
+      "wed": {
+        "open": "11:00am",
+        "close": "4:00pm"
+      },
+      "thu": {
+        "open": "11:00am",
+        "close": "4:00pm"
+      },
+      "fri": {
+        "open": "11:00am",
+        "close": "4:00pm"
+      }
+    },
+    "phone": "(647) 723-9238",
+    "description": "Newcomer Supports; Child, Youth, and Family Supports; Housing Access and Supports and Homelessness Prevention; Emergency Food Access.  By appointment only.",
+    "tags": [
+      "food_support",
+      "housing",
+      "newcomer",
+      "youth"
+    ],
+    "email": "hubreception@agincourtcommunityservices.com ",
+    "website": " https://www.agincourtcommunityservices.com/access-food ",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Available to anyone in need of food support ",
+    "additional_info": ""
+  },
+  {
+    "id": "fb2",
+    "name": "Afghan Women’s Organization, AWO Scarborough",
+    "type": "community_org",
+    "address": "2555 Eglinton Ave E, Suite 211, Toronto, ON, M1K 5J1, Canada",
+    "location": {
+      "lat": 43.732964,
+      "lng": -79.266869
+    },
+    "hours": {
+      "mon": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "tue": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "wed": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "thu": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "fri": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      }
+    },
+    "phone": "(416) 266-1777",
+    "description": "The AWO provides inclusive settlement and integration services to all newcomers and refugees. They offer a variety of services. ",
+    "tags": [
+      "food_support",
+      "newcomer",
+      "employment",
+      "youth",
+      "community_health"
+    ],
+    "email": "receptionhd@afghanwomen.org ",
+    "website": "http://afghanwomen.org ",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Newcomers with a focus on women, their families, refugees and people who have experienced war or persecution\n",
+    "additional_info": ""
   }
 ]

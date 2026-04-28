@@ -1,6 +1,6 @@
 [
   {
-    "id": "rs4",
+    "id": "rs5",
     "title": "CivicSpark Microgrant",
     "organization": "Volunteer Toronto",
     "type": "grant",
@@ -19,6 +19,87 @@
       "community_building"
     ],
     "additional_notes": "Supports small community initiatives led by residents. Funding amounts may vary depending on the project scope."
+  },
+  {
+    "id": "rs6",
+    "title": "Incentives & Rebates to Green Your Home",
+    "organization": "City of Toronto",
+    "type": "greening",
+    "description": "The City of Toronto lists a selection of simple-low cost solutions, low-interest financing, and thousands of dollars in rebates to help you take advantage of incentives for making your home, business, or community more environmentally friendly. The City of Toronto offer support for: Home Energy Loan Program, Tower Renewal, Energy Retrofit Loans, Eco-Roof Incentive Program, Indigenous Climate Action Grants, Neighbourhood Climate Action Grants, Youth Climate Action Grants, PollinateTO Grants, Supports for Tree Planting on Private Property",
+    "website": "https://www.toronto.ca/services-payments/water-environment/environmental-grants-incentives/",
+    "additional_link": "",
+    "region_served": "toronto",
+    "eligibility": "",
+    "fees": "",
+    "documents_required": "",
+    "email": "",
+    "phone": "",
+    "tags": [
+      "funding",
+      "grants",
+      "subsidy",
+      "community_building"
+    ],
+    "additional_notes": ""
+  },
+  {
+    "id": "rs7",
+    "title": "Local Leadership Grant",
+    "organization": "City of Toronto",
+    "type": "microgrant",
+    "description": "The Local Leadership Grant program provides $5,000 for resident-led community groups to help them inspire their neighbourhoods with events and activities that support the Toronto Strong Neighbourhoods Strategy. Projects must offer community-based activities related to at least one of the five domains of TSNS:\n\nEconomic Opportunities (e.g. job skills workshop),\nHealthy Lives (e.g. wellness day),\nParticipation in Civic Decision-Making (e.g. community speak out event),\nPhysical Surroundings (e.g. community beautification event),\nSocial Development (e.g. neighbourhood festival),",
+    "website": "https://www.toronto.ca/community-people/get-involved/community/community-funding/local-leadership-grant/\\",
+    "additional_link": "",
+    "region_served": "toronto",
+    "eligibility": "There is a range of eligibility criteria for this grant, a full list is available on the given link.",
+    "fees": "",
+    "documents_required": "Applicants must register for a Toronto Rebates, Incentives and Grants Portal (TGRIP) Account to apply for the Local Leadership Grant. Submissions will only be accepted through TGRIP.",
+    "email": "",
+    "phone": "",
+    "tags": [
+      "community_building",
+      "funding",
+      "grants"
+    ],
+    "additional_notes": ""
+  },
+  {
+    "id": "rs8",
+    "title": "Micro-grants",
+    "organization": "Canada Service Corps",
+    "type": "microgrant",
+    "description": "The Canada Service Corps (CSC) promotes civic engagement among young people from 15 to 30 years old through access to meaningful volunteer service placements that help them gain essential life skills and experience. Various Microgrant streams open up throughout the year, these are typically valued between $1,000 and $5,000.",
+    "website": "https://www.canada.ca/en/services/youth/canada-service-corps/grants.html",
+    "additional_link": "",
+    "region_served": "other",
+    "eligibility": "Eligibility criteria varies per microgrant, note that some Microgrants do not cover Ontario.",
+    "fees": "",
+    "documents_required": "",
+    "email": "",
+    "phone": "",
+    "tags": [
+      "funding",
+      "grants"
+    ],
+    "additional_notes": ""
+  },
+  {
+    "id": "rs9",
+    "title": "NETLIP and the NewTO App",
+    "organization": "North East Toronto Local Immigration Partnership",
+    "type": "general",
+    "description": "Since 2012, they have been enhancing the settlement and employment experiences of newcomers in the North Toronto community. They are now working alongside partners in Scarborough to build on existing accomplishments and strengthen support for communities across East Toronto.\n\nNETLIP convenes a multi-sector Partnership Council focused on five key pillars: Health & Wellbeing; Employment & Labour Market; Settlement, Language & Integration; Technology & Digital Literacy; and Equity & Belonging—each supported by dedicated Action Groups that turn strategy into impact.\n\nThe NETLIP app provides support for finding housing, language services, community connections, education, health, and employment assistance.",
+    "website": "https://torontonorthlip.ca/en/",
+    "additional_link": "https://torontonorthlip.ca/en/resources/newto-app-under-development/",
+    "region_served": "toronto",
+    "eligibility": "",
+    "fees": "",
+    "documents_required": "",
+    "email": "",
+    "phone": "",
+    "tags": [
+      "education_library"
+    ],
+    "additional_notes": ""
   }
 ]
- 
