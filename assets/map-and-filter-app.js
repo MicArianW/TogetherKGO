@@ -412,6 +412,12 @@ window.__APP = (function () {
       return true;
     });
 
+    filtered.sort(function(a, b) {
+      return String(a.name || "").localeCompare(String(b.name || ""), undefined, {
+        sensitivity: "base"
+      });
+    });
+
     listResults(filtered);
 
     if (map) renderMarkers(filtered);

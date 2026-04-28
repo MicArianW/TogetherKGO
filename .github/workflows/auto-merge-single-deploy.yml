@@ -15,6 +15,7 @@ jobs:
       actions: write
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      MEDIA_BRANCH: media-assets
     
     steps:
       - name: Checkout repository
@@ -201,6 +202,30 @@ jobs:
 
           console.log(`✅ Updated services.json (${services.length} services)`);
           EOF
+
+      - name: Sync post media from image branch
+        if: steps.merge.outputs.has_changes == 'true'
+        run: |
+          if git fetch origin "${MEDIA_BRANCH}" 2>/dev/null; then
+            echo "Fetched ${MEDIA_BRANCH}"
+          else
+            echo "No ${MEDIA_BRANCH} branch found on origin"
+            exit 0
+          fi
+
+          rm -rf .media-sync-tmp
+          mkdir -p .media-sync-tmp/assets/images/posts
+
+          if git ls-tree -d --name-only "origin/${MEDIA_BRANCH}" assets/images/posts | grep -q "assets/images/posts"; then
+            git archive --format=tar "origin/${MEDIA_BRANCH}" assets/images/posts | tar -xf - -C .media-sync-tmp
+          fi
+
+          mkdir -p assets/images/posts
+          rsync -a --delete .media-sync-tmp/assets/images/posts/ assets/images/posts/
+
+      - name: Remove expired posts and orphaned media
+        if: steps.merge.outputs.has_changes == 'true'
+        run: node .github/workflows/cleanup-expired-posts.js
       
       - name: Sync resources to resources.json
         if: steps.merge.outputs.has_changes == 'true'
@@ -302,21 +327,21 @@ jobs:
       - name: Push all changes in ONE commit (Single Deploy)
         if: steps.merge.outputs.has_changes == 'true'
         run: |
-          # Add services.json if it changed
-          git add data/services.json data/resources.json
+          # Add synced content, resources, and media updates
+          git add -A data/services.json data/resources.json data/posts assets/images/posts
           
           # Check if there are any changes to commit
           if git diff --cached --quiet; then
-            echo "No changes to services.json"
+            echo "No synced content changes detected"
             # Just push the merged PRs
             git push origin main
             echo "Pushed merged PRs only"
           else
-            # Commit services.json update
-            git commit -m "Auto-update: Sync approved service listings to services.json"
-            # Push everything (merged PRs + services.json) in ONE push
+            # Commit synced data, resources, and media updates
+            git commit -m "Auto-update: Sync approved content, resources, and media"
+            # Push everything in one deployment
             git push origin main
-            echo "Pushed merged PRs + services.json in ONE deployment"
+            echo "Pushed merged PRs, synced JSON, and media in ONE deployment"
           fi
       
       - name: Close merged PRs
@@ -463,6 +488,30 @@ jobs:
 
           console.log(`✅ Updated services.json (${services.length} services)`);
           EOF
+
+      - name: Sync post media from image branch (Fallback)
+        if: steps.gather.outputs.prs == ''
+        run: |
+          if git fetch origin "${MEDIA_BRANCH}" 2>/dev/null; then
+            echo "Fetched ${MEDIA_BRANCH}"
+          else
+            echo "No ${MEDIA_BRANCH} branch found on origin"
+            exit 0
+          fi
+
+          rm -rf .media-sync-tmp
+          mkdir -p .media-sync-tmp/assets/images/posts
+
+          if git ls-tree -d --name-only "origin/${MEDIA_BRANCH}" assets/images/posts | grep -q "assets/images/posts"; then
+            git archive --format=tar "origin/${MEDIA_BRANCH}" assets/images/posts | tar -xf - -C .media-sync-tmp
+          fi
+
+          mkdir -p assets/images/posts
+          rsync -a --delete .media-sync-tmp/assets/images/posts/ assets/images/posts/
+
+      - name: Remove expired posts and orphaned media (Fallback)
+        if: steps.gather.outputs.prs == ''
+        run: node .github/workflows/cleanup-expired-posts.js
       
       - name: Commit fallback sync changes
         if: steps.gather.outputs.prs == ''
@@ -470,12 +519,12 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
-          git add data/services.json
+          git add -A data/services.json data/posts assets/images/posts
 
           if git diff --cached --quiet; then
-            echo "No changes to services.json"
+            echo "No fallback sync changes detected"
           else
-            git commit -m "Fallback sync: Update services.json from data/services files"
+            git commit -m "Fallback sync: Update services and media assets"
             git push origin main
-            echo "Pushed services.json update from fallback sync"
+            echo "Pushed fallback services and media update"
           fi
