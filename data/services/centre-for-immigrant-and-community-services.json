@@ -14,7 +14,8 @@
     "phone": "(647) 472-0385",
     "address": "2330 Midland Ave, Scarborough, ON M1S 5G5",
     "name": "Centre for Immigrant and Community Services",
-    "email": "info@cicscanada.com"
+    "email": "info@cicscanada.com",
+    "id": "fb5"
   },
   "location": {
     "lat": 43.7775716,

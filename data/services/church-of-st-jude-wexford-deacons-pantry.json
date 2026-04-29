@@ -6,11 +6,13 @@
     "address": "10 Howarth Ave, Scarborough, ON M1R 1H4",
     "phone": "(416) 755-5872",
     "email": "stjudewexford@toronto.anglican.ca ",
+    "id": "fb6",
     "tags": [
       "food_support"
     ],
     "website": "http://www.stjudewexford.ca/home/food-bank/ "
   },
+  
   "hours": {
     "wed": {
       "open": "10:00am",
