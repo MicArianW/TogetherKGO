@@ -333,8 +333,8 @@ select {
 /* Mobile */
 @media (max-width: 768px) {
     .main-container {
-        padding: 0 16px;
-        margin: 30px auto 56px;
+        padding: 24px 16px 56px;
+        margin: 0 auto 56px;
     }
 
     .page-header p,

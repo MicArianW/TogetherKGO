@@ -337,6 +337,10 @@ collections:
           name: "eligibility"
           widget: "text"
           required: false
+        - label: "Additional Information"
+          name: "additional_info"
+          widget: "text"
+          required: false
 
 # Resource Listing collection
 

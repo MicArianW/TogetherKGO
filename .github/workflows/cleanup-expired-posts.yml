@@ -1,8 +1,6 @@
-name: Cleanup Expired Community Posts
+name: Cleanup Expired Community Posts (Manual)
 
 on:
-  schedule:
-    - cron: "15 7 * * *"
   workflow_dispatch:
 
 jobs:
