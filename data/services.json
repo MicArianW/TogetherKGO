@@ -92,7 +92,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb1",
+    "id": "fb3",
     "name": "ACSA Community Services",
     "type": "community_org",
     "address": "911 Kennedy Rd, Unit 105, Toronto, ON, M1P 2L9, Canada",
@@ -140,7 +140,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb2",
+    "id": "fb4",
     "name": "Afghan Women’s Organization, AWO Scarborough",
     "type": "community_org",
     "address": "2555 Eglinton Ave E, Suite 211, Toronto, ON, M1K 5J1, Canada",
@@ -186,6 +186,85 @@
     "documents_required": "",
     "fees": "",
     "eligibility": "Newcomers with a focus on women, their families, refugees and people who have experienced war or persecution\n",
+    "additional_info": ""
+  },
+  {
+    "id": "fb5",
+    "name": "Centre for Immigrant and Community Services",
+    "type": "community_org",
+    "address": "2330 Midland Ave, Scarborough, ON M1S 5G5",
+    "location": {
+      "lat": 43.7775716,
+      "lng": -79.2750762
+    },
+    "hours": {
+      "mon": {
+        "open": "9:00am",
+        "close": "5:00am"
+      },
+      "tue": {
+        "open": "9:00am",
+        "close": "5:00am"
+      },
+      "wed": {
+        "open": "9:00am",
+        "close": "5:00am"
+      },
+      "thu": {
+        "open": "9:00am",
+        "close": "5:00am"
+      },
+      "fri": {
+        "open": "9:00am",
+        "close": "5:00am"
+      }
+    },
+    "phone": "(647) 472-0385",
+    "description": "CICS is a charitable and multi-service agency that provides a wide range of cost-effective, culturally sensitive and professional settlement and community services in the GTA for over 50 years.",
+    "tags": [
+      "food_support",
+      "youth",
+      "housing",
+      "newcomer",
+      "community_health",
+      "employment"
+    ],
+    "email": "info@cicscanada.com",
+    "website": "https://t.cicscanada.com/",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "",
+    "additional_info": ""
+  },
+  {
+    "id": "fb6",
+    "name": "Church of St Jude (Wexford) Deacons Pantry",
+    "type": "community_inst",
+    "address": "10 Howarth Ave, Scarborough, ON M1R 1H4",
+    "location": {
+      "lat": 43.7386917,
+      "lng": -79.305984
+    },
+    "hours": {
+      "wed": {
+        "open": "10:00am",
+        "close": "12:00pm"
+      }
+    },
+    "phone": "(416) 755-5872",
+    "description": "Emergency Food Support ",
+    "tags": [
+      "food_support"
+    ],
+    "email": "stjudewexford@toronto.anglican.ca ",
+    "website": "http://www.stjudewexford.ca/home/food-bank/ ",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Catchment Area - Hwy 401 (north) to Eglinton Ave E (south), Don Valley Pkwy (west) to Birchmount Rd (east)\n",
     "additional_info": ""
   }
 ]
