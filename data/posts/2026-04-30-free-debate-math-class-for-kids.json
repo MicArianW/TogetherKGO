@@ -1,0 +1,28 @@
+{
+  "post": {
+    "type": "recurring_event",
+    "thumbnail": "assets/images/posts/debate-class-s4s.png",
+    "title": "Free Debate & Math Class for Kids",
+    "contactInfo": "416-208-9889",
+    "date": "2026-04-30T10:17:00-04:00",
+    "message": "Students 4 Students is a registered non-profit organization that aims to create free extracurricular programming, allowing younger students to participate in activities they enjoy, taught by older students who are passionate about the subject matter they teach. The class is geared toward 6-14 year olds.",
+    "expiresDate": "2026-08-13T10:19:00.000-04:00"
+  },
+  "organization": {
+    "foodBankId": "fb0",
+    "foodBankOther": "Students4Students"
+  },
+  "location": {
+    "link": "http://students4students.ca/",
+    "location": "East Scarborough Storefront, 4040 Lawrence Street E"
+  },
+  "recurringEvent": {
+    "startRecurringDates": "2026-04-30T10:18:00.000-04:00",
+    "recurringDates": {
+      "thu": {
+        "open": "4:00pm",
+        "close": "6:00pm"
+      }
+    }
+  }
+}
