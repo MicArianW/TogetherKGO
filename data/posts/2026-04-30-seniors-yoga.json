@@ -1,0 +1,27 @@
+{
+  "post": {
+    "type": "recurring_event",
+    "title": "Seniors Yoga",
+    "message": "Join us every Monday @ East Scarborough Storefront with a certified yoga instructor. All equipment will be provided.",
+    "date": "2026-04-30T10:08:00-04:00",
+    "expiresDate": "2026-10-30T10:08:00.000-04:00",
+    "thumbnail": "assets/images/posts/seniors-yoga-storefront.png",
+    "contactInfo": "416-208-9889"
+  },
+  "organization": {
+    "foodBankOther": "East Scarborough Storefront",
+    "foodBankId": "fb0"
+  },
+  "location": {
+    "location": "East Scarborough Storefront, 4040 Lawrence Ave E"
+  },
+  "recurringEvent": {
+    "startRecurringDates": "2026-04-30T10:10:00.000-04:00",
+    "recurringDates": {
+      "mon": {
+        "open": "10:30am",
+        "close": "11:30am"
+      }
+    }
+  }
+}
