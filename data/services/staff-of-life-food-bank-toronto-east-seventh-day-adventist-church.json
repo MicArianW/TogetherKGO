@@ -1,0 +1,26 @@
+{
+  "organization": {
+    "name": "Staff of Life Food Bank (Toronto East Seventh-day Adventist Church)",
+    "id": "solfb-tes1",
+    "email": " staffoflife@philadelphiasda.ca ",
+    "website": "https://philadelphiasda.ca",
+    "phone": "416-286-3209",
+    "address": "65 Grand Marshall Dr, Toronto, ON M1B 5N6",
+    "type": "community_inst"
+  },
+  "requirements": {
+    "languages_spoken": "English",
+    "accessibility_info": "Fully wheelchair accessible",
+    "eligibility": " Individuals and families in need (Scarborough)\n"
+  },
+  "hours": {
+    "sun": {
+      "open": "1:00pm",
+      "close": "2:00pm"
+    }
+  },
+  "location": {
+    "lat": 43.802942,
+    "lng": -79.19461
+  }
+}
