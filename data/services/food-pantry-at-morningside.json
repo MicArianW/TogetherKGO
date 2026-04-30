@@ -15,8 +15,8 @@
   },
   "hours": {
     "sat": {
-      "open": "12:00 PM",
-      "close": "4:00 PM"
+      "open": "12:00 pm",
+      "close": "4:00 pm"
     }
   },
   "requirements": {
