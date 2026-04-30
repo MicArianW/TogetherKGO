@@ -15,16 +15,16 @@
   },
   "hours": {
     "mon": {
-      "open": "9:30 AM",
-      "close": "12:15 PM"
+      "open": "9:30 am",
+      "close": "12:15 pm"
     },
     "wed": {
-      "open": "9:30 AM",
-      "close": "12:15 PM"
+      "open": "9:30 am",
+      "close": "12:15 pm"
     },
     "thu": {
-      "open": "9:00 AM",
-      "close": "12:15 PM"
+      "open": "9:00 am",
+      "close": "12:15 pm"
     }
   },
   "requirements": {
