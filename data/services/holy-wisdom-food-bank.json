@@ -1,0 +1,26 @@
+{
+  "organization": {
+    "name": "Holy Wisdom Food Bank",
+    "id": "hwfb1",
+    "type": "community_inst",
+    "address": "776 Brimley Rd, Scarborough, ON",
+    "website": "https://holywisdom.ca/ ",
+    "tags": [
+      "food_support"
+    ]
+  },
+  "hours": {
+    "tue": {
+      "open": "4:30pm",
+      "close": "7:30pm"
+    }
+  },
+  "requirements": {
+    "eligibility": "Walk-ins are welcome and no appointment necessary. Individuals and families in need.\n",
+    "languages_spoken": "English"
+  },
+  "location": {
+    "lat": 43.750825,
+    "lng": -79.254421
+  }
+}
