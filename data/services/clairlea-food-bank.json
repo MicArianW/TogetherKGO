@@ -1,0 +1,39 @@
+{
+  "organization": {
+    "name": "Clairlea Food Bank",
+    "address": "772 Warden Ave, Toronto, ON, M1L 4T7",
+    "type": "community_org",
+    "phone": "416-936-3975",
+    "email": " info@feedscarborough.ca ",
+    "website": "https://scarboroughfoodsecurityinitiative.com",
+    "tags": [
+      "food_support",
+      "meal_program",
+      "community_pantry",
+      "community_market",
+      "community_health"
+    ]
+  },
+  "hours": {
+    "tue": {
+      "open": "2:00 PM",
+      "close": "6:00 PM"
+    },
+    "thu": {
+      "open": "2:00 PM",
+      "close": "6:00 PM"
+    },
+    "sat": {
+      "open": "11:00 AM",
+      "close": "3:00 PM"
+    }
+  },
+  "requirements": {
+    "eligibility": "Individuals and families in need",
+    "documents_required": "ID required for all household members (new clients)"
+  },
+  "location": {
+    "lat": 43.72355,
+    "lng": -79.28666
+  }
+}
