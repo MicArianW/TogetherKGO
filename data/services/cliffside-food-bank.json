@@ -1,0 +1,47 @@
+{
+  "organization": {
+    "name": "Cliffside Food Bank",
+    "type": "community_org",
+    "description": "Food bank (Member of Daily Bread Food Bank)",
+    "address": "2259 Kingston Rd, Toronto, ON, M1N 1T8",
+    "phone": "416-936-3975",
+    "website": "http://www.feedscarborough.ca",
+    "email": "info@feedscarborough.ca ",
+    "tags": [
+      "food_support",
+      "community_pantry",
+      "meal_program",
+      "community_market",
+      "community_health"
+    ]
+  },
+  "hours": {
+    "wed": {
+      "open": "12:00 pm",
+      "close": "4:00 pm"
+    },
+    "thu": {
+      "open": "12:00 pm",
+      "close": "4:00 pm"
+    },
+    "fri": {
+      "open": "12:00 pm",
+      "close": "4:00 pm"
+    },
+    "sat": {
+      "open": "11:00 am",
+      "close": "3:00 pm"
+    }
+  },
+  "requirements": {
+    "eligibility": "Individuals and families in need",
+    "documents_required": "ID required for all household members (new clients)",
+    "languages_spoken": "English",
+    "fees": "None",
+    "accessibility_info": "Accessibility: Partially accessible (tight corners)"
+  },
+  "location": {
+    "lat": 43.70577,
+    "lng": -79.25132
+  }
+}
