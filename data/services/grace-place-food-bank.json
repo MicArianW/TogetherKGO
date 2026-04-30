@@ -1,0 +1,38 @@
+{
+  "organization": {
+    "name": "Grace Place Food Bank",
+    "description": "Grace Place Church",
+    "address": "1428 Kennedy Rd, Toronto, ON, M1P 2L7, Canada",
+    "phone": "(416) 752-4100",
+    "email": "dorset_graceplace@rogers.com ",
+    "website": "http://www.graceplacetoronto.com",
+    "tags": [
+      "community_pantry",
+      "food_support",
+      "community_health"
+    ],
+    "type": "community_org"
+  },
+  "hours": {
+    "tue": {
+      "open": "10:00 AM",
+      "close": "3:00 PM"
+    },
+    "wed": {
+      "open": "10:00 AM",
+      "close": "3:00 PM"
+    },
+    "thu": {
+      "open": "10:00 AM",
+      "close": "3:00 PM"
+    }
+  },
+  "requirements": {
+    "languages_spoken": "English",
+    "eligibility": " Individuals and families in need"
+  },
+  "location": {
+    "lat": 43.76466,
+    "lng": -79.2816
+  }
+}
