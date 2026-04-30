@@ -1,0 +1,21 @@
+{
+  "organization": {
+    "name": "Community Food Hub @ Progress Church ",
+    "type": "grassroots_org",
+    "id": "cfhpc1",
+    "address": "Progress Church, 4242 Kingston Rd, Scarborough, ON M1E 2M7",
+    "description": "Community Food Hub, a volunteer-led organization, is on a mission to decrease food insecurity and avoidable food waste by providing low-barrier outdoor community fridges/pantries in Scarborough.\n",
+    "tags": [
+      "community_pantry",
+      "food_support"
+    ],
+    "website": "https://linktr.ee/communityfoodhub?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnYjoFNDgGpoWqCYlwhFJFcF8oszu1CviDU0lvGJHHY2Opkz1pu-wMHpjuqs4_aem_TMebIhdn1FCQ9q4NuQQZJQ"
+  },
+  "requirements": {
+    "eligibility": "Anyone can access the community fridge/pantry, no questions asked. Take what you need, leave what you can.  "
+  },
+  "location": {
+    "lat": 43.761872,
+    "lng": -79.195172
+  }
+}
