@@ -30,7 +30,9 @@
   },
   "requirements": {
     "eligibility": "Individuals and families in need",
-    "documents_required": "ID required for all household members (new clients)"
+    "documents_required": "ID required for all household members (new clients)",
+    "languages_spoken": "English",
+    "fees": ""
   },
   "location": {
     "lat": 43.72355,
