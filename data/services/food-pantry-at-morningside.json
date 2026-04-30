@@ -1,0 +1,31 @@
+{
+  "organization": {
+    "name": "Food Pantry at Morningside",
+    "description": "Canadian South Asian Growth and Support Services",
+    "type": "community_org",
+    "address": "Mornelle Community Hub, 90 Mornelle Crt, Bsmt, Toronto, ON, M1E 4P9, Canada",
+    "phone": "(647) 762-4670",
+    "email": "info@csagss.org ",
+    "website": "http://www.csagss.org/ ",
+    "tags": [
+      "community_pantry",
+      "food_support",
+      "community_health"
+    ]
+  },
+  "hours": {
+    "sat": {
+      "open": "12:00 PM",
+      "close": "4:00 PM"
+    }
+  },
+  "requirements": {
+    "eligibility": "Individuals and families in need",
+    "languages_spoken": "English",
+    "accessibility_info": "Wheelchair accessible rear entrance and elevator to basement; Wheelchair accessible washrooms; Underground parking\n"
+  },
+  "location": {
+    "lat": 43.78807,
+    "lng": -79.19605
+  }
+}
