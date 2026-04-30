@@ -1,0 +1,35 @@
+{
+  "organization": {
+    "name": "Feed Scarborough: Markham Road Food Bank",
+    "type": "community_org",
+    "description": "Food bank (Member of Daily Bread Food Bank)",
+    "address": "155 Markham Rd, Toronto, ON, M1M 3A1",
+    "phone": "416-203-0050 ext 261",
+    "email": "info@feedscarborough.ca ",
+    "website": "https://scarboroughfoodsecurityinitiative.com",
+    "tags": [
+      "food_support",
+      "community_pantry",
+      "meal_program",
+      "community_market",
+      "employment",
+      "community_health"
+    ]
+  },
+  "hours": {
+    "thu": {
+      "open": "8:30 am",
+      "close": "11:00 am"
+    }
+  },
+  "requirements": {
+    "languages_spoken": "English",
+    "accessibility_info": "Multi-level building with stairs",
+    "documents_required": "ID required for all household members (new clients)",
+    "eligibility": " Individuals and families in need"
+  },
+  "location": {
+    "lat": 43.74178,
+    "lng": -79.21783
+  }
+}
