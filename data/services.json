@@ -2,7 +2,7 @@
   {
     "id": "co1",
     "name": "Agincourt Community Church",
-    "type": "community_org",
+    "type": "community_inst",
     "address": "3080 Birchmount Rd, Scarborough, ON, M1W 3K3, Canada",
     "location": {
       "lat": 43.803367614746094,
@@ -557,7 +557,7 @@
   {
     "id": "fb12",
     "name": "Grace Place Food Bank",
-    "type": "community_org",
+    "type": "community_inst",
     "address": "1428 Kennedy Rd, Toronto, ON, M1P 2L7, Canada",
     "location": {
       "lat": 43.76466,
@@ -569,12 +569,12 @@
         "close": "3:00 PM"
       },
       "wed": {
-        "open": "10:00 am",
-        "close": "3:00 am"
+        "open": "10:00 AM",
+        "close": "3:00 PM"
       },
       "thu": {
-        "open": "10:00 am",
-        "close": "3:00 am"
+        "open": "10:00 AM",
+        "close": "3:00 PM"
       }
     },
     "phone": "(416) 752-4100",
@@ -746,7 +746,7 @@
   {
     "id": "fb17",
     "name": "The Salvation Army- Cedarbrae Community Church",
-    "type": "community_org",
+    "type": "community_inst",
     "address": "2085 Ellesmere Rd, Toronto, ON, M1H 2W6, Canada",
     "location": {
       "lat": 43.77593,

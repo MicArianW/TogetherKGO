@@ -19,12 +19,12 @@
       "close": "3:00 PM"
     },
     "wed": {
-      "open": "10:00 am",
-      "close": "3:00 am"
+      "open": "10:00 AM",
+      "close": "3:00 PM"
     },
     "thu": {
-      "open": "10:00 am",
-      "close": "3:00 am"
+      "open": "10:00 AM",
+      "close": "3:00 PM"
     }
   },
   "requirements": {

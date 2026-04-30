@@ -76,7 +76,7 @@ window.CONSTANTS = {
     community_org: "Community Organization",
     grassroots_org: "Grassroots Organization",
     city_of_toronto: "City of Toronto",
-    community_institution: "Community Institution",
+    community_inst: "Community Institution",
     individual: "Individual"
   },
 
