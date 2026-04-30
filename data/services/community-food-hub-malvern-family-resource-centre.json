@@ -1,0 +1,21 @@
+{
+  "organization": {
+    "name": "Community Food Hub @ Malvern Family Resource Centre",
+    "id": "cfhs1",
+    "type": "grassroots_org",
+    "description": "Community Food Hub, a volunteer-led organization, is on a mission to decrease food insecurity and avoidable food waste by providing low-barrier outdoor community fridges/pantries in Scarborough. ",
+    "website": "https://linktr.ee/communityfoodhub?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnYjoFNDgGpoWqCYlwhFJFcF8oszu1CviDU0lvGJHHY2Opkz1pu-wMHpjuqs4_aem_TMebIhdn1FCQ9q4NuQQZJQ",
+    "address": "Outside of Malvern Family Resource Centre, 90 Littles Rd, Scarborough, ON M1B 5E2",
+    "tags": [
+      "community_pantry",
+      "food_support"
+    ]
+  },
+  "requirements": {
+    "eligibility": "Anyone can access the community fridge/pantry, no questions asked. Take what you need, leave what you can.  "
+  },
+  "location": {
+    "lat": 43.818459,
+    "lng": -79.205445
+  }
+}
