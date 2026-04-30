@@ -1,0 +1,30 @@
+{
+  "organization": {
+    "name": "Grace CRC McCowan Food Bank ",
+    "type": "community_org",
+    "description": "Shopping model for dairy, meat, vegetables, grain, bread\nRandom numbering- no lineup before 4:30 pm",
+    "address": "25 Channel Nine Ct, Toronto, ON, M1S 4B5, Canada",
+    "phone": "416-293-0373",
+    "email": "gracecrcfoodbank@gmail.com ",
+    "website": "https://www.gracecrc.com",
+    "tags": [
+      "food_support",
+      "community_pantry"
+    ]
+  },
+  "requirements": {
+    "languages_spoken": "English",
+    "accessibility_info": "Unknown; contact for information",
+    "eligibility": " Individuals and families in need"
+  },
+  "hours": {
+    "thu": {
+      "open": "5:00 pm",
+      "close": "7:00 pm"
+    }
+  },
+  "location": {
+    "lat": 43.78427,
+    "lng": -79.25681
+  }
+}
