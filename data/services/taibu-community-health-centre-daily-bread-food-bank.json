@@ -1,0 +1,28 @@
+{
+  "organization": {
+    "name": "TAIBU Community Health Centre- Daily Bread Food Bank",
+    "type": "community_org",
+    "address": "110 Empringham Dr, Unit 214, Toronto, ON, Canada",
+    "phone": "416-644-3536 ext 2227",
+    "email": "info@taibuchc.ca ",
+    "website": "www.taibuchc.ca",
+    "tags": [
+      "community_health",
+      "community_pantry"
+    ]
+  },
+  "hours": {
+    "fri": {
+      "open": "3:00 pm",
+      "close": "5:00 pm"
+    }
+  },
+  "requirements": {
+    "accessibility_info": "Fully accessible",
+    "eligibility": "Priority given to Black residents of the Malvern community"
+  },
+  "location": {
+    "lat": 43.81266,
+    "lng": -79.2123
+  }
+}
