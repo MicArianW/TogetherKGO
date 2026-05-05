@@ -1,0 +1,25 @@
+{
+  "post": {
+    "type": "recurring_event",
+    "title": "Baby Circle Time",
+    "message": "This FREE drop-in program for babies and their caregivers combines stories, songs, and play with simple instruments and other props.",
+    "contactInfo": "416-214-0837",
+    "date": "2026-05-05T16:28:00-04:00",
+    "expiresDate": "2026-08-31T16:29:00.000-04:00"
+  },
+  "organization": {
+    "foodBankId": "TCBB1"
+  },
+  "location": {
+    "location": "1154 Morningside Ave, Scarborough ON, M1B3A4",
+    "link": "https://www.childrensbookbank.com/morningside"
+  },
+  "recurringEvent": {
+    "startRecurringDates": "2026-05-06T16:33:00.000-04:00",
+    "recurringDates": {
+      "wed": {
+        "open": "3:00pm"
+      }
+    }
+  }
+}
