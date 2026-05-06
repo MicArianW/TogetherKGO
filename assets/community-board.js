@@ -104,6 +104,22 @@ function truncateText(value, limit) {
   return text.slice(0, limit).trim() + "...";
 }
 
+function getVersionedImageSrc(post) {
+  var imgSrc = normalizeTextValue(post && post.image);
+  if (!imgSrc) return "";
+
+  var versionSeed = normalizeTextValue(
+    (post && post.date) ||
+    (post && post.expiresDate) ||
+    (post && post.title) ||
+    "1"
+  );
+
+  if (!versionSeed) return imgSrc;
+
+  return imgSrc + (imgSrc.indexOf("?") === -1 ? "?v=" : "&v=") + encodeURIComponent(versionSeed);
+}
+
 function extractFirstUrl(value) {
   var text = normalizeTextValue(value);
   if (!text) return "";
@@ -371,7 +387,7 @@ function displayPosts(posts) {
     var orgName = post.foodBankId === "fb0" ? post.orgOther : (serviceName || "Unknown Organization");
     var dateText = isValidDateValue(post.date) ? new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "";
     var detail = getCardDetail(post);
-    var imgSrc = post.image || "";
+    var imgSrc = getVersionedImageSrc(post);
 
     var card = document.createElement("div");
     card.className = "post-card";
@@ -494,8 +510,9 @@ function openPostModal(index, event) {
   var fallbackEl = document.getElementById("modalImageFallback");
   var fallbackTextEl = document.getElementById("modalImageFallbackText");
   var modalRight = document.querySelector(".post-modal-right");
-  if (post.image) {
-    imgEl.src = post.image;
+  var modalImageSrc = getVersionedImageSrc(post);
+  if (modalImageSrc) {
+    imgEl.src = modalImageSrc;
     imgEl.alt = post.title;
     imgEl.style.display = "block";
     if (imgButton) imgButton.style.display = "block";
