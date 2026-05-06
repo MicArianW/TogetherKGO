@@ -8,15 +8,33 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      CONTENT_BRANCH: content
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Configure Git
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+
+      - name: Checkout content branch
+        run: |
+          git fetch origin "${CONTENT_BRANCH}" || true
+          if git show-ref --verify --quiet "refs/remotes/origin/${CONTENT_BRANCH}"; then
+            if git show-ref --verify --quiet "refs/heads/${CONTENT_BRANCH}"; then
+              git checkout "${CONTENT_BRANCH}"
+            else
+              git checkout -b "${CONTENT_BRANCH}" "origin/${CONTENT_BRANCH}"
+            fi
+            git pull origin "${CONTENT_BRANCH}"
+          else
+            git checkout -b "${CONTENT_BRANCH}"
+          fi
 
       - name: Remove expired community posts and unused images
         run: node .github/workflows/cleanup-expired-posts.js
@@ -29,4 +47,14 @@ jobs:
             exit 0
           fi
           git commit -m "Auto-cleanup: Remove expired community posts"
+          git push origin "${CONTENT_BRANCH}"
+
+          git fetch origin main
+          if git show-ref --verify --quiet refs/heads/main; then
+            git checkout main
+          else
+            git checkout -b main origin/main
+          fi
+          git pull origin main
+          git merge "${CONTENT_BRANCH}" --no-edit --no-ff
           git push origin main
