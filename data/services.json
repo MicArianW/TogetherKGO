@@ -198,6 +198,54 @@
     "additional_info": ""
   },
   {
+    "id": "TCBB1",
+    "name": "The Children’s Book Bank",
+    "type": "community_org",
+    "address": "1154 Morningside Ave, Scarborough ON, M1B 3A4",
+    "location": {
+      "lat": 43.801009,
+      "lng": -79.200296
+    },
+    "hours": {
+      "tue": {
+        "open": "10:30am",
+        "close": "18:00pm"
+      },
+      "mon": {
+        "open": "10:30am",
+        "close": "18:00pm"
+      },
+      "wed": {
+        "open": "10:30am",
+        "close": "18:00pm"
+      },
+      "thu": {
+        "open": "10:30am",
+        "close": "18:00pm"
+      },
+      "fri": {
+        "open": ""
+      },
+      "sat": {
+        "open": "10:30am",
+        "close": "15:00pm"
+      }
+    },
+    "phone": "416-214-0837",
+    "description": "Operates drop-in community literacy spaces that are open to all children, teens, and their families. These spaces offer free literacy programs and a wide selection of free books for visitors to choose from. We also host free visits to our spaces for schools, daycares and summer camps.",
+    "tags": [
+      "youth"
+    ],
+    "email": "",
+    "website": "https://www.childrensbookbank.com/morningside",
+    "languages_spoken": "Primarily English, but we often have books in other languages!",
+    "accessibility_info": "Free parking is available.",
+    "documents_required": "None",
+    "fees": "Free",
+    "eligibility": "Children, teens, and their families",
+    "additional_info": "We are located on the second floor of the Pleasant Corner Mall. Walk around to the back of the building (follow signs for Kumon) and go up the stairs or ramp. Enter through the first door on your left. You’ll see the Book Bank at the end of the hall, next to the dentist's office."
+  },
+  {
     "id": "fb3",
     "name": "ACSA Community Services",
     "type": "community_org",
@@ -374,7 +422,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb29",
+    "id": "fb40",
     "name": "Clairlea Food Bank",
     "type": "community_org",
     "address": "772 Warden Ave, Toronto, ON, M1L 4T7",
@@ -415,7 +463,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb30",
+    "id": "fb41",
     "name": "Cliffside Food Bank",
     "type": "community_org",
     "address": "2259 Kingston Rd, Toronto, ON, M1N 1T8",
@@ -460,7 +508,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb31",
+    "id": "fb42",
     "name": "Feed Scarborough: Markham Road Food Bank",
     "type": "community_org",
     "address": "155 Markham Rd, Toronto, ON, M1M 3A1",
@@ -494,7 +542,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb32",
+    "id": "fb43",
     "name": "Food Pantry at Morningside",
     "type": "community_org",
     "address": "Mornelle Community Hub, 90 Mornelle Crt, Bsmt, Toronto, ON, M1E 4P9, Canada",
@@ -525,7 +573,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb33",
+    "id": "fb44",
     "name": "Grace CRC McCowan Food Bank ",
     "type": "community_org",
     "address": "25 Channel Nine Ct, Toronto, ON, M1S 4B5, Canada",
@@ -555,7 +603,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb34",
+    "id": "fb45",
     "name": "Grace Place Food Bank",
     "type": "community_org",
     "address": "1428 Kennedy Rd, Toronto, ON, M1P 2L7, Canada",
@@ -594,7 +642,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb35",
+    "id": "fb46",
     "name": "Let’s Bee Connected",
     "type": "grassroots_org",
     "address": "4030 Sheppard Ave E, Toronto, ON M1S 1S6",
@@ -643,7 +691,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb36",
+    "id": "fb47",
     "name": "Scarborough Centre for Healthy Communities",
     "type": "community_org",
     "address": "4100 Lawrence Ave E, Toronto, ON, Canada",
@@ -684,7 +732,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb37",
+    "id": "fb48",
     "name": "Soso World Ministries ",
     "type": "community_org",
     "address": "10 Glen Everest Rd, Toronto, ON, M1N 1J4, Canada",
@@ -714,7 +762,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb38",
+    "id": "fb49",
     "name": "TAIBU Community Health Centre- Daily Bread Food Bank",
     "type": "community_org",
     "address": "110 Empringham Dr, Unit 214, Toronto, ON, Canada",
@@ -744,7 +792,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb39",
+    "id": "fb50",
     "name": "The Salvation Army- Cedarbrae Community Church",
     "type": "community_inst",
     "address": "2085 Ellesmere Rd, Toronto, ON, M1H 2W6, Canada",
