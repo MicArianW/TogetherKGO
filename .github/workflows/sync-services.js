@@ -66,12 +66,12 @@ files.forEach(file => {
     tags: listing.organization.tags || [],
     email: listing.organization.email || '',
     website: listing.organization.website || '',
-    languages_spoken: listing.organization.languages_spoken || '',
-    accessibility_info: listing.organization.accessibility_info || '',
-    documents_required: listing.organization.documents_required || '',
-    fees: listing.organization.fees || '',
+    languages_spoken: listing.requirements?.languages_spoken || '',
+    accessibility_info: listing.requirements?.accessibility_info || '',
+    documents_required: listing.requirements?.documents_required || '',
+    fees: listing.requirements?.fees || '',
     eligibility: listing.requirements?.eligibility || '',
-    additional_info: listing.additional_info || ''
+    additional_info: listing.additional_info || listing.requirements?.additional_info || ''
   };
 
   if (existingIndex >= 0) {

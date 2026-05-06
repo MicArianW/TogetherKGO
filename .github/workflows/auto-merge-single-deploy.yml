@@ -15,6 +15,7 @@ jobs:
       actions: write
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CONTENT_BRANCH: content
       MEDIA_BRANCH: media-assets
     
     steps:
@@ -62,9 +63,18 @@ jobs:
           pr_numbers=""
           merged_prs=""
           
-          # Checkout main and pull latest
-          git checkout main
-          git pull origin main
+          # Checkout content branch and pull latest CMS content base
+          git fetch origin "${CONTENT_BRANCH}" || true
+          if git show-ref --verify --quiet "refs/remotes/origin/${CONTENT_BRANCH}"; then
+            if git show-ref --verify --quiet "refs/heads/${CONTENT_BRANCH}"; then
+              git checkout "${CONTENT_BRANCH}"
+            else
+              git checkout -b "${CONTENT_BRANCH}" "origin/${CONTENT_BRANCH}"
+            fi
+            git pull origin "${CONTENT_BRANCH}"
+          else
+            git checkout -b "${CONTENT_BRANCH}"
+          fi
           
           # Merge each PR branch locally (but DON'T push yet)
           for pr_info in "${pr_array[@]}"; do
@@ -94,7 +104,7 @@ jobs:
           echo "merged_prs=$merged_prs" >> $GITHUB_OUTPUT
           
           # Check if we have changes (but don't push yet)
-          if git diff --quiet origin/main; then
+          if git show-ref --verify --quiet "refs/remotes/origin/${CONTENT_BRANCH}" && git diff --quiet "origin/${CONTENT_BRANCH}"; then
             echo "No changes to merge"
             echo "has_changes=false" >> $GITHUB_OUTPUT
           else
@@ -174,12 +184,12 @@ jobs:
               tags: listing.organization.tags || [],
               email: listing.organization.email || '',
               website: listing.organization.website || '',
-              languages_spoken: listing.organization.languages_spoken || '',
-              accessibility_info: listing.organization.accessibility_info || '',
-              documents_required: listing.organization.documents_required || '',
-              fees: listing.organization.fees || '',
+              languages_spoken: listing.requirements?.languages_spoken || '',
+              accessibility_info: listing.requirements?.accessibility_info || '',
+              documents_required: listing.requirements?.documents_required || '',
+              fees: listing.requirements?.fees || '',
               eligibility: listing.requirements?.eligibility || '',
-              additional_info: listing.additional_info || ''
+              additional_info: listing.additional_info || listing.requirements?.additional_info || ''
             };
 
             if (existingIndex >= 0) {
@@ -324,25 +334,30 @@ jobs:
           console.log(`✅ Updated resources.json (${resources.length} resources)`);
           EOF
       
-      - name: Push all changes in ONE commit (Single Deploy)
+      - name: Promote content branch to main in ONE deploy
         if: steps.merge.outputs.has_changes == 'true'
         run: |
-          # Add synced content, resources, and media updates
+          # Commit synced content-branch updates first
           git add -A data/services.json data/resources.json data/posts assets/images/posts
           
-          # Check if there are any changes to commit
           if git diff --cached --quiet; then
-            echo "No synced content changes detected"
-            # Just push the merged PRs
-            git push origin main
-            echo "Pushed merged PRs only"
+            echo "No synced content changes detected on ${CONTENT_BRANCH}"
           else
-            # Commit synced data, resources, and media updates
             git commit -m "Auto-update: Sync approved content, resources, and media"
-            # Push everything in one deployment
-            git push origin main
-            echo "Pushed merged PRs, synced JSON, and media in ONE deployment"
           fi
+
+          git push origin "${CONTENT_BRANCH}"
+
+          git fetch origin main
+          if git show-ref --verify --quiet refs/heads/main; then
+            git checkout main
+          else
+            git checkout -b main origin/main
+          fi
+          git pull origin main
+          git merge "${CONTENT_BRANCH}" --no-edit --no-ff
+          git push origin main
+          echo "Promoted ${CONTENT_BRANCH} to main in one deployment"
       
       - name: Close merged PRs
         if: steps.merge.outputs.merged_prs != ''
@@ -380,11 +395,23 @@ jobs:
         if: steps.gather.outputs.prs == ''
         run: |
           echo "No pending_publish PRs found to merge"
-          echo "Checking if sync is needed anyway..."
+          echo "Checking if content branch sync is needed anyway..."
       
       - name: Sync service listings even if no PRs (Fallback)
         if: steps.gather.outputs.prs == ''
         run: |
+          git fetch origin "${CONTENT_BRANCH}" || true
+          if git show-ref --verify --quiet "refs/remotes/origin/${CONTENT_BRANCH}"; then
+            if git show-ref --verify --quiet "refs/heads/${CONTENT_BRANCH}"; then
+              git checkout "${CONTENT_BRANCH}"
+            else
+              git checkout -b "${CONTENT_BRANCH}" "origin/${CONTENT_BRANCH}"
+            fi
+            git pull origin "${CONTENT_BRANCH}"
+          else
+            git checkout -b "${CONTENT_BRANCH}"
+          fi
+
           echo "Running fallback sync to ensure services.json is up to date..."
 
           node << 'EOF'
@@ -460,12 +487,12 @@ jobs:
               tags: listing.organization.tags || [],
               email: listing.organization.email || '',
               website: listing.organization.website || '',
-              languages_spoken: listing.organization.languages_spoken || '',
-              accessibility_info: listing.organization.accessibility_info || '',
-              documents_required: listing.organization.documents_required || '',
-              fees: listing.organization.fees || '',
+              languages_spoken: listing.requirements?.languages_spoken || '',
+              accessibility_info: listing.requirements?.accessibility_info || '',
+              documents_required: listing.requirements?.documents_required || '',
+              fees: listing.requirements?.fees || '',
               eligibility: listing.requirements?.eligibility || '',
-              additional_info: listing.additional_info || ''
+              additional_info: listing.additional_info || listing.requirements?.additional_info || ''
             };
 
             if (existingIndex >= 0) {
@@ -525,6 +552,22 @@ jobs:
             echo "No fallback sync changes detected"
           else
             git commit -m "Fallback sync: Update services and media assets"
+          fi
+
+          git push origin "${CONTENT_BRANCH}"
+
+          git fetch origin main
+          if git show-ref --verify --quiet refs/heads/main; then
+            git checkout main
+          else
+            git checkout -b main origin/main
+          fi
+          git pull origin main
+
+          if git merge "${CONTENT_BRANCH}" --no-edit --no-ff; then
             git push origin main
-            echo "Pushed fallback services and media update"
+            echo "Promoted fallback ${CONTENT_BRANCH} updates to main"
+          else
+            echo "Failed to merge ${CONTENT_BRANCH} into main during fallback"
+            exit 1
           fi

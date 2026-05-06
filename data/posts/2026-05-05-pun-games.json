@@ -1,0 +1,26 @@
+{
+  "post": {
+    "type": "recurring_event",
+    "title": "Pun & Games",
+    "message": "FREE games and literacy programming for kids",
+    "thumbnail": "assets/images/posts/CBB_MS_Pun_Games.jpg",
+    "date": "2026-05-05T16:54:00-04:00",
+    "expiresDate": "2026-05-26T16:54:00.000-04:00",
+    "contactInfo": "416-214-0837"
+  },
+  "organization": {
+    "foodBankId": "TCBB1"
+  },
+  "location": {
+    "location": "1154 Morningside Ave, Scarborough ON, M1B3A4 ",
+    "link": "https://www.childrensbookbank.com/morningside"
+  },
+  "recurringEvent": {
+    "startRecurringDates": "2026-05-05T16:55:00.000-04:00",
+    "recurringDates": {
+      "tue": {
+        "open": "4:00pm"
+      }
+    }
+  }
+}

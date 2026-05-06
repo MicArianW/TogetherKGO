@@ -1,0 +1,44 @@
+{
+  "organization": {
+    "name": "Let’s Bee Connected",
+    "type": "grassroots_org",
+    "description": "A Black-led, community-rooted nonprofit transforming underused land into learning gardens that feed, teach, and support community wellness.",
+    "address": "4030 Sheppard Ave E, Toronto, ON M1S 1S6",
+    "phone": "416-358-5358",
+    "email": "info@letsbeeconnected.ca",
+    "website": "https://letsbeeconnected.ca/",
+    "tags": [
+      "youth",
+      "food_support",
+      "community_market",
+      "community_health",
+      "employment"
+    ]
+  },
+  "hours": {
+    "mon": {
+      "open": "9:00 AM",
+      "close": "5:00 PM"
+    },
+    "tue": {
+      "open": "9:00 AM",
+      "close": "5:00 PM"
+    },
+    "wed": {
+      "open": "9:00 AM",
+      "close": "5:00 PM"
+    },
+    "thu": {
+      "open": "9:00 AM",
+      "close": "5:00 PM"
+    },
+    "fri": {
+      "open": "9:00 AM",
+      "close": "5:00 PM"
+    }
+  },
+  "location": {
+    "lat": 43.7897,
+    "lng": -79.28671
+  }
+}

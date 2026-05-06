@@ -1,0 +1,20 @@
+{
+  "post": {
+    "type": "event",
+    "title": "Mother's Day Story & Activity",
+    "message": "Join us at 4:30pm to celebrate Mother's day with a FREE story & activity. No registration required.",
+    "contactInfo": "416-214-0837",
+    "date": "2026-05-05T17:05:00-04:00",
+    "expiresDate": "2026-05-12T17:05:00.000-04:00"
+  },
+  "organization": {
+    "foodBankId": "TCBB1"
+  },
+  "location": {
+    "link": "https://www.childrensbookbank.com/morningside",
+    "location": "1154 Morningside Ave, Scarborough ON, M1B3A4"
+  },
+  "uniqueEvent": {
+    "eventDate": "2026-05-11T16:30:00.000-04:00"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "post": {
+    "type": "event",
+    "title": "Eid al-Adha Story & Activity",
+    "message": "Join us at 11:30am to celebrate Eid al-Adha with a FREE story and activity. No registration required.",
+    "contactInfo": "416-214-0837",
+    "date": "2026-05-05T17:08:00-04:00",
+    "expiresDate": "2026-05-24T17:08:00.000-04:00"
+  },
+  "organization": {
+    "foodBankId": "TCBB1"
+  },
+  "location": {
+    "location": "1154 Morningside Ave, Scarborough ON, M1B3A4",
+    "link": "https://www.childrensbookbank.com/morningside"
+  },
+  "uniqueEvent": {
+    "eventDate": "2026-05-23T11:30:00.000-04:00"
+  }
+}

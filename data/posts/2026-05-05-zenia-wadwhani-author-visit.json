@@ -1,0 +1,21 @@
+{
+  "post": {
+    "type": "event",
+    "title": "Zenia Wadwhani Author Visit",
+    "message": "Join us for a special storytime with author Zenia Wadwhani and her new book Fly in the Chai! Free, registration required. Open for all ages.",
+    "contactInfo": "416-214-0837",
+    "date": "2026-05-05T16:50:00-04:00",
+    "expiresDate": "2026-05-10T23:50:00.000-04:00",
+    "thumbnail": "assets/images/posts/CBB_MS_Fly_in_the_Chai_Book.jpg"
+  },
+  "organization": {
+    "foodBankId": "TCBB1"
+  },
+  "location": {
+    "location": "1154 Morningside Ave, Scarborough ON, M1B3A4",
+    "link": "https://www.childrensbookbank.com/morningside"
+  },
+  "uniqueEvent": {
+    "eventDate": "2026-05-09T11:30:00.000-04:00"
+  }
+}

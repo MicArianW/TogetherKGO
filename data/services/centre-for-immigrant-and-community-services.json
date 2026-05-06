@@ -1,0 +1,50 @@
+{
+  "organization": {
+    "website": "https://t.cicscanada.com/",
+    "type": "community_org",
+    "tags": [
+      "food_support",
+      "youth",
+      "housing",
+      "newcomer",
+      "community_health",
+      "employment"
+    ],
+    "description": "CICS is a charitable and multi-service agency that provides a wide range of cost-effective, culturally sensitive and professional settlement and community services in the GTA for over 50 years.",
+    "phone": "(647) 472-0385",
+    "address": "2330 Midland Ave, Scarborough, ON M1S 5G5",
+    "name": "Centre for Immigrant and Community Services",
+    "email": "info@cicscanada.com",
+    "id": "fb5"
+  },
+  "location": {
+    "lat": 43.7775716,
+    "lng": -79.2750762
+  },
+  "requirements": {
+    "languages_spoken": "Cantonese, English, Hindi, Korean, Mandarin",
+    "accessibility_info": "Designated parking at entrance; Easy access to elevator- lowered buttons; Non-powered swing doors; Barrier free washrooms"
+  },
+  "hours": {
+    "mon": {
+      "open": "9:00am",
+      "close": "5:00am"
+    },
+    "tue": {
+      "open": "9:00am",
+      "close": "5:00am"
+    },
+    "wed": {
+      "open": "9:00am",
+      "close": "5:00am"
+    },
+    "thu": {
+      "open": "9:00am",
+      "close": "5:00am"
+    },
+    "fri": {
+      "open": "9:00am",
+      "close": "5:00am"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "organization": {
+    "name": "The Salvation Army- Cedarbrae Community Church",
+    "description": "Community and family services including food bank, prayer support, residential summer camp, back-to-school and Christmas assistance programs",
+    "type": "community_inst",
+    "address": "2085 Ellesmere Rd, Toronto, ON, M1H 2W6, Canada",
+    "phone": "(416) 438-2573",
+    "email": "salvationarmy.cedarbrae@gmail.com",
+    "website": "https://www.cedarbraecc.com/family-services",
+    "tags": [
+      "community_pantry",
+      "food_support",
+      "community_health"
+    ]
+  },
+  "hours": {
+    "mon": {
+      "open": "9:30 am",
+      "close": "12:15 pm"
+    },
+    "wed": {
+      "open": "9:30 am",
+      "close": "12:15 pm"
+    },
+    "thu": {
+      "open": "9:00 am",
+      "close": "12:15 pm"
+    }
+  },
+  "requirements": {
+    "accessibility_info": "Not accessible",
+    "eligibility": "Residents of postal codes beginning with M1B, M1C, M1E, M1G, M1H, M1J, M1X",
+    "languages_spoken": "English, Hindi, Malayalam, Tamil"
+  },
+  "location": {
+    "lat": 43.77593,
+    "lng": -79.23281
+  }
+}

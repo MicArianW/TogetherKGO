@@ -2,7 +2,7 @@
   {
     "id": "co1",
     "name": "Agincourt Community Church",
-    "type": "community_org",
+    "type": "community_inst",
     "address": "3080 Birchmount Rd, Scarborough, ON, M1W 3K3, Canada",
     "location": {
       "lat": 43.803367614746094,
@@ -33,8 +33,8 @@
     ],
     "email": "agincourtcc.info@salvationarmy.ca ",
     "website": " https://www.agincourtcommunitychurch.com/",
-    "languages_spoken": "",
-    "accessibility_info": "",
+    "languages_spoken": "English",
+    "accessibility_info": "Wheelchair accessible automatic main entrance; Barrier-free washroom; Designated parking at rear entrance",
     "documents_required": "",
     "fees": "",
     "eligibility": " Open to those in catchment area- Postal codes beginning with M1S, M1T, M1V, M1W\n",
@@ -92,7 +92,165 @@
     "additional_info": ""
   },
   {
+
+    "id": "cfhs1",
+    "name": "Community Food Hub @ Malvern Family Resource Centre",
+    "type": "grassroots_org",
+    "address": "Outside of Malvern Family Resource Centre, 90 Littles Rd, Scarborough, ON M1B 5E2",
+    "location": {
+      "lat": 43.818459,
+      "lng": -79.205445
+    },
+    "hours": {},
+    "phone": "",
+    "description": "Community Food Hub, a volunteer-led organization, is on a mission to decrease food insecurity and avoidable food waste by providing low-barrier outdoor community fridges/pantries in Scarborough. ",
+    "tags": [
+      "community_pantry",
+      "food_support"
+    ],
+    "email": "",
+    "website": "https://linktr.ee/communityfoodhub?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnYjoFNDgGpoWqCYlwhFJFcF8oszu1CviDU0lvGJHHY2Opkz1pu-wMHpjuqs4_aem_TMebIhdn1FCQ9q4NuQQZJQ",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Anyone can access the community fridge/pantry, no questions asked. Take what you need, leave what you can.  ",
+    "additional_info": ""
+  },
+  {
+    "id": "cfhpc1",
+    "name": "Community Food Hub @ Progress Church ",
+    "type": "grassroots_org",
+    "address": "Progress Church, 4242 Kingston Rd, Scarborough, ON M1E 2M7",
+    "location": {
+      "lat": 43.761872,
+      "lng": -79.195172
+    },
+    "hours": {},
+    "phone": "",
+    "description": "Community Food Hub, a volunteer-led organization, is on a mission to decrease food insecurity and avoidable food waste by providing low-barrier outdoor community fridges/pantries in Scarborough.\n",
+    "tags": [
+      "community_pantry",
+      "food_support"
+    ],
+    "email": "",
+    "website": "https://linktr.ee/communityfoodhub?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnYjoFNDgGpoWqCYlwhFJFcF8oszu1CviDU0lvGJHHY2Opkz1pu-wMHpjuqs4_aem_TMebIhdn1FCQ9q4NuQQZJQ",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Anyone can access the community fridge/pantry, no questions asked. Take what you need, leave what you can.  ",
+    "additional_info": ""
+  },
+  {
+    "id": "hwfb1",
+    "name": "Holy Wisdom Food Bank",
+    "type": "community_inst",
+    "address": "776 Brimley Rd, Scarborough, ON",
+    "location": {
+      "lat": 43.750825,
+      "lng": -79.254421
+    },
+    "hours": {
+      "tue": {
+        "open": "4:30pm",
+        "close": "7:30pm"
+      }
+    },
+    "phone": "",
+    "description": "",
+    "tags": [
+      "food_support"
+    ],
+    "email": "",
+    "website": "https://holywisdom.ca/ ",
+    "languages_spoken": "English",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Walk-ins are welcome and no appointment necessary. Individuals and families in need.\n",
+    "additional_info": ""
+  },
+  {
+    "id": "solfb-tes1",
+    "name": "Staff of Life Food Bank (Toronto East Seventh-day Adventist Church)",
+    "type": "community_inst",
+    "address": "65 Grand Marshall Dr, Toronto, ON M1B 5N6",
+    "location": {
+      "lat": 43.802942,
+      "lng": -79.19461
+    },
+    "hours": {
+      "sun": {
+        "open": "1:00pm",
+        "close": "2:00pm"
+      }
+    },
+    "phone": "416-286-3209",
+    "description": "",
+    "tags": [],
+    "email": " staffoflife@philadelphiasda.ca ",
+    "website": "https://philadelphiasda.ca",
+    "languages_spoken": "English",
+    "accessibility_info": "Fully wheelchair accessible",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": " Individuals and families in need (Scarborough)\n",
+    "additional_info": ""
+  },
+  {
+    "id": "TCBB1",
+    "name": "The Children’s Book Bank",
+    "type": "community_org",
+    "address": "1154 Morningside Ave, Scarborough ON, M1B 3A4",
+    "location": {
+      "lat": 43.801009,
+      "lng": -79.200296
+    },
+    "hours": {
+      "tue": {
+        "open": "10:30am",
+        "close": "18:00pm"
+      },
+      "mon": {
+        "open": "10:30am",
+        "close": "18:00pm"
+      },
+      "wed": {
+        "open": "10:30am",
+        "close": "18:00pm"
+      },
+      "thu": {
+        "open": "10:30am",
+        "close": "18:00pm"
+      },
+      "fri": {
+        "open": ""
+      },
+      "sat": {
+        "open": "10:30am",
+        "close": "15:00pm"
+      }
+    },
+    "phone": "416-214-0837",
+    "description": "Operates drop-in community literacy spaces that are open to all children, teens, and their families. These spaces offer free literacy programs and a wide selection of free books for visitors to choose from. We also host free visits to our spaces for schools, daycares and summer camps.",
+    "tags": [
+      "youth"
+    ],
+    "email": "",
+    "website": "https://www.childrensbookbank.com/morningside",
+    "languages_spoken": "Primarily English, but we often have books in other languages!",
+    "accessibility_info": "Free parking is available.",
+    "documents_required": "None",
+    "fees": "Free",
+    "eligibility": "Children, teens, and their families",
+    "additional_info": "We are located on the second floor of the Pleasant Corner Mall. Walk around to the back of the building (follow signs for Kumon) and go up the stairs or ramp. Enter through the first door on your left. You’ll see the Book Bank at the end of the hall, next to the dentist's office."
+  },
+  {
+    "id": "fb3",
+
     "id": "fb9",
+
     "name": "ACSA Community Services",
     "type": "community_org",
     "address": "911 Kennedy Rd, Unit 105, Toronto, ON, M1P 2L9, Canada",
@@ -132,15 +290,19 @@
     ],
     "email": "hubreception@agincourtcommunityservices.com ",
     "website": " https://www.agincourtcommunityservices.com/access-food ",
-    "languages_spoken": "",
-    "accessibility_info": "",
+    "languages_spoken": "Arabic, Cantonese, English, Farsi, French, Mandarin, Spanish",
+    "accessibility_info": "Designated parking at entrance ; Wheelchair accessible automatic main entrance; Easy access to elevator; Barrier-free washroom including door and stall.\n",
     "documents_required": "",
     "fees": "",
     "eligibility": "Available to anyone in need of food support ",
     "additional_info": ""
   },
   {
+ 
+    "id": "fb4",
+
     "id": "fb10",
+
     "name": "Afghan Women’s Organization, AWO Scarborough",
     "type": "community_org",
     "address": "2555 Eglinton Ave E, Suite 211, Toronto, ON, M1K 5J1, Canada",
@@ -181,11 +343,499 @@
     ],
     "email": "receptionhd@afghanwomen.org ",
     "website": "http://afghanwomen.org ",
+    "languages_spoken": "Dari, English, Pashto, Urdu, Uzbek",
+    "accessibility_info": "Wheelchair accessible; parking lot at rear.",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Newcomers with a focus on women, their families, refugees and people who have experienced war or persecution\n",
+    "additional_info": ""
+  },
+  {
+    "id": "fb5",
+    "name": "Centre for Immigrant and Community Services",
+    "type": "community_org",
+    "address": "2330 Midland Ave, Scarborough, ON M1S 5G5",
+    "location": {
+      "lat": 43.7775716,
+      "lng": -79.2750762
+    },
+    "hours": {
+      "mon": {
+        "open": "9:00am",
+        "close": "5:00am"
+      },
+      "tue": {
+        "open": "9:00am",
+        "close": "5:00am"
+      },
+      "wed": {
+        "open": "9:00am",
+        "close": "5:00am"
+      },
+      "thu": {
+        "open": "9:00am",
+        "close": "5:00am"
+      },
+      "fri": {
+        "open": "9:00am",
+        "close": "5:00am"
+      }
+    },
+    "phone": "(647) 472-0385",
+    "description": "CICS is a charitable and multi-service agency that provides a wide range of cost-effective, culturally sensitive and professional settlement and community services in the GTA for over 50 years.",
+    "tags": [
+      "food_support",
+      "youth",
+      "housing",
+      "newcomer",
+      "community_health",
+      "employment"
+    ],
+    "email": "info@cicscanada.com",
+    "website": "https://t.cicscanada.com/",
+    "languages_spoken": "Cantonese, English, Hindi, Korean, Mandarin",
+    "accessibility_info": "Designated parking at entrance; Easy access to elevator- lowered buttons; Non-powered swing doors; Barrier free washrooms",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "",
+    "additional_info": ""
+  },
+  {
+    "id": "fb6",
+    "name": "Church of St Jude (Wexford) Deacons Pantry",
+    "type": "community_inst",
+    "address": "10 Howarth Ave, Scarborough, ON M1R 1H4",
+    "location": {
+      "lat": 43.7386917,
+      "lng": -79.305984
+    },
+    "hours": {
+      "wed": {
+        "open": "10:00am",
+        "close": "12:00pm"
+      }
+    },
+    "phone": "(416) 755-5872",
+    "description": "Emergency Food Support ",
+    "tags": [
+      "food_support"
+    ],
+    "email": "stjudewexford@toronto.anglican.ca ",
+    "website": "http://www.stjudewexford.ca/home/food-bank/ ",
+    "languages_spoken": "Arabic, English, Spanish",
+    "accessibility_info": "Designated parking at entrance; Wheelchair accessible main entrance; Barrier-free washroom\n",
+    "documents_required": "When you are called to our registration table, you will need to provide identification for each person for whom you are requesting food.",
+    "fees": "",
+    "eligibility": "Catchment Area - Hwy 401 (north) to Eglinton Ave E (south), Don Valley Pkwy (west) to Birchmount Rd (east)\n",
+    "additional_info": ""
+  },
+  {
+    "id": "fb40",
+    "name": "Clairlea Food Bank",
+    "type": "community_org",
+    "address": "772 Warden Ave, Toronto, ON, M1L 4T7",
+    "location": {
+      "lat": 43.72355,
+      "lng": -79.28666
+    },
+    "hours": {
+      "tue": {
+        "open": "2:00 PM",
+        "close": "6:00 PM"
+      },
+      "thu": {
+        "open": "2:00 PM",
+        "close": "6:00 PM"
+      },
+      "sat": {
+        "open": "11:00 AM",
+        "close": "3:00 PM"
+      }
+    },
+    "phone": "416-936-3975",
+    "description": "",
+    "tags": [
+      "food_support",
+      "meal_program",
+      "community_pantry",
+      "community_market",
+      "community_health"
+    ],
+    "email": " info@feedscarborough.ca ",
+    "website": "https://scarboroughfoodsecurityinitiative.com",
+    "languages_spoken": "English",
+    "accessibility_info": "",
+    "documents_required": "ID required for all household members (new clients)",
+    "fees": "",
+    "eligibility": "Individuals and families in need",
+    "additional_info": ""
+  },
+  {
+    "id": "fb41",
+    "name": "Cliffside Food Bank",
+    "type": "community_org",
+    "address": "2259 Kingston Rd, Toronto, ON, M1N 1T8",
+    "location": {
+      "lat": 43.70577,
+      "lng": -79.25132
+    },
+    "hours": {
+      "wed": {
+        "open": "12:00 pm",
+        "close": "4:00 pm"
+      },
+      "thu": {
+        "open": "12:00 pm",
+        "close": "4:00 pm"
+      },
+      "fri": {
+        "open": "12:00 pm",
+        "close": "4:00 pm"
+      },
+      "sat": {
+        "open": "11:00 am",
+        "close": "3:00 pm"
+      }
+    },
+    "phone": "416-936-3975",
+    "description": "Food bank (Member of Daily Bread Food Bank)",
+    "tags": [
+      "food_support",
+      "community_pantry",
+      "meal_program",
+      "community_market",
+      "community_health"
+    ],
+    "email": "info@feedscarborough.ca ",
+    "website": "http://www.feedscarborough.ca",
+    "languages_spoken": "English",
+    "accessibility_info": "Accessibility: Partially accessible (tight corners)",
+    "documents_required": "ID required for all household members (new clients)",
+    "fees": "None",
+    "eligibility": "Individuals and families in need",
+    "additional_info": ""
+  },
+  {
+    "id": "fb42",
+    "name": "Feed Scarborough: Markham Road Food Bank",
+    "type": "community_org",
+    "address": "155 Markham Rd, Toronto, ON, M1M 3A1",
+    "location": {
+      "lat": 43.74178,
+      "lng": -79.21783
+    },
+    "hours": {
+      "thu": {
+        "open": "8:30 am",
+        "close": "11:00 am"
+      }
+    },
+    "phone": "416-203-0050 ext 261",
+    "description": "Food bank (Member of Daily Bread Food Bank)",
+    "tags": [
+      "food_support",
+      "community_pantry",
+      "meal_program",
+      "community_market",
+      "employment",
+      "community_health"
+    ],
+    "email": "info@feedscarborough.ca ",
+    "website": "https://scarboroughfoodsecurityinitiative.com",
+    "languages_spoken": "English",
+    "accessibility_info": "Multi-level building with stairs",
+    "documents_required": "ID required for all household members (new clients)",
+    "fees": "",
+    "eligibility": " Individuals and families in need",
+    "additional_info": ""
+  },
+  {
+    "id": "fb43",
+    "name": "Food Pantry at Morningside",
+    "type": "community_org",
+    "address": "Mornelle Community Hub, 90 Mornelle Crt, Bsmt, Toronto, ON, M1E 4P9, Canada",
+    "location": {
+      "lat": 43.78807,
+      "lng": -79.19605
+    },
+    "hours": {
+      "sat": {
+        "open": "12:00 pm",
+        "close": "4:00 pm"
+      }
+    },
+    "phone": "(647) 762-4670",
+    "description": "Canadian South Asian Growth and Support Services",
+    "tags": [
+      "community_pantry",
+      "food_support",
+      "community_health"
+    ],
+    "email": "info@csagss.org ",
+    "website": "http://www.csagss.org/ ",
+    "languages_spoken": "English",
+    "accessibility_info": "Wheelchair accessible rear entrance and elevator to basement; Wheelchair accessible washrooms; Underground parking\n",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Individuals and families in need",
+    "additional_info": ""
+  },
+  {
+    "id": "fb44",
+    "name": "Grace CRC McCowan Food Bank ",
+    "type": "community_org",
+    "address": "25 Channel Nine Ct, Toronto, ON, M1S 4B5, Canada",
+    "location": {
+      "lat": 43.78427,
+      "lng": -79.25681
+    },
+    "hours": {
+      "thu": {
+        "open": "5:00 pm",
+        "close": "7:00 pm"
+      }
+    },
+    "phone": "416-293-0373",
+    "description": "Shopping model for dairy, meat, vegetables, grain, bread\nRandom numbering- no lineup before 4:30 pm",
+    "tags": [
+      "food_support",
+      "community_pantry"
+    ],
+    "email": "gracecrcfoodbank@gmail.com ",
+    "website": "https://www.gracecrc.com",
+    "languages_spoken": "English",
+    "accessibility_info": "Unknown; contact for information",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": " Individuals and families in need",
+    "additional_info": ""
+  },
+  {
+    "id": "fb45",
+    "name": "Grace Place Food Bank",
+    "type": "community_org",
+    "address": "1428 Kennedy Rd, Toronto, ON, M1P 2L7, Canada",
+    "location": {
+      "lat": 43.76466,
+      "lng": -79.2816
+    },
+    "hours": {
+      "tue": {
+        "open": "10:00 AM",
+        "close": "3:00 PM"
+      },
+      "wed": {
+        "open": "10:00 AM",
+        "close": "3:00 PM"
+      },
+      "thu": {
+        "open": "10:00 AM",
+        "close": "3:00 PM"
+      }
+    },
+    "phone": "(416) 752-4100",
+    "description": "Grace Place Church",
+    "tags": [
+      "community_pantry",
+      "food_support",
+      "community_health"
+    ],
+    "email": "dorset_graceplace@rogers.com ",
+    "website": "http://www.graceplacetoronto.com",
+    "languages_spoken": "English",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": " Individuals and families in need",
+    "additional_info": ""
+  },
+  {
+    "id": "fb46",
+    "name": "Let’s Bee Connected",
+    "type": "grassroots_org",
+    "address": "4030 Sheppard Ave E, Toronto, ON M1S 1S6",
+    "location": {
+      "lat": 43.7897,
+      "lng": -79.28671
+    },
+    "hours": {
+      "mon": {
+        "open": "9:00 AM",
+        "close": "5:00 PM"
+      },
+      "tue": {
+        "open": "9:00 AM",
+        "close": "5:00 PM"
+      },
+      "wed": {
+        "open": "9:00 AM",
+        "close": "5:00 PM"
+      },
+      "thu": {
+        "open": "9:00 AM",
+        "close": "5:00 PM"
+      },
+      "fri": {
+        "open": "9:00 AM",
+        "close": "5:00 PM"
+      }
+    },
+    "phone": "416-358-5358",
+    "description": "A Black-led, community-rooted nonprofit transforming underused land into learning gardens that feed, teach, and support community wellness.",
+    "tags": [
+      "youth",
+      "food_support",
+      "community_market",
+      "community_health",
+      "employment"
+    ],
+    "email": "info@letsbeeconnected.ca",
+    "website": "https://letsbeeconnected.ca/",
     "languages_spoken": "",
     "accessibility_info": "",
     "documents_required": "",
     "fees": "",
-    "eligibility": "Newcomers with a focus on women, their families, refugees and people who have experienced war or persecution\n",
+    "eligibility": "",
+    "additional_info": ""
+  },
+  {
+    "id": "fb47",
+    "name": "Scarborough Centre for Healthy Communities",
+    "type": "community_org",
+    "address": "4100 Lawrence Ave E, Toronto, ON, Canada",
+    "location": {
+      "lat": 43.76713,
+      "lng": -79.19541
+    },
+    "hours": {
+      "wed": {
+        "open": "12:30 pm",
+        "close": "3:15 pm"
+      },
+      "thu": {
+        "open": "2:00 pm",
+        "close": "4:15 pm"
+      },
+      "fri": {
+        "open": "10:30 am",
+        "close": "12:45 pm"
+      }
+    },
+    "phone": "416-847-4147",
+    "description": "Food bank (self-referral; no appointment required)\nClothing bank is closed\n",
+    "tags": [
+      "community_health",
+      "housing",
+      "newcomer",
+      "community_pantry",
+      "food_support"
+    ],
+    "email": "foodbank@schcontario.ca",
+    "website": "www.schcontario.ca",
+    "languages_spoken": "",
+    "accessibility_info": "Partially accessible\n",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Self-identifying as low income",
+    "additional_info": ""
+  },
+  {
+    "id": "fb48",
+    "name": "Soso World Ministries ",
+    "type": "community_org",
+    "address": "10 Glen Everest Rd, Toronto, ON, M1N 1J4, Canada",
+    "location": {
+      "lat": 43.69975,
+      "lng": -79.2546
+    },
+    "hours": {
+      "sat": {
+        "open": "12:00 pm",
+        "close": "2:00 pm"
+      }
+    },
+    "phone": "647-330-2254",
+    "description": "Glen Everest Food Bank Location",
+    "tags": [
+      "food_support",
+      "community_pantry"
+    ],
+    "email": "",
+    "website": "https://www.sosoworldministries.com",
+    "languages_spoken": "English",
+    "accessibility_info": "\n",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Individuals and families in need",
+    "additional_info": ""
+  },
+  {
+    "id": "fb49",
+    "name": "TAIBU Community Health Centre- Daily Bread Food Bank",
+    "type": "community_org",
+    "address": "110 Empringham Dr, Unit 214, Toronto, ON, Canada",
+    "location": {
+      "lat": 43.81266,
+      "lng": -79.2123
+    },
+    "hours": {
+      "fri": {
+        "open": "3:00 pm",
+        "close": "5:00 pm"
+      }
+    },
+    "phone": "416-644-3536 ext 2227",
+    "description": "",
+    "tags": [
+      "community_health",
+      "community_pantry"
+    ],
+    "email": "info@taibuchc.ca ",
+    "website": "www.taibuchc.ca",
+    "languages_spoken": "",
+    "accessibility_info": "Fully accessible",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Priority given to Black residents of the Malvern community",
+    "additional_info": ""
+  },
+  {
+    "id": "fb50",
+    "name": "The Salvation Army- Cedarbrae Community Church",
+    "type": "community_inst",
+    "address": "2085 Ellesmere Rd, Toronto, ON, M1H 2W6, Canada",
+    "location": {
+      "lat": 43.77593,
+      "lng": -79.23281
+    },
+    "hours": {
+      "mon": {
+        "open": "9:30 am",
+        "close": "12:15 pm"
+      },
+      "wed": {
+        "open": "9:30 am",
+        "close": "12:15 pm"
+      },
+      "thu": {
+        "open": "9:00 am",
+        "close": "12:15 pm"
+      }
+    },
+    "phone": "(416) 438-2573",
+    "description": "Community and family services including food bank, prayer support, residential summer camp, back-to-school and Christmas assistance programs",
+    "tags": [
+      "community_pantry",
+      "food_support",
+      "community_health"
+    ],
+    "email": "salvationarmy.cedarbrae@gmail.com",
+    "website": "https://www.cedarbraecc.com/family-services",
+    "languages_spoken": "English, Hindi, Malayalam, Tamil",
+    "accessibility_info": "Not accessible",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Residents of postal codes beginning with M1B, M1C, M1E, M1G, M1H, M1J, M1X",
     "additional_info": ""
   }
 ]

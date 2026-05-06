@@ -1,0 +1,51 @@
+{
+  "organization": {
+    "name": "The Children’s Book Bank",
+    "description": "Operates drop-in community literacy spaces that are open to all children, teens, and their families. These spaces offer free literacy programs and a wide selection of free books for visitors to choose from. We also host free visits to our spaces for schools, daycares and summer camps.",
+    "id": "TCBB1",
+    "tags": [
+      "youth"
+    ],
+    "website": "https://www.childrensbookbank.com/morningside",
+    "phone": "416-214-0837",
+    "address": "1154 Morningside Ave, Scarborough ON, M1B 3A4",
+    "type": "community_org"
+  },
+  "requirements": {
+    "additional_info": "We are located on the second floor of the Pleasant Corner Mall. Walk around to the back of the building (follow signs for Kumon) and go up the stairs or ramp. Enter through the first door on your left. You’ll see the Book Bank at the end of the hall, next to the dentist's office.",
+    "fees": "Free",
+    "eligibility": "Children, teens, and their families",
+    "documents_required": "None",
+    "accessibility_info": "Free parking is available.",
+    "languages_spoken": "Primarily English, but we often have books in other languages!"
+  },
+  "hours": {
+    "tue": {
+      "open": "10:30am",
+      "close": "18:00pm"
+    },
+    "mon": {
+      "open": "10:30am",
+      "close": "18:00pm"
+    },
+    "wed": {
+      "open": "10:30am",
+      "close": "18:00pm"
+    },
+    "thu": {
+      "open": "10:30am",
+      "close": "18:00pm"
+    },
+    "fri": {
+      "open": ""
+    },
+    "sat": {
+      "open": "10:30am",
+      "close": "15:00pm"
+    }
+  },
+  "location": {
+    "lat": 43.801009,
+    "lng": -79.200296
+  }
+}
