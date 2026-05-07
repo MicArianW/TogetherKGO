@@ -26,7 +26,7 @@ jobs:
           days: 30
 
       - name: Sanitize CSV output
-        run: node .github/workflows/sanitize.js
+        run: node scripts/sanitize.js
 
       - name: Configure Git
         run: |
