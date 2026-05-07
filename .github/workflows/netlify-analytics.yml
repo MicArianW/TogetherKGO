@@ -23,6 +23,9 @@ jobs:
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
           days: 30
 
+      - name: Sanitize CSV output
+        run: node .github/workflows/sanitize.js
+
       - name: Configure Git
         run: |
           git config user.name "github-actions"
