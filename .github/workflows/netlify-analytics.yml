@@ -1,4 +1,6 @@
 name: Netlify Monthly Analytics Export
+permissions:
+  contents: write
 
 on:
   schedule:
@@ -10,20 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout MAIN (where your scripts live)
-      - name: Checkout main branch (scripts)
+      - name: Checkout analytics branch
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: analytics
           fetch-depth: 0
 
-      # 2. Setup Node
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      # 3. Run Netlify analytics collector
       - name: Run Netlify Analytics Collector
         uses: NiklasMerz/netlify-analytics-collector@v2.0.0
         with:
@@ -31,25 +25,14 @@ jobs:
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
           days: 30
 
-      # 4. Sanitize output (script lives on MAIN)
       - name: Sanitize CSV output
         run: node scripts/sanitize.js
 
-      # 5. Checkout ANALYTICS branch (for output storage)
-      - name: Checkout analytics branch
-        uses: actions/checkout@v4
-        with:
-          ref: analytics
-          fetch-depth: 0
-          clean: false
-
-      # 6. Configure git identity
       - name: Configure Git
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-      # 7. Commit CSV files to analytics branch
       - name: Commit CSV files
         run: |
           git add .
