@@ -1,0 +1,35 @@
+name: Netlify Monthly Analytics Export
+
+on:
+  schedule:
+    - cron: "0 2 1 * *" # 1st day of every month
+  workflow_dispatch:
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout analytics branch
+        uses: actions/checkout@v4
+        with:
+          ref: analytics
+          fetch-depth: 0
+
+      - name: Run Netlify Analytics Collector
+        uses: NiklasMerz/netlify-analytics-collector@v2.0.0
+        with:
+          netlify-token: ${{ secrets.NETLIFY_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          days: 30
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Commit CSV files
+        run: |
+          git add .
+          git commit -m "Monthly Netlify analytics export" || echo "No changes to commit"
+          git push origin analytics
