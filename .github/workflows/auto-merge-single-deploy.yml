@@ -16,7 +16,6 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CONTENT_BRANCH: content
-      MEDIA_BRANCH: media-assets
     
     steps:
       - name: Checkout repository
@@ -212,26 +211,6 @@ jobs:
 
           console.log(`✅ Updated services.json (${services.length} services)`);
           EOF
-
-      - name: Sync post media from image branch
-        if: steps.merge.outputs.has_changes == 'true'
-        run: |
-          if git fetch origin "${MEDIA_BRANCH}" 2>/dev/null; then
-            echo "Fetched ${MEDIA_BRANCH}"
-          else
-            echo "No ${MEDIA_BRANCH} branch found on origin"
-            exit 0
-          fi
-
-          rm -rf .media-sync-tmp
-          mkdir -p .media-sync-tmp/assets/images/posts
-
-          if git ls-tree -d --name-only "origin/${MEDIA_BRANCH}" assets/images/posts | grep -q "assets/images/posts"; then
-            git archive --format=tar "origin/${MEDIA_BRANCH}" assets/images/posts | tar -xf - -C .media-sync-tmp
-          fi
-
-          mkdir -p assets/images/posts
-          rsync -a --delete .media-sync-tmp/assets/images/posts/ assets/images/posts/
 
       - name: Remove expired posts and orphaned media
         if: steps.merge.outputs.has_changes == 'true'
@@ -515,26 +494,6 @@ jobs:
 
           console.log(`✅ Updated services.json (${services.length} services)`);
           EOF
-
-      - name: Sync post media from image branch (Fallback)
-        if: steps.gather.outputs.prs == ''
-        run: |
-          if git fetch origin "${MEDIA_BRANCH}" 2>/dev/null; then
-            echo "Fetched ${MEDIA_BRANCH}"
-          else
-            echo "No ${MEDIA_BRANCH} branch found on origin"
-            exit 0
-          fi
-
-          rm -rf .media-sync-tmp
-          mkdir -p .media-sync-tmp/assets/images/posts
-
-          if git ls-tree -d --name-only "origin/${MEDIA_BRANCH}" assets/images/posts | grep -q "assets/images/posts"; then
-            git archive --format=tar "origin/${MEDIA_BRANCH}" assets/images/posts | tar -xf - -C .media-sync-tmp
-          fi
-
-          mkdir -p assets/images/posts
-          rsync -a --delete .media-sync-tmp/assets/images/posts/ assets/images/posts/
 
       - name: Remove expired posts and orphaned media (Fallback)
         if: steps.gather.outputs.prs == ''
