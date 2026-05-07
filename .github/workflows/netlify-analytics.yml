@@ -1,4 +1,6 @@
 name: Netlify Monthly Analytics Export
+permissions:
+  contents: write
 
 on:
   schedule:
