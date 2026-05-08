@@ -92,7 +92,6 @@
     "additional_info": ""
   },
   {
-
     "id": "cfhs1",
     "name": "Community Food Hub @ Malvern Family Resource Centre",
     "type": "grassroots_org",
@@ -248,9 +247,6 @@
   },
   {
     "id": "fb3",
-
-    "id": "fb9",
-
     "name": "ACSA Community Services",
     "type": "community_org",
     "address": "911 Kennedy Rd, Unit 105, Toronto, ON, M1P 2L9, Canada",
@@ -298,11 +294,7 @@
     "additional_info": ""
   },
   {
- 
     "id": "fb4",
-
-    "id": "fb10",
-
     "name": "Afghan Women’s Organization, AWO Scarborough",
     "type": "community_org",
     "address": "2555 Eglinton Ave E, Suite 211, Toronto, ON, M1K 5J1, Canada",
@@ -430,7 +422,104 @@
     "additional_info": ""
   },
   {
-    "id": "fb40",
+    "id": "fb9",
+    "name": "ACSA Community Services",
+    "type": "community_org",
+    "address": "911 Kennedy Rd, Unit 105, Toronto, ON, M1P 2L9, Canada",
+    "location": {
+      "lat": 43.76722948815258,
+      "lng": -79.280603
+    },
+    "hours": {
+      "mon": {
+        "open": "11:00am",
+        "close": "4:00pm"
+      },
+      "tue": {
+        "open": "11:00am",
+        "close": "4:00pm"
+      },
+      "wed": {
+        "open": "11:00am",
+        "close": "4:00pm"
+      },
+      "thu": {
+        "open": "11:00am",
+        "close": "4:00pm"
+      },
+      "fri": {
+        "open": "11:00am",
+        "close": "4:00pm"
+      }
+    },
+    "phone": "(647) 723-9238",
+    "description": "Newcomer Supports; Child, Youth, and Family Supports; Housing Access and Supports and Homelessness Prevention; Emergency Food Access.  By appointment only.",
+    "tags": [
+      "food_support",
+      "housing",
+      "newcomer",
+      "youth"
+    ],
+    "email": "hubreception@agincourtcommunityservices.com ",
+    "website": " https://www.agincourtcommunityservices.com/access-food ",
+    "languages_spoken": "Arabic, Cantonese, English, Farsi, French, Mandarin, Spanish",
+    "accessibility_info": "Designated parking at entrance ; Wheelchair accessible automatic main entrance; Easy access to elevator; Barrier-free washroom including door and stall.\n",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Available to anyone in need of food support ",
+    "additional_info": ""
+  },
+  {
+    "id": "fb10",
+    "name": "Afghan Women’s Organization, AWO Scarborough",
+    "type": "community_org",
+    "address": "2555 Eglinton Ave E, Suite 211, Toronto, ON, M1K 5J1, Canada",
+    "location": {
+      "lat": 43.732964,
+      "lng": -79.266869
+    },
+    "hours": {
+      "mon": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "tue": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "wed": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "thu": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "fri": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      }
+    },
+    "phone": "(416) 266-1777",
+    "description": "The AWO provides inclusive settlement and integration services to all newcomers and refugees. They offer a variety of services. ",
+    "tags": [
+      "food_support",
+      "newcomer",
+      "employment",
+      "youth",
+      "community_health"
+    ],
+    "email": "receptionhd@afghanwomen.org ",
+    "website": "http://afghanwomen.org ",
+    "languages_spoken": "Dari, English, Pashto, Urdu, Uzbek",
+    "accessibility_info": "Wheelchair accessible; parking lot at rear.",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Newcomers with a focus on women, their families, refugees and people who have experienced war or persecution\n",
+    "additional_info": ""
+  },
+  {
+    "id": "fb51",
     "name": "Clairlea Food Bank",
     "type": "community_org",
     "address": "772 Warden Ave, Toronto, ON, M1L 4T7",
@@ -471,7 +560,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb41",
+    "id": "fb52",
     "name": "Cliffside Food Bank",
     "type": "community_org",
     "address": "2259 Kingston Rd, Toronto, ON, M1N 1T8",
@@ -516,7 +605,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb42",
+    "id": "fb53",
     "name": "Feed Scarborough: Markham Road Food Bank",
     "type": "community_org",
     "address": "155 Markham Rd, Toronto, ON, M1M 3A1",
@@ -550,7 +639,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb43",
+    "id": "fb54",
     "name": "Food Pantry at Morningside",
     "type": "community_org",
     "address": "Mornelle Community Hub, 90 Mornelle Crt, Bsmt, Toronto, ON, M1E 4P9, Canada",
@@ -581,7 +670,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb44",
+    "id": "fb55",
     "name": "Grace CRC McCowan Food Bank ",
     "type": "community_org",
     "address": "25 Channel Nine Ct, Toronto, ON, M1S 4B5, Canada",
@@ -611,7 +700,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb45",
+    "id": "fb56",
     "name": "Grace Place Food Bank",
     "type": "community_org",
     "address": "1428 Kennedy Rd, Toronto, ON, M1P 2L7, Canada",
@@ -650,7 +739,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb46",
+    "id": "fb57",
     "name": "Let’s Bee Connected",
     "type": "grassroots_org",
     "address": "4030 Sheppard Ave E, Toronto, ON M1S 1S6",
@@ -699,7 +788,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb47",
+    "id": "fb58",
     "name": "Scarborough Centre for Healthy Communities",
     "type": "community_org",
     "address": "4100 Lawrence Ave E, Toronto, ON, Canada",
@@ -740,7 +829,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb48",
+    "id": "fb59",
     "name": "Soso World Ministries ",
     "type": "community_org",
     "address": "10 Glen Everest Rd, Toronto, ON, M1N 1J4, Canada",
@@ -770,7 +859,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb49",
+    "id": "fb60",
     "name": "TAIBU Community Health Centre- Daily Bread Food Bank",
     "type": "community_org",
     "address": "110 Empringham Dr, Unit 214, Toronto, ON, Canada",
@@ -800,7 +889,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb50",
+    "id": "fb61",
     "name": "The Salvation Army- Cedarbrae Community Church",
     "type": "community_inst",
     "address": "2085 Ellesmere Rd, Toronto, ON, M1H 2W6, Canada",
