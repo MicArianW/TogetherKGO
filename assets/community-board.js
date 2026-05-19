@@ -220,6 +220,31 @@ function setDisplayById(id, value) {
   if (element) element.style.display = value;
 }
 
+function isTranslatedLanguageActive() {
+  var match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+  if (!match) return false;
+  return !/\/en\/en$/i.test(match[1]);
+}
+
+function ensurePostTranslationCache() {
+  var cache = document.getElementById("postTranslationCache");
+  if (cache) return cache;
+
+  cache = document.createElement("div");
+  cache.id = "postTranslationCache";
+  cache.setAttribute("aria-hidden", "true");
+  cache.style.position = "absolute";
+  cache.style.left = "-99999px";
+  cache.style.top = "0";
+  cache.style.width = "1px";
+  cache.style.height = "1px";
+  cache.style.overflow = "hidden";
+  cache.style.opacity = "0";
+  cache.style.pointerEvents = "none";
+  document.body.appendChild(cache);
+  return cache;
+}
+
 function parsePost(raw) {
   var type = (raw.post && raw.post.type) || "update";
   var base = {
@@ -255,6 +280,7 @@ function parsePost(raw) {
 
 var allPosts = [];
 var services = [];
+var currentOpenModalIndex = -1;
 
 function populateServicesDropdown(servicesList) {
   var select = document.getElementById("filterOrganization");
@@ -429,6 +455,8 @@ function displayPosts(posts) {
     card.innerHTML = html;
     grid.appendChild(card);
   });
+
+  renderPostTranslationCache(posts);
 }
 
 // Modal
@@ -437,71 +465,23 @@ function openPostModal(index, event) {
   var posts = getCurrentFilteredPosts();
   var post = posts[index];
   if (!post) return;
+  currentOpenModalIndex = index;
 
   var service = services.find(function(s) { return s.id === post.foodBankId; });
   var serviceName = service ? normalizeTextValue(service.name) : "";
   var serviceAddress = service ? normalizeTextValue(service.address) : "";
   var servicePhone = service ? normalizeTextValue(service.phone) : "";
   var serviceWebsite = service ? normalizeTextValue(service.website) : "";
-  var postWebsite = post.locationLink || extractFirstUrl(post.message);
   var orgName = post.foodBankId === "fb0" ? post.orgOther : (serviceName || "Unknown Organization");
   var dateText = isValidDateValue(post.date) ? new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "";
-  var whenText = getWhenText(post);
 
   document.getElementById("modalPostedDate").textContent = "Posted: " + dateText;
   document.getElementById("modalNumber").textContent = (index + 1);
   document.getElementById("modalTitle").textContent = post.title;
   document.getElementById("modalOrg").textContent = orgName;
   document.getElementById("modalTag").textContent = getTypeLabel(post.type);
-
-  // Details
-  var detailsHtml = "";
-  if (whenText) {
-    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
-      '<div class="post-modal-detail-row"><span class="detail-label">When</span><span class="detail-value">' + escapeHtml(whenText) + '</span></div>';
-  }
-  if (post.message) {
-    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
-      '<div class="post-modal-detail-row"><span class="detail-label">About</span><span class="detail-value">' + escapeHtml(stripUrlsFromText(post.message)) + '</span></div>';
-  }
-  if (post.type === "recurring_event" && post.startRecurringDates && isValidDateValue(post.startRecurringDates)) {
-    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
-      '<div class="post-modal-detail-row"><span class="detail-label">Starts</span><span class="detail-value">' + escapeHtml(formatDateForDisplay(post.startRecurringDates, false)) + '</span></div>';
-  }
-  if (post.type === "food_available" && post.availableItems) {
-    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
-      '<div class="post-modal-detail-row"><span class="detail-label">Available</span><span class="detail-value">' + escapeHtml(post.availableItems) + '</span></div>';
-  }
-  if (serviceAddress) {
-    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
-      '<div class="post-modal-detail-row"><span class="detail-label">Where</span><span class="detail-value">' + escapeHtml(serviceAddress) + '</span></div>';
-  } else if (post.location) {
-    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
-      '<div class="post-modal-detail-row"><span class="detail-label">Where</span><span class="detail-value">' + escapeHtml(post.location) + '</span></div>';
-  }
-  document.getElementById("modalDetails").innerHTML = detailsHtml;
-
-  // Contact
-  var contactHtml = "";
-  if (post.contactInfo || servicePhone || postWebsite || serviceWebsite || serviceAddress) {
-    contactHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
-      '<div class="post-modal-detail-row"><span class="detail-label">Contact</span><span class="detail-value"></span></div>' +
-      '<div class="post-modal-contact-buttons">';
-    var phone = servicePhone || post.contactInfo;
-    if (phone) {
-      contactHtml += '<a class="post-modal-contact-btn" href="tel:' + escapeHtml(phone.replace(/\s+/g, "")) + '">📞 ' + escapeHtml(phone) + '</a>';
-    }
-    if (postWebsite || serviceWebsite) {
-      var website = postWebsite || serviceWebsite;
-      contactHtml += '<a class="post-modal-contact-btn" href="' + escapeHtml(website) + '" target="_blank" rel="noopener noreferrer">🌐 Website</a>';
-    }
-    if (serviceAddress) {
-      var dirUrl = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(serviceAddress);
-      contactHtml += '<a class="post-modal-contact-btn green" href="' + dirUrl + '" target="_blank" rel="noopener noreferrer">🗺️ Directions</a>';
-    }
-    contactHtml += '</div>';
-  }
-  document.getElementById("modalContact").innerHTML = contactHtml;
+  document.getElementById("modalDetails").innerHTML = buildModalDetailsHtml(post, serviceAddress);
+  document.getElementById("modalContact").innerHTML = buildModalContactHtml(post, servicePhone, serviceWebsite, serviceAddress);
 
   // Image
   var imgEl = document.getElementById("modalImage");
@@ -533,11 +513,22 @@ function openPostModal(index, event) {
 
   document.getElementById("postModal").style.display = "flex";
   document.body.style.overflow = "hidden";
+
+  if (isTranslatedLanguageActive()) {
+    window.setTimeout(function() {
+      applyTranslatedModalContent(index);
+    }, 180);
+
+    window.setTimeout(function() {
+      applyTranslatedModalContent(index);
+    }, 420);
+  }
 }
 
 function closePostModal() {
   document.getElementById("postModal").style.display = "none";
   document.body.style.overflow = "";
+  currentOpenModalIndex = -1;
 }
 
 function openImageZoom() {
@@ -563,6 +554,103 @@ var currentFilteredPosts = [];
 
 function getCurrentFilteredPosts() {
   return currentFilteredPosts.length ? currentFilteredPosts : allPosts;
+}
+
+function buildModalDetailsHtml(post, serviceAddress) {
+  var whenText = getWhenText(post);
+  var detailsHtml = "";
+
+  if (whenText) {
+    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
+      '<div class="post-modal-detail-row"><span class="detail-label">When</span><span class="detail-value">' + escapeHtml(whenText) + '</span></div>';
+  }
+  if (post.message) {
+    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
+      '<div class="post-modal-detail-row"><span class="detail-label">About</span><span class="detail-value">' + escapeHtml(stripUrlsFromText(post.message)) + '</span></div>';
+  }
+  if (post.type === "recurring_event" && post.startRecurringDates && isValidDateValue(post.startRecurringDates)) {
+    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
+      '<div class="post-modal-detail-row"><span class="detail-label">Starts</span><span class="detail-value">' + escapeHtml(formatDateForDisplay(post.startRecurringDates, false)) + '</span></div>';
+  }
+  if (post.type === "food_available" && post.availableItems) {
+    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
+      '<div class="post-modal-detail-row"><span class="detail-label">Available</span><span class="detail-value">' + escapeHtml(post.availableItems) + '</span></div>';
+  }
+  if (serviceAddress) {
+    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
+      '<div class="post-modal-detail-row"><span class="detail-label">Where</span><span class="detail-value">' + escapeHtml(serviceAddress) + '</span></div>';
+  } else if (post.location) {
+    detailsHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
+      '<div class="post-modal-detail-row"><span class="detail-label">Where</span><span class="detail-value">' + escapeHtml(post.location) + '</span></div>';
+  }
+
+  return detailsHtml;
+}
+
+function buildModalContactHtml(post, servicePhone, serviceWebsite, serviceAddress) {
+  var postWebsite = post.locationLink || extractFirstUrl(post.message);
+  var phone = servicePhone || post.contactInfo;
+  var contactHtml = "";
+
+  if (post.contactInfo || servicePhone || postWebsite || serviceWebsite || serviceAddress) {
+    contactHtml += '<div class="post-modal-separator" aria-hidden="true"></div>' +
+      '<div class="post-modal-detail-row"><span class="detail-label">Contact</span><span class="detail-value"></span></div>' +
+      '<div class="post-modal-contact-buttons">';
+    if (phone) {
+      contactHtml += '<a class="post-modal-contact-btn" href="tel:' + escapeHtml(phone.replace(/\s+/g, "")) + '">📞 ' + escapeHtml(phone) + '</a>';
+    }
+    if (postWebsite || serviceWebsite) {
+      var website = postWebsite || serviceWebsite;
+      contactHtml += '<a class="post-modal-contact-btn" href="' + escapeHtml(website) + '" target="_blank" rel="noopener noreferrer">🌐 Website</a>';
+    }
+    if (serviceAddress) {
+      var dirUrl = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(serviceAddress);
+      contactHtml += '<a class="post-modal-contact-btn green" href="' + dirUrl + '" target="_blank" rel="noopener noreferrer">🗺️ Directions</a>';
+    }
+    contactHtml += '</div>';
+  }
+
+  return contactHtml;
+}
+
+function renderPostTranslationCache(posts) {
+  var cache = ensurePostTranslationCache();
+  cache.innerHTML = "";
+
+  posts.forEach(function(post, index) {
+    var service = services.find(function(s) { return s.id === post.foodBankId; });
+    var serviceAddress = service ? normalizeTextValue(service.address) : "";
+    var servicePhone = service ? normalizeTextValue(service.phone) : "";
+    var serviceWebsite = service ? normalizeTextValue(service.website) : "";
+    var item = document.createElement("div");
+
+    item.setAttribute("data-post-index", String(index));
+    item.innerHTML =
+      '<div data-cache-part="tag">' + escapeHtml(getTypeLabel(post.type)) + '</div>' +
+      '<div data-cache-part="details">' + buildModalDetailsHtml(post, serviceAddress) + '</div>' +
+      '<div data-cache-part="contact">' + buildModalContactHtml(post, servicePhone, serviceWebsite, serviceAddress) + '</div>';
+
+    cache.appendChild(item);
+  });
+}
+
+function applyTranslatedModalContent(index) {
+  if (!isTranslatedLanguageActive()) return;
+
+  var cache = document.getElementById("postTranslationCache");
+  var modal = document.getElementById("postModal");
+  if (!cache || !modal || modal.style.display !== "flex" || currentOpenModalIndex !== index) return;
+
+  var item = cache.querySelector('[data-post-index="' + index + '"]');
+  if (!item) return;
+
+  var tagPart = item.querySelector('[data-cache-part="tag"]');
+  var detailsPart = item.querySelector('[data-cache-part="details"]');
+  var contactPart = item.querySelector('[data-cache-part="contact"]');
+
+  if (tagPart) document.getElementById("modalTag").innerHTML = tagPart.innerHTML;
+  if (detailsPart) document.getElementById("modalDetails").innerHTML = detailsPart.innerHTML;
+  if (contactPart) document.getElementById("modalContact").innerHTML = contactPart.innerHTML;
 }
 
 function filterPosts() {
