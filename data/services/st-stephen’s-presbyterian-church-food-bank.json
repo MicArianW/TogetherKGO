@@ -1,0 +1,28 @@
+{
+  "organization": {
+    "name": "St Stephen’s Presbyterian Church Food Bank",
+    "type": "community_inst",
+    "phone": "416-431-0841",
+    "email": "cbisworkingonit@gmail.com",
+    "tags": [
+      "food_support"
+    ],
+    "address": " 3817 Lawrence Ave E, Toronto, ON M1G 1R2",
+    "id": "SSPCFB"
+  },
+  "requirements": {
+    "documents_required": "Valid identification",
+    "eligibility": "Individuals and families in need including those experiencing homelessness\n\nResidency requirements: Slan Ave (north) to Samson Cres/Confederation Dr (south), east side of Markham Rd (west) to Orton Park Rd (east)",
+    "languages_spoken": "English"
+  },
+  "hours": {
+    "wed": {
+      "open": "1:00pm",
+      "close": "3:00pm"
+    }
+  },
+  "location": {
+    "lat": 43.762174,
+    "lng": -79.212324
+  }
+}
