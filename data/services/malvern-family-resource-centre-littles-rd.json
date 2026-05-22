@@ -1,0 +1,42 @@
+{
+  "organization": {
+    "name": "Malvern Family Resource Centre (Littles Rd)",
+    "id": "mfrc1",
+    "type": "community_org",
+    "tags": [
+      "food_support",
+      "youth",
+      "newcomer"
+    ],
+    "address": "90 Littles Rd, Scarborough, ON M1B 5E2",
+    "phone": "(416) 284-4184",
+    "website": "https://www.mfrc.org/",
+    "description": "Malvern Family Resource Centre (MFRC) is an essential and trusted Community Hub"
+  },
+  "location": {
+    "lat": 43.81848,
+    "lng": -79.20543
+  },
+  "hours": {
+    "mon": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "tue": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "wed": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "thu": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "fri": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    }
+  }
+}
