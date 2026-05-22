@@ -5,7 +5,8 @@
     "message": "Enjoy growing your own Callaloo from the comfort of your own home. Can be planted in the ground or in container. While supplies last.",
     "contactInfo": "gardenmommaz@outlook.com",
     "date": "2026-05-22T13:12:00-04:00",
-    "expiresDate": "2026-06-07T13:12:00.000-04:00"
+    "expiresDate": "2026-06-07T13:12:00.000-04:00",
+    "thumbnail": "/assets/images/posts/garden_mommaz-callaloo-2026.jpeg"
   },
   "organization": {
     "foodBankId": "fb0",
@@ -14,5 +15,8 @@
   "location": {
     "location": "14 Center Street, Scarborough Ontario",
     "link": "instagram.com/gardenmommaz?igsh=MXBlc3JmYjc5OHY4bQ=="
+  },
+  "uniqueEvent": {
+    "eventDate": "2026-06-06T09:00:00.000-04:00"
   }
 }
