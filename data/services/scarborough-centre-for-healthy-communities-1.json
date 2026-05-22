@@ -1,0 +1,48 @@
+{
+  "organization": {
+    "name": "Scarborough Centre for Healthy Communities",
+    "phone": "(416) 642-9445",
+    "address": "629 Markham Rd Unit 2, Scarborough, M1H 2A4",
+    "tags": [
+      "food_support",
+      "community_health",
+      "meal_program",
+      "youth"
+    ],
+    "type": "community_org",
+    "website": "https://schcontario.ca/",
+    "id": "SCHC",
+    "email": "info@schcontario.ca",
+    "description": "SCHC provides comprehensive, focused health programs and services to improve the holistic overall health and well being for our community."
+  },
+  "location": {
+    "lat": 43.76062,
+    "lng": -79.22383
+  },
+  "hours": {
+    "mon": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "tue": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "wed": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "thu": {
+      "open": "9:00am",
+      "close": "8:00pm"
+    },
+    "fri": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "sat": {
+      "open": "9:00am",
+      "close": "4:30pm"
+    }
+  }
+}
