@@ -1,0 +1,39 @@
+{
+  "organization": {
+    "name": "Scarborough Good Neighbours Drop-In",
+    "phone": "647-358-4105",
+    "address": "193 Markham Rd, Toronto, ON M1J 3C3",
+    "tags": [
+      "food_support",
+      "newcomer"
+    ],
+    "type": "grassroots_org",
+    "website": "https://www.goodneighboursmission.org/",
+    "id": "SGNDI",
+    "email": " info@goodneighboursmission.org",
+    "description": "Drop-In hours (all are welcome), with sit-down/take-out meals — Thursday and Friday, 9:30 a.m.–4:00 p.m.\n\nThe Hans Brenninkmeyer Food for Families program — Wednesday 2–4 pm, and Friday 9:30 am–4:00 p.m. (emergency food for families with children; appointment required)\n\nSeniors’ Day with social and craft activities, plus a food bank (note we are not affiliated with the Daily Bread Food Bank) — Wednesday, 9:30 a.m.–4:00 p.m."
+  },
+  "hours": {
+    "thu": {
+      "open": "9:30am",
+      "close": "4:00pm"
+    },
+    "fri": {
+      "open": "9:30am",
+      "close": "4:00pm"
+    },
+    "wed": {
+      "open": "9:30pm",
+      "close": "4:00pm"
+    }
+  },
+  "location": {
+    "lat": 43.74359,
+    "lng": -79.218791
+  },
+  "requirements": {
+    "accessibility_info": "Wheelchair accessible (call ahead)",
+    "languages_spoken": "English, French",
+    "eligibility": "People experiencing homelessness, refugees, newcomers (focus on families)"
+  }
+}
