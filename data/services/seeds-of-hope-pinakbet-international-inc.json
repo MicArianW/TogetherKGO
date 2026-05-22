@@ -1,0 +1,20 @@
+{
+  "organization": {
+    "name": "Seeds of Hope PinakBet International Inc.",
+    "phone": "416-887-0563",
+    "address": "East Scarborough Storefront,  4040 Lawrence Ave E., Scarborough, ON M1E 2R6",
+    "tags": [
+      "community_health",
+      "food_support"
+    ],
+    "type": "grassroots_org",
+    "website": "https://www.seedsofhopepinakbetintl.ca/",
+    "id": "sohpbii1",
+    "email": "",
+    "description": "Community Gardening and promotes organic vegetable gardening to address food insecurity while encouraging healthy eating, sustainability, and hands-on learning for families and youth through backyard, school, and community gardens that improve access to fresh food and support long-term wellness.\n"
+  },
+  "location": {
+    "lat": 43.76592,
+    "lng": -79.19891
+  }
+}
