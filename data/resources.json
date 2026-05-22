@@ -1,6 +1,6 @@
 [
   {
-    "id": "rs25",
+    "id": "rs30",
     "title": "CivicSpark Microgrant",
     "organization": "Volunteer Toronto",
     "type": "grant",
@@ -21,7 +21,7 @@
     "additional_notes": "Supports small community initiatives led by residents. Funding amounts may vary depending on the project scope."
   },
   {
-    "id": "rs26",
+    "id": "rs31",
     "title": "Incentives & Rebates to Green Your Home",
     "organization": "City of Toronto",
     "type": "greening",
@@ -43,7 +43,7 @@
     "additional_notes": ""
   },
   {
-    "id": "rs27",
+    "id": "rs32",
     "title": "Local Leadership Grant",
     "organization": "City of Toronto",
     "type": "microgrant",
@@ -64,7 +64,7 @@
     "additional_notes": ""
   },
   {
-    "id": "rs28",
+    "id": "rs33",
     "title": "Micro-grants",
     "organization": "Canada Service Corps",
     "type": "microgrant",
@@ -84,7 +84,7 @@
     "additional_notes": ""
   },
   {
-    "id": "rs29",
+    "id": "rs34",
     "title": "NETLIP and the NewTO App",
     "organization": "North East Toronto Local Immigration Partnership",
     "type": "general",
@@ -100,6 +100,23 @@
     "tags": [
       "education_library"
     ],
+    "additional_notes": ""
+  },
+  {
+    "id": "rs35",
+    "title": "The Mary Ladky Teen Award",
+    "organization": "The Children's Book Bank",
+    "type": "training",
+    "description": "The Mary Ladky Teen Award is a mentorship program at The Children’s Book Bank for high school students. Award recipients will complete an intensive eight-week summer mentorship at one of our four Book Bank locations where they will support with literacy programs, outreach events, and book donations. Students will gain valuable experience working with literacy experts, educators, and authors. With the support of a mentor, recipients will develop and implement a project to support literacy in their communities during Fall 2026. They will present the results of their projects at The Children’s Book Bank Story Soirée in November. Honorarium: $2500 Deadline to apply: June 9",
+    "website": "https://www.childrensbookbank.com/news/mary-ladky-teen-award",
+    "additional_link": "",
+    "region_served": "toronto",
+    "eligibility": "Must be a high school student in the 2026-2027 school year",
+    "fees": "$2500 honorarium provided to award recipients",
+    "documents_required": "To apply, please submit a resume and a brief essay (1-2 pages) answering the following questions: Why is reading important? Why is it important to have access to books? How has a book impacted your life? What do you hope to gain from this mentorship? Applications should be submitted to info@childrensbookbank.com with the subject line Mary Ladky Teen Award. Deadline to submit is June 9.",
+    "email": "info@childrensbookbank.com",
+    "phone": "",
+    "tags": [],
     "additional_notes": ""
   }
 ]

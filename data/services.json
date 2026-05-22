@@ -246,6 +246,125 @@
     "additional_info": "We are located on the second floor of the Pleasant Corner Mall. Walk around to the back of the building (follow signs for Kumon) and go up the stairs or ramp. Enter through the first door on your left. You’ll see the Book Bank at the end of the hall, next to the dentist's office."
   },
   {
+    "id": "SCHC",
+    "name": "Scarborough Centre for Healthy Communities",
+    "type": "community_org",
+    "address": "629 Markham Rd Unit 2, Scarborough, M1H 2A4",
+    "location": {
+      "lat": 43.76062,
+      "lng": -79.22383
+    },
+    "hours": {
+      "mon": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "tue": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "wed": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "thu": {
+        "open": "9:00am",
+        "close": "8:00pm"
+      },
+      "fri": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "sat": {
+        "open": "9:00am",
+        "close": "4:30pm"
+      }
+    },
+    "phone": "(416) 642-9445",
+    "description": "SCHC provides comprehensive, focused health programs and services to improve the holistic overall health and well being for our community.",
+    "tags": [
+      "food_support",
+      "community_health",
+      "meal_program",
+      "youth"
+    ],
+    "email": "info@schcontario.ca",
+    "website": "https://schcontario.ca/",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "",
+    "additional_info": ""
+  },
+  {
+    "id": "SGNDI",
+    "name": "Scarborough Good Neighbours Drop-In",
+    "type": "grassroots_org",
+    "address": "193 Markham Rd, Toronto, ON M1J 3C3",
+    "location": {
+      "lat": 43.74359,
+      "lng": -79.218791
+    },
+    "hours": {
+      "thu": {
+        "open": "9:30am",
+        "close": "4:00pm"
+      },
+      "fri": {
+        "open": "9:30am",
+        "close": "4:00pm"
+      },
+      "wed": {
+        "open": "9:30pm",
+        "close": "4:00pm"
+      }
+    },
+    "phone": "647-358-4105",
+    "description": "Drop-In hours (all are welcome), with sit-down/take-out meals — Thursday and Friday, 9:30 a.m.–4:00 p.m.\n\nThe Hans Brenninkmeyer Food for Families program — Wednesday 2–4 pm, and Friday 9:30 am–4:00 p.m. (emergency food for families with children; appointment required)\n\nSeniors’ Day with social and craft activities, plus a food bank (note we are not affiliated with the Daily Bread Food Bank) — Wednesday, 9:30 a.m.–4:00 p.m.",
+    "tags": [
+      "food_support",
+      "newcomer"
+    ],
+    "email": " info@goodneighboursmission.org",
+    "website": "https://www.goodneighboursmission.org/",
+    "languages_spoken": "English, French",
+    "accessibility_info": "Wheelchair accessible (call ahead)",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "People experiencing homelessness, refugees, newcomers (focus on families)",
+    "additional_info": ""
+  },
+  {
+    "id": "SSPCFB",
+    "name": "St Stephen’s Presbyterian Church Food Bank",
+    "type": "community_inst",
+    "address": " 3817 Lawrence Ave E, Toronto, ON M1G 1R2",
+    "location": {
+      "lat": 43.762174,
+      "lng": -79.212324
+    },
+    "hours": {
+      "wed": {
+        "open": "1:00pm",
+        "close": "3:00pm"
+      }
+    },
+    "phone": "416-431-0841",
+    "description": "",
+    "tags": [
+      "food_support"
+    ],
+    "email": "cbisworkingonit@gmail.com",
+    "website": "",
+    "languages_spoken": "English",
+    "accessibility_info": "",
+    "documents_required": "Valid identification",
+    "fees": "",
+    "eligibility": "Individuals and families in need including those experiencing homelessness\n\nResidency requirements: Slan Ave (north) to Samson Cres/Confederation Dr (south), east side of Markham Rd (west) to Orton Park Rd (east)",
+    "additional_info": ""
+  },
+  {
     "id": "fb3",
     "name": "ACSA Community Services",
     "type": "community_org",
@@ -422,7 +541,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb106",
+    "id": "fb117",
     "name": "Clairlea Food Bank",
     "type": "community_org",
     "address": "772 Warden Ave, Toronto, ON, M1L 4T7",
@@ -463,7 +582,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb107",
+    "id": "fb118",
     "name": "Cliffside Food Bank",
     "type": "community_org",
     "address": "2259 Kingston Rd, Toronto, ON, M1N 1T8",
@@ -508,7 +627,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb108",
+    "id": "fb119",
     "name": "Feed Scarborough: Markham Road Food Bank",
     "type": "community_org",
     "address": "155 Markham Rd, Toronto, ON, M1M 3A1",
@@ -542,7 +661,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb109",
+    "id": "fb120",
     "name": "Food Pantry at Morningside",
     "type": "community_org",
     "address": "Mornelle Community Hub, 90 Mornelle Crt, Bsmt, Toronto, ON, M1E 4P9, Canada",
@@ -573,7 +692,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb110",
+    "id": "fb121",
     "name": "Grace CRC McCowan Food Bank ",
     "type": "community_org",
     "address": "25 Channel Nine Ct, Toronto, ON, M1S 4B5, Canada",
@@ -603,7 +722,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb111",
+    "id": "fb122",
     "name": "Grace Place Food Bank",
     "type": "community_org",
     "address": "1428 Kennedy Rd, Toronto, ON, M1P 2L7, Canada",
@@ -642,7 +761,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb112",
+    "id": "fb123",
     "name": "Let’s Bee Connected",
     "type": "grassroots_org",
     "address": "4030 Sheppard Ave E, Toronto, ON M1S 1S6",
@@ -691,7 +810,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb113",
+    "id": "fb124",
     "name": "Scarborough Centre for Healthy Communities",
     "type": "community_org",
     "address": "4100 Lawrence Ave E, Toronto, ON, Canada",
@@ -732,7 +851,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb114",
+    "id": "fb125",
     "name": "Soso World Ministries ",
     "type": "community_org",
     "address": "10 Glen Everest Rd, Toronto, ON, M1N 1J4, Canada",
@@ -762,7 +881,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb115",
+    "id": "fb126",
     "name": "TAIBU Community Health Centre- Daily Bread Food Bank",
     "type": "community_org",
     "address": "110 Empringham Dr, Unit 214, Toronto, ON, Canada",
@@ -792,7 +911,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb116",
+    "id": "fb127",
     "name": "The Salvation Army- Cedarbrae Community Church",
     "type": "community_inst",
     "address": "2085 Ellesmere Rd, Toronto, ON, M1H 2W6, Canada",
