@@ -4,10 +4,21 @@
     "title": "Test",
     "message": "New github actions test",
     "date": "2026-05-23T00:21:00-07:00",
-    "expiresDate": "2026-05-24T00:21:00.000-07:00"
+    "expiresDate": "2026-05-24T00:21:00.000-07:00",
+    "thumbnail": "/assets/images/posts/east-scarb-storefront-youthlink.png"
   },
   "organization": {
     "foodBankId": "fb0",
     "foodBankOther": "Test 1"
+  },
+  "recurringEvent": {
+    "recurringDates": {
+      "mon": {
+        "open": ""
+      }
+    }
+  },
+  "uniqueEvent": {
+    "eventDate": "2026-05-23T00:26:00.000-07:00"
   }
 }
