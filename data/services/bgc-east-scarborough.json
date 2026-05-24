@@ -1,0 +1,45 @@
+{
+  "organization": {
+    "name": "BGC East Scarborough",
+    "phone": "(416) 281-0262",
+    "address": "100 Galloway Rd, Scarborough, ON M1E 1W7",
+    "tags": [
+      "youth"
+    ],
+    "type": "community_org",
+    "website": "https://esbgc.ca/",
+    "id": "BGCES",
+    "email": "info@esbgc.ca",
+    "description": "Since founding in 1958, BGC East Scarborough has worked alongside families to break down barriers and build opportunity.\n\nA community where children, youth and parents come together to collaborate, create, and grow."
+  },
+  "location": {
+    "lat": 43.759789,
+    "lng": -79.193741
+  },
+  "hours": {
+    "mon": {
+      "open": "7:00am",
+      "close": "6:00pm"
+    },
+    "tue": {
+      "open": "7:00am",
+      "close": "6:00pm"
+    },
+    "wed": {
+      "open": "7:00am",
+      "close": "6:00pm"
+    },
+    "thu": {
+      "open": "7:00am",
+      "close": "6:00pm"
+    },
+    "fri": {
+      "open": "7:00am",
+      "close": "6:00pm"
+    },
+    "sat": {
+      "open": "7:00am",
+      "close": "6:00pm"
+    }
+  }
+}
