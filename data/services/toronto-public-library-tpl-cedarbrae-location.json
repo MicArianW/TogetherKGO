@@ -1,0 +1,55 @@
+{
+  "organization": {
+    "name": "Toronto Public Library (TPL) - Cedarbrae location",
+    "id": "TPL-CL1",
+    "type": "city_of_tor",
+    "phone": "(416) 396-8850",
+    "address": "545 Markham Road Toronto, ON M1H 2A1",
+    "website": "https://tpl.ca/locations/ced/",
+    "tags": [
+      "housing",
+      "youth",
+      "employment",
+      "community_health"
+    ]
+  },
+  "hours": {
+    "mon": {
+      "open": "9:00am",
+      "close": "8:30pm"
+    },
+    "tue": {
+      "open": "9:00am",
+      "close": "8:30pm"
+    },
+    "wed": {
+      "open": "9:00am",
+      "close": "8:30pm"
+    },
+    "thu": {
+      "open": "9:00am",
+      "close": "8:30pm"
+    },
+    "fri": {
+      "open": "9:00am",
+      "close": "8:30pm"
+    },
+    "sat": {
+      "open": "9:00am",
+      "close": "5:00pm"
+    },
+    "sun": {
+      "open": "12:00pm",
+      "close": "5:00pm"
+    }
+  },
+  "location": {
+    "lat": 43.757512075637976,
+    "lng": -79.22399239222649
+  },
+  "requirements": {
+    "additional_info": "Free public parking lot off Greencrest Circuit.",
+    "accessibility_info": "Equipment for persons with disabilities available. Please see the website provided for more information.",
+    "languages_spoken": "Large collection in French and Tamil. Medium collection in Chinese-Adult, Gujarati, Hindi-Adult, Polish-Adult. Small collection in Korean-Adult, Tagalog (DVDs only), Urdu"
+  }
+}
