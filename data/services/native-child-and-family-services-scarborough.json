@@ -1,0 +1,42 @@
+{
+  "organization": {
+    "name": "Native Child and Family Services Scarborough",
+    "phone": "416-969-8510",
+    "address": "156 Galloway Rd, Scarborough, ON M1E 1X2",
+    "tags": [
+      "youth",
+      "community_health"
+    ],
+    "type": "community_org",
+    "website": "https://nativechild.org/",
+    "id": "NCFSS1",
+    "email": "info@nativechild.org",
+    "description": "Native Child and Family Services of Toronto (NCFST) is a multi-service agency founded by Indigenous community members living in Toronto to support the wellbeing of Indigenous children and families living or staying in Toronto region."
+  },
+  "hours": {
+    "mon": {
+      "open": "9:00am",
+      "close": "6:00pm"
+    },
+    "tue": {
+      "open": "9:00am",
+      "close": "6:00pm"
+    },
+    "wed": {
+      "open": "9:00am",
+      "close": "6:00pm"
+    },
+    "thu": {
+      "open": "9:00am",
+      "close": "6:00pm"
+    },
+    "fri": {
+      "open": "9:00am",
+      "close": "6:00pm"
+    }
+  },
+  "location": {
+    "lng": -79.19499974124388,
+    "lat": 43.762262313791474
+  }
+}
