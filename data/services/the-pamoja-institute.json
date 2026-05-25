@@ -1,0 +1,18 @@
+{
+  "organization": {
+    "name": "The Pamoja Institute",
+    "description": "A Black-led non profit advancing health, justice and community innovation.",
+    "id": "pamoja1",
+    "type": "community_org",
+    "email": "hello@pamojainstitute.org",
+    "website": "https://www.pamojainstitute.org/home",
+    "tags": [
+      "community_health"
+    ],
+    "address": "(Mail address) 1 Centre St suite 222, Scarborough, ON M1J 3B4"
+  },
+  "location": {
+    "lng": -79.22048092024583,
+    "lat": 43.743222166948705
+  }
+}
