@@ -385,6 +385,233 @@
     "additional_info": ""
   },
   {
+    "id": "BGCES",
+    "name": "BGC East Scarborough",
+    "type": "community_org",
+    "address": "100 Galloway Rd, Scarborough, ON M1E 1W7",
+    "location": {
+      "lat": 43.759789,
+      "lng": -79.193741
+    },
+    "hours": {
+      "mon": {
+        "open": "7:00am",
+        "close": "6:00pm"
+      },
+      "tue": {
+        "open": "7:00am",
+        "close": "6:00pm"
+      },
+      "wed": {
+        "open": "7:00am",
+        "close": "6:00pm"
+      },
+      "thu": {
+        "open": "7:00am",
+        "close": "6:00pm"
+      },
+      "fri": {
+        "open": "7:00am",
+        "close": "6:00pm"
+      },
+      "sat": {
+        "open": "7:00am",
+        "close": "6:00pm"
+      }
+    },
+    "phone": "(416) 281-0262",
+    "description": "Since founding in 1958, BGC East Scarborough has worked alongside families to break down barriers and build opportunity.\n\nA community where children, youth and parents come together to collaborate, create, and grow.",
+    "tags": [
+      "youth"
+    ],
+    "email": "info@esbgc.ca",
+    "website": "https://esbgc.ca/",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "",
+    "additional_info": ""
+  },
+  {
+    "id": "NCFSS1",
+    "name": "Native Child and Family Services Scarborough",
+    "type": "community_org",
+    "address": "156 Galloway Rd, Scarborough, ON M1E 1X2",
+    "location": {
+      "lat": 43.762262313791474,
+      "lng": -79.19499974124388
+    },
+    "hours": {
+      "mon": {
+        "open": "9:00am",
+        "close": "6:00pm"
+      },
+      "tue": {
+        "open": "9:00am",
+        "close": "6:00pm"
+      },
+      "wed": {
+        "open": "9:00am",
+        "close": "6:00pm"
+      },
+      "thu": {
+        "open": "9:00am",
+        "close": "6:00pm"
+      },
+      "fri": {
+        "open": "9:00am",
+        "close": "6:00pm"
+      }
+    },
+    "phone": "416-969-8510",
+    "description": "Native Child and Family Services of Toronto (NCFST) is a multi-service agency founded by Indigenous community members living in Toronto to support the wellbeing of Indigenous children and families living or staying in Toronto region.",
+    "tags": [
+      "youth",
+      "community_health"
+    ],
+    "email": "info@nativechild.org",
+    "website": "https://nativechild.org/",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "",
+    "additional_info": ""
+  },
+  {
+    "id": "SCHC",
+    "name": "Scarborough Centre for Healthy Communities",
+    "type": "community_org",
+    "address": "629 Markham Rd Unit 2, Scarborough, M1H 2A4",
+    "location": {
+      "lat": 43.76062,
+      "lng": -79.22383
+    },
+    "hours": {
+      "mon": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "tue": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "wed": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "thu": {
+        "open": "9:00am",
+        "close": "8:00pm"
+      },
+      "fri": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "sat": {
+        "open": "9:00am",
+        "close": "4:30pm"
+      }
+    },
+    "phone": "(416) 642-9445",
+    "description": "SCHC provides comprehensive, focused health programs and services to improve the holistic overall health and well being for our community.",
+    "tags": [
+      "food_support",
+      "community_health",
+      "meal_program",
+      "youth"
+    ],
+    "email": "info@schcontario.ca",
+    "website": "https://schcontario.ca/",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "",
+    "additional_info": ""
+  },
+  {
+    "id": "pamoja1",
+    "name": "The Pamoja Institute",
+    "type": "community_org",
+    "address": "(Mail address) 1 Centre St suite 222, Scarborough, ON M1J 3B4",
+    "location": {
+      "lat": 43.743222166948705,
+      "lng": -79.22048092024583
+    },
+    "hours": {},
+    "phone": "",
+    "description": "A Black-led non profit advancing health, justice and community innovation.",
+    "tags": [
+      "community_health"
+    ],
+    "email": "hello@pamojainstitute.org",
+    "website": "https://www.pamojainstitute.org/home",
+    "languages_spoken": "",
+    "accessibility_info": "",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "",
+    "additional_info": ""
+  },
+  {
+    "id": "TPL-CL1",
+    "name": "Toronto Public Library (TPL) - Cedarbrae location",
+    "type": "city_of_tor",
+    "address": "545 Markham Road Toronto, ON M1H 2A1",
+    "location": {
+      "lat": 43.757512075637976,
+      "lng": -79.22399239222649
+    },
+    "hours": {
+      "mon": {
+        "open": "9:00am",
+        "close": "8:30pm"
+      },
+      "tue": {
+        "open": "9:00am",
+        "close": "8:30pm"
+      },
+      "wed": {
+        "open": "9:00am",
+        "close": "8:30pm"
+      },
+      "thu": {
+        "open": "9:00am",
+        "close": "8:30pm"
+      },
+      "fri": {
+        "open": "9:00am",
+        "close": "8:30pm"
+      },
+      "sat": {
+        "open": "9:00am",
+        "close": "5:00pm"
+      },
+      "sun": {
+        "open": "12:00pm",
+        "close": "5:00pm"
+      }
+    },
+    "phone": "(416) 396-8850",
+    "description": "",
+    "tags": [
+      "housing",
+      "youth",
+      "employment",
+      "community_health"
+    ],
+    "email": "",
+    "website": "https://tpl.ca/locations/ced/",
+    "languages_spoken": "Large collection in French and Tamil. Medium collection in Chinese-Adult, Gujarati, Hindi-Adult, Polish-Adult. Small collection in Korean-Adult, Tagalog (DVDs only), Urdu",
+    "accessibility_info": "Equipment for persons with disabilities available. Please see the website provided for more information.",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "",
+    "additional_info": "Free public parking lot off Greencrest Circuit."
+  },
+  {
     "id": "fb3",
     "name": "ACSA Community Services",
     "type": "community_org",
@@ -561,7 +788,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb124",
+    "id": "fb135",
     "name": "Scarborough Centre for Healthy Communities",
     "type": "community_org",
     "address": "4100 Lawrence Ave E, Toronto, ON, Canada",
@@ -602,7 +829,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb128",
+    "id": "fb139",
     "name": "Clairlea Food Bank",
     "type": "community_org",
     "address": "772 Warden Ave, Toronto, ON, M1L 4T7",
@@ -643,7 +870,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb129",
+    "id": "fb140",
     "name": "Cliffside Food Bank",
     "type": "community_org",
     "address": "2259 Kingston Rd, Toronto, ON, M1N 1T8",
@@ -688,7 +915,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb130",
+    "id": "fb141",
     "name": "Feed Scarborough: Markham Road Food Bank",
     "type": "community_org",
     "address": "155 Markham Rd, Toronto, ON, M1M 3A1",
@@ -722,7 +949,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb131",
+    "id": "fb142",
     "name": "Food Pantry at Morningside",
     "type": "community_org",
     "address": "Mornelle Community Hub, 90 Mornelle Crt, Bsmt, Toronto, ON, M1E 4P9, Canada",
@@ -753,7 +980,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb132",
+    "id": "fb143",
     "name": "Grace CRC McCowan Food Bank ",
     "type": "community_org",
     "address": "25 Channel Nine Ct, Toronto, ON, M1S 4B5, Canada",
@@ -783,7 +1010,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb133",
+    "id": "fb144",
     "name": "Grace Place Food Bank",
     "type": "community_org",
     "address": "1428 Kennedy Rd, Toronto, ON, M1P 2L7, Canada",
@@ -822,7 +1049,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb134",
+    "id": "fb145",
     "name": "Let’s Bee Connected",
     "type": "grassroots_org",
     "address": "4030 Sheppard Ave E, Toronto, ON M1S 1S6",
@@ -871,7 +1098,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb135",
+    "id": "fb146",
     "name": "Scarborough Centre for Healthy Communities",
     "type": "community_org",
     "address": "4100 Lawrence Ave E, Toronto, ON, Canada",
@@ -912,7 +1139,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb136",
+    "id": "fb147",
     "name": "Soso World Ministries ",
     "type": "community_org",
     "address": "10 Glen Everest Rd, Toronto, ON, M1N 1J4, Canada",
@@ -942,7 +1169,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb137",
+    "id": "fb148",
     "name": "TAIBU Community Health Centre- Daily Bread Food Bank",
     "type": "community_org",
     "address": "110 Empringham Dr, Unit 214, Toronto, ON, Canada",
@@ -972,7 +1199,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb138",
+    "id": "fb149",
     "name": "The Salvation Army- Cedarbrae Community Church",
     "type": "community_inst",
     "address": "2085 Ellesmere Rd, Toronto, ON, M1H 2W6, Canada",
