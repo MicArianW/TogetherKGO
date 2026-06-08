@@ -1,0 +1,27 @@
+{
+  "post": {
+    "type": "recurring_event",
+    "title": "Food Bank",
+    "message": "Individuals and Families in need All are welcome",
+    "date": "2026-06-04T12:14:00-04:00",
+    "expiresDate": "2026-12-17T12:15:00.000-05:00",
+    "thumbnail": "assets/images/posts/119762.jpeg"
+  },
+  "organization": {
+    "foodBankOther": "Network Central Community Education & Assistance",
+    "foodBankId": "fb0"
+  },
+  "location": {
+    "link": "https://networkcentral.ca/",
+    "location": "27 Casebridge Ct"
+  },
+  "recurringEvent": {
+    "startRecurringDates": "2026-06-04T12:16:00.000-04:00",
+    "recurringDates": {
+      "thu": {
+        "open": "4:30pm",
+        "close": "8:30pm"
+      }
+    }
+  }
+}
