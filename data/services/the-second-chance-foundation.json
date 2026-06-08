@@ -1,0 +1,20 @@
+{
+  "organization": {
+    "name": "The Second Chance Foundation",
+    "id": "TSCFound1",
+    "type": "community_org",
+    "address": "3171 Eglinton Ave. East, Scarborough, Ontario, Canada M1J 2G8",
+    "phone": "+1 416-792-6702 Ext. 11",
+    "email": "info@thesecondchancefoundation.ca",
+    "website": "https://www.thesecondchancefoundation.ca/",
+    "tags": [
+      "food_support",
+      "employment",
+      "housing"
+    ]
+  },
+  "location": {
+    "lat": 43.742625,
+    "lng": -79.220049
+  }
+}
