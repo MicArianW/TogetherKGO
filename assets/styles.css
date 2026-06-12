@@ -683,11 +683,11 @@ textarea:focus {
     transition: transform 0.18s ease, text-shadow 0.18s ease, opacity 0.18s ease;
 }
 
-.mobile-label {
+.home-mobile-label {
     display: none;
 }
 
-.desktop-label {
+.home-desktop-label {
     display: inline;
 }
 
@@ -828,33 +828,33 @@ textarea:focus {
         padding: 0 4px;
     }
 
-    .find-heading {
-        font-size: 32px;
-    }
-
     .find-section {
         gap: 14px;
     }
 
-    .nav-links-home {
-        width: auto;
-        gap: 8px;
+    .find-heading,
+    .nav-links-home a,
+    .lang-label {
+        font-size: 32px;
+        line-height: 0.98;
     }
 
-    .nav-links-home a {
-        font-size: 32px;
+    .nav-links-home {
+        width: auto;
+        gap: 14px;
     }
 
     .lang-section {
-        gap: 10px;
+        gap: 14px;
     }
 
-    .mobile-label {
-        display: inline;
+    .home-mobile-label {
+        display: inline-block !important;
+        white-space: nowrap;
     }
 
-    .desktop-label {
-        display: none;
+    .home-desktop-label {
+        display: none !important;
     }
 
     .tagline {
@@ -1312,9 +1312,6 @@ body:has(.figma-nav) .form-container textarea {
     body:has(.figma-nav) .sidebar { order: -1; }
     body:has(.figma-nav) .results-section { order: 1; padding: 20px 10px 50px; }
     body:has(.figma-nav) #map { height: 400px !important; min-height: 400px; }
-
-    /* Languages size fix */
-    .lang-label { font-size: 32px !important; }
 
     /* Footer mobile */
     .footer-black { grid-template-columns: 1fr; gap: 30px; padding: 40px 10px 6px; }
