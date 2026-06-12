@@ -201,6 +201,21 @@ jobs:
 
           });
 
+          const dedupedServices = [];
+          const seenServiceKeys = new Set();
+
+          services.forEach(service => {
+            const key = `${service.id || ''}::${service.name || ''}`.toLowerCase();
+            if (seenServiceKeys.has(key)) {
+              console.log(`Removing duplicate service entry: ${service.name} (${service.id})`);
+              return;
+            }
+            seenServiceKeys.add(key);
+            dedupedServices.push(service);
+          });
+
+          services = dedupedServices;
+
           services.sort((a,b) => {
             const aNum = parseInt(a.id.replace('fb','')) || 0;
             const bNum = parseInt(b.id.replace('fb','')) || 0;
@@ -483,6 +498,21 @@ jobs:
             }
 
           });
+
+          const dedupedServices = [];
+          const seenServiceKeys = new Set();
+
+          services.forEach(service => {
+            const key = `${service.id || ''}::${service.name || ''}`.toLowerCase();
+            if (seenServiceKeys.has(key)) {
+              console.log(`Removing duplicate service entry: ${service.name} (${service.id})`);
+              return;
+            }
+            seenServiceKeys.add(key);
+            dedupedServices.push(service);
+          });
+
+          services = dedupedServices;
 
           services.sort((a,b) => {
             const aNum = parseInt(a.id.replace('fb','')) || 0;
