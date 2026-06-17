@@ -1,0 +1,22 @@
+{
+  "post": {
+    "type": "event",
+    "title": "Free Callaloo Seedling Giveaway At Culural Hotspot Launch STC 2026",
+    "message": "Everyone is Eligible, mall parking is available, wheelchair accessibly.",
+    "contactInfo": "gardemmommaz@gmail.com",
+    "date": "2026-06-17T09:51:00-04:00",
+    "expiresDate": "2026-06-21T09:51:00.000-04:00",
+    "thumbnail": "/assets/images/posts/garden-mommaz-callalo-june26.jpg"
+  },
+  "organization": {
+    "foodBankId": "fb0",
+    "foodBankOther": "Garden Mommaz"
+  },
+  "location": {
+    "link": "http:www.instagram/gardemmommaz.com",
+    "location": "Scarbrough Town Centre. Cultural Hotspot Launch. 300 Borough Dr, Scarborough, ON, M1P 4P5"
+  },
+  "uniqueEvent": {
+    "eventDate": "2026-06-20T11:00:00.000-04:00"
+  }
+}
