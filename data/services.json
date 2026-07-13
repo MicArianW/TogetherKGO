@@ -586,58 +586,6 @@
     "additional_info": ""
   },
   {
-    "id": "SCHC",
-    "name": "Scarborough Centre for Healthy Communities",
-    "type": "community_org",
-    "address": "629 Markham Rd Unit 2, Scarborough, M1H 2A4",
-    "location": {
-      "lat": 43.76062,
-      "lng": -79.22383
-    },
-    "hours": {
-      "mon": {
-        "open": "9:00am",
-        "close": "5:00pm"
-      },
-      "tue": {
-        "open": "9:00am",
-        "close": "5:00pm"
-      },
-      "wed": {
-        "open": "9:00am",
-        "close": "5:00pm"
-      },
-      "thu": {
-        "open": "9:00am",
-        "close": "8:00pm"
-      },
-      "fri": {
-        "open": "9:00am",
-        "close": "5:00pm"
-      },
-      "sat": {
-        "open": "9:00am",
-        "close": "4:30pm"
-      }
-    },
-    "phone": "(416) 642-9445",
-    "description": "SCHC provides comprehensive, focused health programs and services to improve the holistic overall health and well being for our community.",
-    "tags": [
-      "food_support",
-      "community_health",
-      "meal_program",
-      "youth"
-    ],
-    "email": "info@schcontario.ca",
-    "website": "https://schcontario.ca/",
-    "languages_spoken": "",
-    "accessibility_info": "",
-    "documents_required": "",
-    "fees": "",
-    "eligibility": "",
-    "additional_info": ""
-  },
-  {
     "id": "fb3",
     "name": "ACSA Community Services",
     "type": "community_org",
@@ -1265,7 +1213,48 @@
     "additional_info": ""
   },
   {
-    "id": "fb359",
+    "id": "fb366",
+    "name": "Scarborough Centre for Healthy Communities",
+    "type": "community_org",
+    "address": "4100 Lawrence Ave E, Toronto, ON, Canada",
+    "location": {
+      "lat": 43.76713,
+      "lng": -79.19541
+    },
+    "hours": {
+      "wed": {
+        "open": "12:30 pm",
+        "close": "3:15 pm"
+      },
+      "thu": {
+        "open": "2:00 pm",
+        "close": "4:15 pm"
+      },
+      "fri": {
+        "open": "10:30 am",
+        "close": "12:45 pm"
+      }
+    },
+    "phone": "416-847-4147",
+    "description": "Food bank (self-referral; no appointment required)\nClothing bank is closed\n",
+    "tags": [
+      "community_health",
+      "housing",
+      "newcomer",
+      "community_pantry",
+      "food_support"
+    ],
+    "email": "foodbank@schcontario.ca",
+    "website": "www.schcontario.ca",
+    "languages_spoken": "",
+    "accessibility_info": "Partially accessible\n",
+    "documents_required": "",
+    "fees": "",
+    "eligibility": "Self-identifying as low income",
+    "additional_info": ""
+  },
+  {
+    "id": "fb370",
     "name": "Clairlea Food Bank",
     "type": "community_org",
     "address": "772 Warden Ave, Toronto, ON, M1L 4T7",
@@ -1306,7 +1295,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb360",
+    "id": "fb371",
     "name": "Cliffside Food Bank",
     "type": "community_org",
     "address": "2259 Kingston Rd, Toronto, ON, M1N 1T8",
@@ -1351,7 +1340,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb361",
+    "id": "fb372",
     "name": "Feed Scarborough: Markham Road Food Bank",
     "type": "community_org",
     "address": "155 Markham Rd, Toronto, ON, M1M 3A1",
@@ -1385,7 +1374,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb362",
+    "id": "fb373",
     "name": "Food Pantry at Morningside",
     "type": "community_org",
     "address": "Mornelle Community Hub, 90 Mornelle Crt, Bsmt, Toronto, ON, M1E 4P9, Canada",
@@ -1416,7 +1405,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb363",
+    "id": "fb374",
     "name": "Grace CRC McCowan Food Bank ",
     "type": "community_org",
     "address": "25 Channel Nine Ct, Toronto, ON, M1S 4B5, Canada",
@@ -1446,7 +1435,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb364",
+    "id": "fb375",
     "name": "Grace Place Food Bank",
     "type": "community_org",
     "address": "1428 Kennedy Rd, Toronto, ON, M1P 2L7, Canada",
@@ -1485,7 +1474,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb365",
+    "id": "fb376",
     "name": "Let’s Bee Connected",
     "type": "grassroots_org",
     "address": "4030 Sheppard Ave E, Toronto, ON M1S 1S6",
@@ -1534,7 +1523,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb366",
+    "id": "fb377",
     "name": "Scarborough Centre for Healthy Communities",
     "type": "community_org",
     "address": "4100 Lawrence Ave E, Toronto, ON, Canada",
@@ -1575,7 +1564,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb367",
+    "id": "fb378",
     "name": "Soso World Ministries ",
     "type": "community_org",
     "address": "10 Glen Everest Rd, Toronto, ON, M1N 1J4, Canada",
@@ -1605,7 +1594,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb368",
+    "id": "fb379",
     "name": "TAIBU Community Health Centre- Daily Bread Food Bank",
     "type": "community_org",
     "address": "110 Empringham Dr, Unit 214, Toronto, ON, Canada",
@@ -1635,7 +1624,7 @@
     "additional_info": ""
   },
   {
-    "id": "fb369",
+    "id": "fb380",
     "name": "The Salvation Army- Cedarbrae Community Church",
     "type": "community_inst",
     "address": "2085 Ellesmere Rd, Toronto, ON, M1H 2W6, Canada",
