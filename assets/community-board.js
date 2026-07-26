@@ -307,7 +307,7 @@ function loadServices() {
 
 function loadPosts() {
   // Fork testing: keep post JSON and deployed assets sourced from the same repo.
-  var repoOwner = "MicArianW";
+  var repoOwner = "TogetherKGO";
   var repoName = "TogetherKGO";
   var branch = "main";
   var postsPath = "data/posts";
