@@ -679,10 +679,14 @@ textarea:focus {
 .find-heading a {
     color: #000;
     text-decoration: none;
+    display: inline-block;
+    transform-origin: left center;
+    transition: transform 0.16s ease, opacity 0.16s ease;
 }
 
 .find-heading a:hover {
-    opacity: 0.7;
+    opacity: 0.82;
+    transform: scale(1.03);
 }
 
 /* Service tags – solid green fill */
@@ -716,8 +720,8 @@ textarea:focus {
 .nav-links-home {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    max-width: 342px;
+    gap: 10px;
+    max-width: 430px;
 }
 
 .nav-links-home a {
@@ -728,10 +732,21 @@ textarea:focus {
     line-height: 0.98;
     display: block;
     padding: 0;
+    transform-origin: left center;
+    transition: transform 0.16s ease, opacity 0.16s ease;
 }
 
 .nav-links-home a:hover {
-    opacity: 0.7;
+    opacity: 0.82;
+    transform: scale(1.03);
+}
+
+.home-mobile-label {
+    display: none;
+}
+
+.home-desktop-label {
+    display: inline;
 }
 
 /* Languages section – inline tags below "Languages" label */
@@ -747,6 +762,8 @@ textarea:focus {
     color: #000;
     line-height: 0.98;
     display: block;
+    transform-origin: left center;
+    transition: transform 0.16s ease, opacity 0.16s ease;
 }
 
 .lang-tags {
@@ -815,6 +832,14 @@ textarea:focus {
 
     .nav-links-home a {
         font-size: 32px;
+    }
+
+    .home-mobile-label {
+        display: inline;
+    }
+
+    .home-desktop-label {
+        display: none;
     }
 
     .tagline {
@@ -1303,7 +1328,10 @@ body:has(.figma-nav) .form-container textarea {
 .home .lang-tags { display: none; }
 .lang-tags.show { display: flex !important; }
 .lang-label { cursor: pointer; }
-.lang-label:hover { opacity: 0.7; }
+.lang-label:hover {
+    opacity: 0.82;
+    transform: scale(1.03);
+}
 
 /* 
    RESOURCES PAGE – Same as Find Services but
