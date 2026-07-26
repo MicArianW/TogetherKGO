@@ -728,8 +728,8 @@ textarea:focus {
 .nav-links-home {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    max-width: 342px;
+    gap: 10px;
+    max-width: 430px;
 }
 
 .nav-links-home a {
